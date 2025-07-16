@@ -877,10 +877,778 @@ MyQueue.prototype.empty = function() {
 
 
 
+# *278. First Bad Version
+
+You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
+
+Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
+
+ 
+
+Example 1:
+
+Input: n = 5, bad = 4
+Output: 4
+Explanation:
+call isBadVersion(3) -> false
+call isBadVersion(5) -> true
+call isBadVersion(4) -> true
+Then 4 is the first bad version.
+
+Example 2:
+
+Input: n = 1, bad = 1
+Output: 1
+
+ 
+
+Constraints:
+
+    1 <= bad <= n <= 231 - 1
+
+
+
+```js
+/**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+var solution = function (isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function (n) {
+
+        let minVersion = 1;
+        let maxVersion = n;
+
+        while (minVersion < maxVersion) {
+            const midVersion = Math.floor((minVersion + maxVersion) / 2);
+
+            if (isBadVersion(midVersion)) {
+                maxVersion = midVersion;
+            } else {
+                minVersion = midVersion + 1;
+            }
+        }
+
+        const result = isBadVersion(minVersion) ? minVersion : maxVersion;
+
+        return result;
+
+
+
+        // let result = n;
+        // while (n > 0) {
+        //     if (isBadVersion(n)) result = n;
+        //     n--;
+        // }
+
+        // return result;
+    };
+};
+```
 
 
 
 
+
+# *383. Ransom Note
+
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.
+
+ 
+
+Example 1:
+
+Input: ransomNote = "a", magazine = "b"
+Output: false
+
+Example 2:
+
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
+
+Example 3:
+
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
+
+ 
+
+Constraints:
+
+    1 <= ransomNote.length, magazine.length <= 105
+    ransomNote and magazine consist of lowercase English letters.
+
+
+```js
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function (ransomNote, magazine) {
+    const bucket = [...magazine].reduce((a, c) => {
+        if (!a[c]) a[c] = 0;
+        a[c]++;
+        return a;
+    }, {});
+
+    for(let i = 0; i<ransomNote.length; i++){
+        if(bucket[ransomNote[i]]>0){
+            bucket[ransomNote[i]]--;
+        }else{
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+
+
+
+
+# *70. Climbing Stairs
+
+You are climbing a staircase. It takes n steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+ 
+
+Example 1:
+
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+Example 2:
+
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+
+ 
+
+Constraints:
+
+    1 <= n <= 45
+
+
+```js
+
+
+var climbStairs = function(n) {
+    if (n <= 2) return n;
+
+    let first = 1, second = 2;
+
+    for (let i = 3; i <= n; i++) {
+        let temp = first + second;
+        first = second;
+        second = temp;
+    }
+
+    return second;
+};
+
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function (n) {
+
+    const dp = {
+        "0": 1,
+        "1": 1
+    };
+
+    return cal(n);
+
+    function cal(n) {
+        if (dp[n]) return dp[n];
+
+        const n1 = cal(n - 1);
+        const n2 = cal(n - 2);
+
+        dp[n] = n1 + n2;
+
+        return dp[n];
+    }
+};
+```
+
+
+
+# 409. Longest Palindrome
+
+Given a string s which consists of lowercase or uppercase letters, return the length of the longest
+
+ that can be built with those letters.
+
+Letters are case sensitive, for example, "Aa" is not considered a palindrome.
+
+ 
+
+Example 1:
+
+Input: s = "abccccdd"
+Output: 7
+Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
+
+Example 2:
+
+Input: s = "a"
+Output: 1
+Explanation: The longest palindrome that can be built is "a", whose length is 1.
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 2000
+    s consists of lowercase and/or uppercase English letters only.
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestPalindrome = function (s) {
+    const bucket = [...s].reduce((a, c) => {
+        a[c] = a[c] ?? 0;
+        a[c]++;
+        return a;
+    }, {});
+
+    const evens = Object.keys(bucket).reduce((a, c) => a + Math.floor(bucket[c] / 2) * 2, 0);
+    const odds = Object.keys(bucket).some(k => bucket[k] % 2 === 1) ? 1 : 0;
+
+    return evens + odds;
+};
+```
+
+
+
+# *206. Reverse Linked List
+
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+ 
+
+Example 1:
+
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+Example 2:
+
+Input: head = [1,2]
+Output: [2,1]
+
+Example 3:
+
+Input: head = []
+Output: []
+
+ 
+
+Constraints:
+
+    The number of nodes in the list is the range [0, 5000].
+    -5000 <= Node.val <= 5000
+
+ 
+
+Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    let current = head;
+    let last = null;
+
+    while(current){
+        const next = current.next;
+
+        current.next = last;
+
+        last = current;
+        current = next;
+    }
+
+    return last;
+};
+```
+
+
+# 169. Majority Element
+
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+ 
+
+Constraints:
+
+    n == nums.length
+    1 <= n <= 5 * 104
+    -109 <= nums[i] <= 109
+
+ 
+Follow-up: Could you solve the problem in linear time and in O(1) space?
+
+```js
+var majorityElement = function(nums) {
+    let count = 0;
+    let candidate = null;
+
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        }
+        count += (num === candidate) ? 1 : -1;
+    }
+
+    return candidate;
+};
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function (nums) {
+
+    const minCount = nums.length % 2 === 0
+        ? nums.length / 2
+        : Math.floor(nums.length / 2) + 1;
+
+    const numBucketMap = {};
+    let maxCounts = 1;
+    let nOfMaxCounts = nums[0];
+
+    for (let i = 0; i < nums.length; i++) {
+        numBucketMap[nums[i]] = numBucketMap[nums[i]] ?? 0;
+        numBucketMap[nums[i]]++;
+
+        if (numBucketMap[nums[i]] >= minCount) return nums[i];
+
+        if (numBucketMap[nums[i]] > maxCounts) {
+            maxCounts = numBucketMap[nums[i]];
+            nOfMaxCounts = nums[i];
+        }
+    }
+
+    return nOfMaxCounts;
+};
+```
+
+
+
+
+# *67. Add Binary
+
+Given two binary strings a and b, return their sum as a binary string.
+
+ 
+
+Example 1:
+
+Input: a = "11", b = "1"
+Output: "100"
+
+Example 2:
+
+Input: a = "1010", b = "1011"
+Output: "10101"
+
+ 
+
+Constraints:
+
+    1 <= a.length, b.length <= 104
+    a and b consist only of '0' or '1' characters.
+    Each string does not contain leading zeros except for the zero itself.
+
+
+```js
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function (a, b) {
+
+    const long = a.length >= b.length ? a : b;
+    let short = a.length >= b.length ? b : a;
+
+    let diff = long.length - short.length;
+
+    while (diff) {
+        short = "0" + short;
+        diff--;
+    }
+
+    let carry = "0";
+    let result = "";
+    for (let i = long.length - 1; i >= 0; i--) {
+        let n = carry === "1" ? 1 : 0;
+        n += long[i] === "1" ? 1 : 0;
+        n += short[i] === "1" ? 1 : 0;
+
+        switch (n) {
+            case 3: result = "1" + result; break;
+            case 2: carry = "1"; result = "0" + result; break;
+            case 1: carry = "0"; result = "1" + result; break;
+            default: result = "0" + result; break;
+        }
+    }
+
+    return carry === "1" ? "1" + result : result;
+};
+```
+
+## 注意：js的`const s = "abc"; s[2] = "d";`不會改變s!!
+## 二進位數值太長可能導致超過long的範圍
+
+
+
+
+# *543. Diameter of Binary Tree
+Easy
+Topics
+premium lock iconCompanies
+
+Given the root of a binary tree, return the length of the diameter of the tree.
+
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+The length of a path between two nodes is represented by the number of edges between them.
+
+ 
+
+Example 1:
+
+Input: root = [1,2,3,4,5]
+Output: 3
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+
+Example 2:
+
+Input: root = [1,2]
+Output: 1
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    -100 <= Node.val <= 100
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var diameterOfBinaryTree = function(root) {
+    let maxDiameter = 0;
+
+    function dfs(node) {
+        if (!node) return 0;
+
+        let left = dfs(node.left);
+        let right = dfs(node.right);
+
+        // 更新最大直徑（路徑長度 = 左高 + 右高）
+        maxDiameter = Math.max(maxDiameter, left + right);
+
+        // 回傳當前節點的最大深度
+        return Math.max(left, right) + 1;
+    }
+
+    dfs(root);
+    return maxDiameter;
+};
+```
+
+
+# 876. Middle of the Linked List
+
+Given the head of a singly linked list, return the middle node of the linked list.
+
+If there are two middle nodes, return the second middle node.
+
+ 
+
+Example 1:
+
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+Explanation: The middle node of the list is node 3.
+
+Example 2:
+
+Input: head = [1,2,3,4,5,6]
+Output: [4,5,6]
+Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+
+ 
+
+Constraints:
+
+    The number of nodes in the list is in the range [1, 100].
+    1 <= Node.val <= 100
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+    let fast = head;
+    let slow = head;
+
+    while(fast?.next){
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+
+    return slow;
+};
+```
+
+
+# *104. Maximum Depth of Binary Tree
+
+Given the root of a binary tree, return its maximum depth.
+
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+ 
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+Example 2:
+
+Input: root = [1,null,2]
+Output: 2
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [0, 104].
+    -100 <= Node.val <= 100
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+
+    return cal(root, 0);
+    
+    function cal(node, depth){
+        if(!node) return depth;
+
+        return Math.max(cal(node.left, depth + 1), cal(node.right, depth + 1));
+    }
+};
+```
+
+
+# 217. Contains Duplicate
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1]
+
+Output: true
+
+Explanation:
+
+The element 1 occurs at the indices 0 and 3.
+
+Example 2:
+
+Input: nums = [1,2,3,4]
+
+Output: false
+
+Explanation:
+
+All elements are distinct.
+
+Example 3:
+
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+
+Output: true
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    -109 <= nums[i] <= 109
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+    //return new Set(nums).size !== nums.length;
+    const map = {}
+
+    for(let i = 0; i < nums.length; i++){
+        if(map[nums[i]]) return true;
+        map[nums[i]] = true;
+    }
+    
+    return false;
+};
+```
+
+
+# *53. Maximum Subarray
+Attempted
+Medium
+Topics
+premium lock iconCompanies
+
+Given an integer array nums, find the
+
+with the largest sum, and return its sum.
+
+ 
+
+Example 1:
+
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+Example 2:
+
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+
+Example 3:
+
+Input: nums = [5,4,-1,7,8]
+Output: 23
+Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    -104 <= nums[i] <= 104
+
+ 
+
+Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    let maxSum = nums[0];
+    let currSum = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+        // 決定是否從頭開始還是累加
+        currSum = Math.max(nums[i], currSum + nums[i]);
+        maxSum = Math.max(maxSum, currSum);
+    }
+
+    return maxSum;
+};
+```
 
 
 
