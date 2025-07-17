@@ -1652,3 +1652,597 @@ var maxSubArray = function(nums) {
 
 
 
+
+# ***57. Insert Interval
+
+You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith interval and intervals is sorted in ascending order by starti. You are also given an interval newInterval = [start, end] that represents the start and end of another interval.
+
+Insert newInterval into intervals such that intervals is still sorted in ascending order by starti and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+
+Return intervals after the insertion.
+
+Note that you don't need to modify intervals in-place. You can make a new array and return it.
+
+ 
+
+Example 1:
+
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+
+Example 2:
+
+Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
+Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+
+ 
+
+Constraints:
+
+    0 <= intervals.length <= 104
+    intervals[i].length == 2
+    0 <= starti <= endi <= 105
+    intervals is sorted by starti in ascending order.
+    newInterval.length == 2
+    0 <= start <= end <= 105
+
+
+```js
+/**
+ * @param {number[][]} intervals
+ * @param {number[]} newInterval
+ * @return {number[][]}
+ */
+var insert = function(intervals, newInterval) {
+    let result = [];
+    let i = 0;
+    const n = intervals.length;
+
+    // 1. 加入所有結尾在 newInterval 之前的區間
+    while (i < n && intervals[i][1] < newInterval[0]) {
+        result.push(intervals[i]);
+        i++;
+    }
+
+    // 2. 合併所有與 newInterval 有重疊的區間
+    while (i < n && intervals[i][0] <= newInterval[1]) {
+        newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+        newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+        i++;
+    }
+    result.push(newInterval); // 插入合併後的新區間
+
+    // 3. 加入剩下的區間
+    while (i < n) {
+        result.push(intervals[i]);
+        i++;
+    }
+
+    return result;
+};
+
+
+
+
+```
+
+
+
+
+# ***542. 01 Matrix
+
+Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
+
+The distance between two cells sharing a common edge is 1.
+
+ 
+
+Example 1:
+
+Input: mat = [[0,0,0],[0,1,0],[0,0,0]]
+Output: [[0,0,0],[0,1,0],[0,0,0]]
+
+Example 2:
+
+Input: mat = [[0,0,0],[0,1,0],[1,1,1]]
+Output: [[0,0,0],[0,1,0],[1,2,1]]
+
+ 
+
+Constraints:
+
+    m == mat.length
+    n == mat[i].length
+    1 <= m, n <= 104
+    1 <= m * n <= 104
+    mat[i][j] is either 0 or 1.
+    There is at least one 0 in mat.
+
+ 
+
+Note: This question is the same as 1765: https://leetcode.com/problems/map-of-highest-peak/
+
+
+
+```js
+
+var updateMatrix = function (mat) {
+    const m = mat.length;
+    const n = mat[0].length;
+    const queue = [];
+    const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 0) {
+                queue.push([i, j]);
+            } else {
+                mat[i][j] = null;
+            }
+        }
+    }
+
+    // BFS 遍歷
+    while (queue.length > 0) {
+        const [i, j] = queue.shift();
+        for (const [dx, dy] of dirs) {
+            const x = i + dx;
+            const y = j + dy;
+            if (x >= 0 && x < m && y >= 0 && y < n && mat[x][y] === null) {
+                mat[x][y] = mat[i][j] + 1;
+                queue.push([x, y]);
+            }
+        }
+    }
+
+    return mat;
+};
+
+```
+
+
+
+
+# 973. K Closest Points to Origin
+
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2).
+
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+
+ 
+
+Example 1:
+
+Input: points = [[1,3],[-2,2]], k = 1
+Output: [[-2,2]]
+Explanation:
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest k = 1 points from the origin, so the answer is just [[-2,2]].
+
+Example 2:
+
+Input: points = [[3,3],[5,-1],[-2,4]], k = 2
+Output: [[3,3],[-2,4]]
+Explanation: The answer [[-2,4],[3,3]] would also be accepted.
+
+ 
+
+Constraints:
+
+    1 <= k <= points.length <= 104
+    -104 <= xi, yi <= 104
+
+
+
+```js
+/**
+ * @param {number[][]} points
+ * @param {number} k
+ * @return {number[][]}
+ */
+var kClosest = function (points, k) {
+    const newPoints = points.map(p => {
+        return {
+            x: p[0],
+            y: p[1],
+            d2: p[0] * p[0] + p[1] * p[1]
+        };
+    }).sort((a, b) => a.d2 - b.d2);
+
+    return newPoints.filter((_, i) => i < k).map(p => [p.x, p.y]);
+};
+```
+
+
+
+# 3. Longest Substring Without Repeating Characters
+
+Given a string s, find the length of the longest
+
+without duplicate characters.
+
+ 
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+ 
+
+Constraints:
+
+    0 <= s.length <= 5 * 104
+    s consists of English letters, digits, symbols and spaces.
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (s) {
+    let l = 0;
+    let r = 0;
+    let maxCounts = 0;
+
+    const map = {};
+
+    while (l <= r && r < s.length) {
+        if (!map[s[r]]) {
+            map[s[r]] = 1;
+
+            let counts = r - l + 1;
+
+            maxCounts = Math.max(maxCounts, counts);
+            r++;
+        } else {
+            map[s[l]]--;
+            l++;
+        }
+    }
+
+    return maxCounts;
+};
+```
+
+
+# *15. 3Sum
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+Notice that the solution set must not contain duplicate triplets.
+
+ 
+
+Example 1:
+
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation: 
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter.
+
+Example 2:
+
+Input: nums = [0,1,1]
+Output: []
+Explanation: The only possible triplet does not sum up to 0.
+
+Example 3:
+
+Input: nums = [0,0,0]
+Output: [[0,0,0]]
+Explanation: The only possible triplet sums up to 0.
+
+ 
+
+Constraints:
+
+    3 <= nums.length <= 3000
+    -105 <= nums[i] <= 105
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    nums.sort((a, b) => a - b); // 先排序
+    const res = [];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue; // 跳過重複的 a
+
+        let l = i + 1;
+        let r = nums.length - 1;
+
+        while (l < r) {
+            const sum = nums[i] + nums[l] + nums[r];
+
+            if (sum === 0) {
+                res.push([nums[i], nums[l], nums[r]]);
+                // 移動左指針並跳過重複
+                while (l < r && nums[l] === nums[l + 1]) l++;
+                // 移動右指針並跳過重複
+                while (l < r && nums[r] === nums[r - 1]) r--;
+                l++;
+                r--;
+            } else if (sum < 0) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+    }
+
+    return res;
+};
+
+
+
+
+```
+
+
+
+# *102. Binary Tree Level Order Traversal
+
+Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+ 
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[9,20],[15,7]]
+
+Example 2:
+
+Input: root = [1]
+Output: [[1]]
+
+Example 3:
+
+Input: root = []
+Output: []
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [0, 2000].
+    -1000 <= Node.val <= 1000
+
+
+```js
+var levelOrder = function(root) {
+    if (!root) return [];
+
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        const level = [];
+
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift(); // 取出當層節點
+            level.push(node.val);
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        result.push(level);
+    }
+
+    return result;
+};
+```
+
+
+
+# *133. Clone Graph
+
+Given a reference of a node in a connected undirected graph.
+
+Return a deep copy (clone) of the graph.
+
+Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
+
+class Node {
+    public int val;
+    public List<Node> neighbors;
+}
+
+ 
+
+Test case format:
+
+For simplicity, each node's value is the same as the node's index (1-indexed). For example, the first node with val == 1, the second node with val == 2, and so on. The graph is represented in the test case using an adjacency list.
+
+An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
+
+The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
+
+ 
+
+Example 1:
+
+Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+Output: [[2,4],[1,3],[2,4],[1,3]]
+Explanation: There are 4 nodes in the graph.
+1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+3rd node (val = 3)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+4th node (val = 4)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+
+Example 2:
+
+Input: adjList = [[]]
+Output: [[]]
+Explanation: Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.
+
+Example 3:
+
+Input: adjList = []
+Output: []
+Explanation: This an empty graph, it does not have any nodes.
+
+ 
+
+Constraints:
+
+    The number of nodes in the graph is in the range [0, 100].
+    1 <= Node.val <= 100
+    Node.val is unique for each node.
+    There are no repeated edges and no self-loops in the graph.
+    The Graph is connected and all nodes can be visited starting from the given node.
+
+
+```js
+/**
+ * // Definition for a _Node.
+ * function _Node(val, neighbors) {
+ *    this.val = val === undefined ? 0 : val;
+ *    this.neighbors = neighbors === undefined ? [] : neighbors;
+ * };
+ */
+
+/**
+ * @param {_Node} node
+ * @return {_Node}
+ */
+var cloneGraph = function(node) {
+    if (!node) return null;
+
+    const visited = new Map();
+    const queue = [node];
+    visited.set(node, new Node(node.val));
+
+    while (queue.length > 0) {
+        const current = queue.shift();
+
+        for (const neighbor of current.neighbors) {
+            if (!visited.has(neighbor)) {
+                visited.set(neighbor, new Node(neighbor.val));
+                queue.push(neighbor);
+            }
+            visited.get(current).neighbors.push(visited.get(neighbor));
+        }
+    }
+
+    return visited.get(node);
+};
+
+```
+
+## 注意`for (const neighbor in current.neighbors)`的`neighbor`代表的是下標
+
+
+
+
+# *150. Evaluate Reverse Polish Notation
+
+You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
+
+Evaluate the expression. Return an integer that represents the value of the expression.
+
+Note that:
+
+    The valid operators are '+', '-', '*', and '/'.
+    Each operand may be an integer or another expression.
+    The division between two integers always truncates toward zero.
+    There will not be any division by zero.
+    The input represents a valid arithmetic expression in a reverse polish notation.
+    The answer and all the intermediate calculations can be represented in a 32-bit integer.
+
+ 
+
+Example 1:
+
+Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+
+Example 2:
+
+Input: tokens = ["4","13","5","/","+"]
+Output: 6
+Explanation: (4 + (13 / 5)) = 6
+
+Example 3:
+
+Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+Output: 22
+Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+= ((10 * (6 / (12 * -11))) + 17) + 5
+= ((10 * (6 / -132)) + 17) + 5
+= ((10 * 0) + 17) + 5
+= (0 + 17) + 5
+= 17 + 5
+= 22
+
+ 
+
+Constraints:
+
+    1 <= tokens.length <= 104
+    tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
+
+
+
+```js
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ */
+var evalRPN = function (tokens) {
+
+    const nums = [];
+
+    const calOperators = {
+        "+": (a, b) => a + b,
+        "-": (a, b) => b - a,
+        "*": (a, b) => a * b,
+        "/": (a, b) => Math.trunc(b / a)
+    };
+
+    for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i];
+        if (calOperators[token]) {
+            nums.push(calOperators[token](nums.pop(), nums.pop()));
+        } else {
+            nums.push(Number(token));
+        }
+    }
+
+    return nums[0];
+};
+```
+
+# 注意`Math.trunc`和`Math.floor`的差別，前者-4.7變為-4；後者-4.7變為-5
+
+
+
