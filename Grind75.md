@@ -2246,3 +2246,580 @@ var evalRPN = function (tokens) {
 
 
 
+
+# *207. Course Schedule
+Solved
+Medium
+Topics
+premium lock iconCompanies
+Hint
+
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+    For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+
+Return true if you can finish all courses. Otherwise, return false.
+
+ 
+
+Example 1:
+
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0. So it is possible.
+
+Example 2:
+
+Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+
+ 
+
+Constraints:
+
+    1 <= numCourses <= 2000
+    0 <= prerequisites.length <= 5000
+    prerequisites[i].length == 2
+    0 <= ai, bi < numCourses
+    All the pairs prerequisites[i] are unique.
+
+
+
+```js
+/**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
+var canFinish = function(numCourses, prerequisites) {
+    const graph = Array.from({ length: numCourses }, () => []);
+    for (const [course, pre] of prerequisites) {
+        graph[pre].push(course);
+    }
+
+    const visited = new Array(numCourses).fill(0); // 0=未訪問, 1=訪問中, 2=已訪問完
+
+    function hasCycle(node) {
+        if (visited[node] === 1) return true;   // 發現循環
+        if (visited[node] === 2) return false;  // 已檢查過
+
+        visited[node] = 1; // 標記為訪問中
+
+        for (const neighbor of graph[node]) {
+            if (hasCycle(neighbor)) return true;
+        }
+
+        visited[node] = 2; // 標記為已完成
+        return false;
+    }
+
+    for (let i = 0; i < numCourses; i++) {
+        if (hasCycle(i)) return false;
+    }
+
+    return true;
+};
+```
+
+# 208. Implement Trie (Prefix Tree)
+Solved
+Medium
+Topics
+premium lock iconCompanies
+
+A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
+
+Implement the Trie class:
+
+    Trie() Initializes the trie object.
+    void insert(String word) Inserts the string word into the trie.
+    boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
+    boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.
+
+ 
+
+Example 1:
+
+Input
+["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+Output
+[null, null, true, false, true, null, true]
+
+Explanation
+Trie trie = new Trie();
+trie.insert("apple");
+trie.search("apple");   // return True
+trie.search("app");     // return False
+trie.startsWith("app"); // return True
+trie.insert("app");
+trie.search("app");     // return True
+
+ 
+
+Constraints:
+
+    1 <= word.length, prefix.length <= 2000
+    word and prefix consist only of lowercase English letters.
+    At most 3 * 104 calls in total will be made to insert, search, and startsWith.
+
+
+```js
+
+var Trie = function () {
+    this._map = {};
+};
+
+/** 
+ * @param {string} word
+ * @return {void}
+ */
+Trie.prototype.insert = function (word) {
+    let currentNode = this._map;
+    for (let i = 0; i < word.length; i++) {
+        if(!currentNode[word[i]]) currentNode[word[i]] = {};
+        currentNode = currentNode[word[i]];
+    }
+    currentNode["."] = true; // 可以用class維持
+};
+
+/** 
+ * @param {string} word
+ * @return {boolean}
+ */
+Trie.prototype.search = function (word) {
+    let currentNode = this._map;
+    for (let i = 0; i < word.length; i++) {
+        if(!currentNode[word[i]]) return false;
+        currentNode = currentNode[word[i]];
+    }
+    return currentNode["."] ?? false;
+};
+
+/** 
+ * @param {string} prefix
+ * @return {boolean}
+ */
+Trie.prototype.startsWith = function (prefix) {
+    let currentNode = this._map;
+    for (let i = 0; i < prefix.length; i++) {
+        if(!currentNode[prefix[i]]) return false;
+        currentNode = currentNode[prefix[i]];
+    }
+    return true;
+};
+
+/** 
+ * Your Trie object will be instantiated and called as such:
+ * var obj = new Trie()
+ * obj.insert(word)
+ * var param_2 = obj.search(word)
+ * var param_3 = obj.startsWith(prefix)
+ */
+```
+
+
+
+
+# ***322. Coin Change
+
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+You may assume that you have an infinite number of each kind of coin.
+
+ 
+
+Example 1:
+
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
+
+Example 2:
+
+Input: coins = [2], amount = 3
+Output: -1
+
+Example 3:
+
+Input: coins = [1], amount = 0
+Output: 0
+
+ 
+
+Constraints:
+
+    1 <= coins.length <= 12
+    1 <= coins[i] <= 231 - 1
+    0 <= amount <= 104
+
+```js
+var coinChange = function(coins, amount) {
+    const dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+            if (i - coin >= 0) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    return dp[amount] === Infinity ? -1 : dp[amount];
+};
+```
+
+
+
+# *238. Product of Array Except Self
+
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+
+Example 2:
+
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
+
+ 
+
+Constraints:
+
+    2 <= nums.length <= 105
+    -30 <= nums[i] <= 30
+    The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer.
+
+ 
+
+Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    const n = nums.length;
+    const res = new Array(n).fill(1);
+
+    // 左邊的乘積
+    let left = 1;
+    for (let i = 0; i < n; i++) {
+        res[i] = left;
+        left *= nums[i];
+    }
+
+    // 右邊的乘積
+    let right = 1;
+    for (let i = n - 1; i >= 0; i--) {
+        res[i] *= right;
+        right *= nums[i];
+    }
+
+    return res;
+};
+```
+
+
+
+
+# 155. Min Stack
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+Implement the MinStack class:
+
+    MinStack() initializes the stack object.
+    void push(int val) pushes the element val onto the stack.
+    void pop() removes the element on the top of the stack.
+    int top() gets the top element of the stack.
+    int getMin() retrieves the minimum element in the stack.
+
+You must implement a solution with O(1) time complexity for each function.
+
+ 
+
+Example 1:
+
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output
+[null,null,null,null,-3,null,0,-2]
+
+Explanation
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // return -3
+minStack.pop();
+minStack.top();    // return 0
+minStack.getMin(); // return -2
+
+ 
+
+Constraints:
+
+    -231 <= val <= 231 - 1
+    Methods pop, top and getMin operations will always be called on non-empty stacks.
+    At most 3 * 104 calls will be made to push, pop, top, and getMin.
+
+```js
+
+var MinStack = function() {
+    this._stack = [];
+    this._stackMin = [];
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    this._stack.push(val);
+    const min = Math.min(this.getMin() ?? val, val);
+    this._stackMin.push(min);
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    this._stack.pop();
+    this._stackMin.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this._stack[this._stackMin.length-1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this._stackMin[this._stackMin.length-1];
+};
+
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```
+
+
+
+
+
+
+# *98. Validate Binary Search Tree
+
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+A valid BST is defined as follows:
+
+    The left 
+
+    of a node contains only nodes with keys less than the node's key.
+    The right subtree of a node contains only nodes with keys greater than the node's key.
+    Both the left and right subtrees must also be binary search trees.
+
+ 
+
+Example 1:
+
+Input: root = [2,1,3]
+Output: true
+
+Example 2:
+
+Input: root = [5,1,4,null,null,3,6]
+Output: false
+Explanation: The root node's value is 5 but its right child's value is 4.
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    -231 <= Node.val <= 231 - 1
+
+
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function (root) {
+    return isValid(root, -Infinity, Infinity);
+
+    function isValid(node, lower, upper) {
+        if (!node) return true;
+        if (node.val <= lower || node.val >= upper) return false;
+        return isValid(node.left, lower, node.val) && isValid(node.right, node.val, upper);
+    }
+};
+```
+
+
+# ***200. Number of Islands
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+ 
+
+Example 1:
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+
+Example 2:
+
+Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+
+ 
+
+Constraints:
+
+    m == grid.length
+    n == grid[i].length
+    1 <= m, n <= 300
+    grid[i][j] is '0' or '1'.
+
+
+
+
+# ***994. Rotting Oranges
+
+You are given an m x n grid where each cell can have one of three values:
+
+    0 representing an empty cell,
+    1 representing a fresh orange, or
+    2 representing a rotten orange.
+
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.
+
+Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+
+ 
+
+Example 1:
+
+Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
+
+Example 2:
+
+Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
+Output: -1
+Explanation: The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+
+Example 3:
+
+Input: grid = [[0,2]]
+Output: 0
+Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
+
+ 
+
+Constraints:
+
+    m == grid.length
+    n == grid[i].length
+    1 <= m, n <= 10
+    grid[i][j] is 0, 1, or 2.
+
+
+
+```js
+var orangesRotting = function(grid) {
+    const m = grid.length, n = grid[0].length;
+    const queue = [];
+    let fresh = 0;
+
+    // 初始化：記錄所有腐爛橘子的位置，並統計新鮮橘子
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 2) queue.push([i, j]);
+            else if (grid[i][j] === 1) fresh++;
+        }
+    }
+
+    if (fresh === 0) return 0; // 沒有新鮮橘子，直接回傳 0
+
+    let minutes = 0;
+    const dirs = [[1,0], [-1,0], [0,1], [0,-1]];
+
+    while (queue.length > 0 && fresh > 0) {
+        let size = queue.length;
+        while (size--) {
+            const [x, y] = queue.shift();
+            for (let [dx, dy] of dirs) {
+                const nx = x + dx, ny = y + dy;
+                if (
+                    nx >= 0 && nx < m &&
+                    ny >= 0 && ny < n &&
+                    grid[nx][ny] === 1
+                ) {
+                    grid[nx][ny] = 2;
+                    fresh--;
+                    queue.push([nx, ny]);
+                }
+            }
+        }
+        minutes++;
+    }
+
+    return fresh === 0 ? minutes : -1;
+};
+```
+
+
