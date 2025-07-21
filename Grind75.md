@@ -540,9 +540,6 @@ var floodFill = function(image, sr, sc, newColor) {
 
 
 # *235. Lowest Common Ancestor of a Binary Search Tree
-Medium
-Topics
-premium lock iconCompanies
 
 Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
 
@@ -1361,9 +1358,6 @@ var addBinary = function (a, b) {
 
 
 # *543. Diameter of Binary Tree
-Easy
-Topics
-premium lock iconCompanies
 
 Given the root of a binary tree, return the length of the diameter of the tree.
 
@@ -1590,10 +1584,6 @@ var containsDuplicate = function(nums) {
 
 
 # *53. Maximum Subarray
-Attempted
-Medium
-Topics
-premium lock iconCompanies
 
 Given an integer array nums, find the
 
@@ -2248,11 +2238,6 @@ var evalRPN = function (tokens) {
 
 
 # *207. Course Schedule
-Solved
-Medium
-Topics
-premium lock iconCompanies
-Hint
 
 There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
 
@@ -2325,10 +2310,6 @@ var canFinish = function(numCourses, prerequisites) {
 ```
 
 # 208. Implement Trie (Prefix Tree)
-Solved
-Medium
-Topics
-premium lock iconCompanies
 
 A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
 
@@ -2821,5 +2802,669 @@ var orangesRotting = function(grid) {
     return fresh === 0 ? minutes : -1;
 };
 ```
+
+
+
+
+# *****33. Search in Rotated Sorted Array
+
+There is an integer array nums sorted in ascending order (with distinct values).
+
+Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+
+Example 2:
+
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+
+Example 3:
+
+Input: nums = [1], target = 0
+Output: -1
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 5000
+    -104 <= nums[i] <= 104
+    All values of nums are unique.
+    nums is an ascending array that is possibly rotated.
+    -104 <= target <= 104
+
+
+```js
+var search = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            return mid;
+        }
+
+        // 左半邊是有序的
+        if (nums[left] <= nums[mid]) {
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        // 右半邊是有序的
+        else {
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    return -1;
+};
+```
+
+i
+# ***39. Combination Sum
+
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from canddates an unlimited number of times. Two combinations are unique if the
+
+of at least one of the chosen numbers is different.
+
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
+ 
+
+Example 1:
+
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+Explanation:
+2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
+7 is a candidate, and 7 = 7.
+These are the only two combinations.
+
+Example 2:
+
+Input: candidates = [2,3,5], target = 8
+Output: [[2,2,2,2],[2,3,3],[3,5]]
+
+Example 3:
+
+Input: candidates = [2], target = 1
+Output: []
+
+ 
+
+Constraints:
+
+    1 <= candidates.length <= 30
+    2 <= candidates[i] <= 40
+    All elements of candidates are distinct.
+    1 <= target <= 40
+
+```js
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+function combinationSum(candidates, target) {
+    const result = [];
+
+    function backtrack(start, path, sum) {
+        if (sum === target) {
+            result.push([...path]);
+            return;
+        }
+
+        if (sum > target) return;
+
+        for (let i = start; i < candidates.length; i++) {
+            path.push(candidates[i]);
+            backtrack(i, path, sum + candidates[i]); // 可重複使用同一數字，所以是 i 不是 i + 1
+            path.pop(); // 回溯
+        }
+    }
+
+    backtrack(0, [], 0);
+    return result;
+}
+```
+
+# `const ary = new Array(target + 1).fill([]);`小心這樣寫的陣列都一樣
+
+
+
+
+
+# 46. Permutations
+
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+Example 2:
+
+Input: nums = [0,1]
+Output: [[0,1],[1,0]]
+Example 3:
+
+Input: nums = [1]
+Output: [[1]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 6
+-10 <= nums[i] <= 10
+All the integers of nums are unique.
+
+
+```js
+var permute = function(nums) {
+    const res = [];
+    const used = new Array(nums.length).fill(false);
+
+    function backtrack(path) {
+        if (path.length === nums.length) {
+            res.push([...path]); // 複製 path
+            return;
+        }
+
+        for (let i = 0; i < nums.length; i++) {
+            if (used[i]) continue;
+            path.push(nums[i]);
+            used[i] = true;
+            backtrack(path);
+            path.pop();
+            used[i] = false;
+        }
+    }
+
+    backtrack([]);
+    return res;
+};
+
+```
+
+## 展開
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function (nums) {
+    return cal([new Array(nums.length).fill(null)], 0);
+
+    function cal(arys, numIdx) {
+        const result = [];
+
+        for (let aryIdx = 0; aryIdx < arys.length; aryIdx++) {
+            const ary = arys[aryIdx];
+
+            for (let i = 0; i < ary.length; i++) {
+                if (ary[i] !== null) continue;
+                const newAry = [...ary];
+                newAry[i] = nums[numIdx];
+                result.push(newAry);
+            }
+        }
+        
+        if (numIdx < nums.length) {
+            return cal(result, numIdx + 1);
+        } else {
+            return arys;
+        }
+    }
+};
+
+```
+
+
+# 56. Merge Intervals
+
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+ 
+
+Example 1:
+
+Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+Example 2:
+
+Input: intervals = [[1,4],[4,5]]
+Output: [[1,5]]
+Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+ 
+
+Constraints:
+
+1 <= intervals.length <= 104
+intervals[i].length == 2
+0 <= starti <= endi <= 104
+
+```js
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+var merge = function (intervals) {
+    const result = [];
+    let i = 0;
+    intervals.sort((a, b) => a[0] - b[0]);
+
+    for (let i = 0; i < intervals.length; i++) {
+
+        let [n0, n1] = intervals[i];
+        while (intervals[i + 1] && n1 >= intervals[i + 1][0]) {
+            n1 = Math.max(n1, intervals[i + 1][1]);
+            i++;
+        }
+        result.push([n0, n1]);
+
+    }
+    return result;
+};
+```
+
+# 236. Lowest Common Ancestor of a Binary Tree
+
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+ 
+
+Example 1:
+
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+Example 2:
+
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+Example 3:
+
+Input: root = [1,2], p = 1, q = 2
+Output: 1
+ 
+
+Constraints:
+
+The number of nodes in the tree is in the range [2, 105].
+-109 <= Node.val <= 109
+All Node.val are unique.
+p != q
+p and q will exist in the tree.
+
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function (root, p, q) {
+    if (!root || root === p || root === q) return root;
+
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+
+    if (left && right) return root;
+
+    return left ? left : right;
+};
+
+```
+
+
+
+# 981. Time Based Key-Value Store
+
+Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.
+
+Implement the TimeMap class:
+
+TimeMap() Initializes the object of the data structure.
+void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp.
+String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
+ 
+
+Example 1:
+
+Input
+["TimeMap", "set", "get", "get", "set", "get", "get"]
+[[], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5]]
+Output
+[null, null, "bar", "bar", null, "bar2", "bar2"]
+
+Explanation
+TimeMap timeMap = new TimeMap();
+timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
+timeMap.get("foo", 1);         // return "bar"
+timeMap.get("foo", 3);         // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar".
+timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
+timeMap.get("foo", 4);         // return "bar2"
+timeMap.get("foo", 5);         // return "bar2"
+ 
+
+Constraints:
+
+1 <= key.length, value.length <= 100
+key and value consist of lowercase English letters and digits.
+1 <= timestamp <= 107
+All the timestamps timestamp of set are strictly increasing.
+At most 2 * 105 calls will be made to set and get.
+```js
+
+var TimeMap = function () {
+    this.map = new Map();
+};
+
+/** 
+ * @param {string} key 
+ * @param {string} value 
+ * @param {number} timestamp
+ * @return {void}
+ */
+TimeMap.prototype.set = function (key, value, timestamp) {
+    if (!this.map.has(key)) {
+        this.map.set(key, []);
+    }
+    this.map.get(key).push({ timestamp, value });
+};
+
+/** 
+ * @param {string} key 
+ * @param {number} timestamp
+ * @return {string}
+ */
+TimeMap.prototype.get = function (key, timestamp) {
+    if (!this.map.has(key)) return "";
+
+    const arr = this.map.get(key);
+    let l = 0;
+    let r = arr.length - 1;
+    let result = "";
+
+
+    while (l <= r) {
+        const mid = Math.floor((l + r) / 2);
+
+        if (arr[mid].timestamp === timestamp) return arr[mid].value;
+
+        if (arr[mid].timestamp < timestamp) {
+            result = arr[mid].value;
+            l = mid + 1;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    return result;
+};
+
+/** 
+ * Your TimeMap object will be instantiated and called as such:
+ * var obj = new TimeMap()
+ * obj.set(key,value,timestamp)
+ * var param_2 = obj.get(key,timestamp)
+ */
+```
+
+
+
+# 721. Accounts Merge
+
+Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
+
+Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
+
+After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
+
+ 
+
+Example 1:
+
+Input: accounts = [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Explanation:
+The first and second John's are the same person as they have the common email "johnsmith@mail.com".
+The third John and Mary are different people as none of their email addresses are used by other accounts.
+We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'], 
+['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
+Example 2:
+
+Input: accounts = [["Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"],["Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"],["Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"],["Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"],["Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"]]
+Output: [["Ethan","Ethan0@m.co","Ethan4@m.co","Ethan5@m.co"],["Gabe","Gabe0@m.co","Gabe1@m.co","Gabe3@m.co"],["Hanzo","Hanzo0@m.co","Hanzo1@m.co","Hanzo3@m.co"],["Kevin","Kevin0@m.co","Kevin3@m.co","Kevin5@m.co"],["Fern","Fern0@m.co","Fern1@m.co","Fern5@m.co"]]
+ 
+
+Constraints:
+
+1 <= accounts.length <= 1000
+2 <= accounts[i].length <= 10
+1 <= accounts[i][j].length <= 30
+accounts[i][0] consists of English letters.
+accounts[i][j] (for j > 0) is a valid email.
+
+
+
+```js
+function accountsMerge(accounts) {
+    const emailToName = new Map();
+    const parent = new Map();
+
+    // 初始化
+    function find(email) {
+        if (parent.get(email) !== email) {
+            parent.set(email, find(parent.get(email)));
+        }
+        return parent.get(email);
+    }
+
+    function union(email1, email2) {
+        const p1 = find(email1);
+        const p2 = find(email2);
+        if (p1 !== p2) parent.set(p2, p1);
+    }
+
+    // 構建 union-find 結構
+    for (let account of accounts) {
+        const name = account[0];
+        for (let i = 1; i < account.length; i++) {
+            emailToName.set(account[i], name);
+            if (!parent.has(account[i])) parent.set(account[i], account[i]);
+        }
+
+        for (let i = 2; i < account.length; i++) {
+            union(account[1], account[i]);
+        }
+    }
+
+    // 分組：email root -> 所有相關 email
+    const unions = new Map();
+    for (let email of emailToName.keys()) {
+        const root = find(email);
+        if (!unions.has(root)) unions.set(root, []);
+        unions.get(root).push(email);
+    }
+
+    // 建構結果
+    const res = [];
+    for (let [root, emails] of unions.entries()) {
+        emails.sort();
+        res.push([emailToName.get(root), ...emails]);
+    }
+
+    return res;
+}
+```
+
+```js
+/**
+ * @param {string[][]} accounts
+ * @return {string[][]}
+ */
+var accountsMerge = function (accounts) {
+    const emailNameMap = {};
+    const emailGraph = {};
+
+    for (const account of accounts) {
+        for (let i = 1; i < account.length; i++) {
+            emailNameMap[account[i]] = account[0];
+
+            if (!emailGraph[account[i]]) {
+                emailGraph[account[i]] = [];
+            }
+
+            for (let j = 1; j < account.length; j++) {
+                if (i === j) continue;
+                emailGraph[account[i]].push(account[j]);
+            }
+        }
+    }
+
+    const result = [];
+
+    for (const email in emailGraph) {
+        const user = result.find(r => r.some(e => e === email));
+
+        if (user) continue;
+
+        const userEmails = [email];
+
+        const visited = {};
+        visited[email] = true;
+        extract(userEmails, emailGraph[email], visited);
+
+        userEmails.sort();
+
+        result.push([emailNameMap[email], ...userEmails]);
+    }
+
+    return result;
+
+    function extract(userEmails, emails, visited) {
+        for (const email of emails) {
+            if (visited[email]) continue;
+            userEmails.push(email);
+
+            visited[email] = true;
+            extract(userEmails, emailGraph[email], visited);
+        }
+    }
+
+};
+```
+
+
+# 75. Sort Colors
+Solved
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+ 
+
+Example 1:
+
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Example 2:
+
+Input: nums = [2,0,1]
+Output: [0,1,2]
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 300
+nums[i] is either 0, 1, or 2.
+ 
+
+Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+
+
+```js
+var sortColors = function(nums) {
+    let low = 0;
+    let mid = 0;
+    let high = nums.length - 1;
+
+    while (mid <= high) {
+        if (nums[mid] === 0) {
+            [nums[low], nums[mid]] = [nums[mid], nums[low]];
+            low++;
+            mid++;
+        } else if (nums[mid] === 1) {
+            mid++;
+        } else { // nums[mid] === 2
+            [nums[mid], nums[high]] = [nums[high], nums[mid]];
+            high--;
+        }
+    }
+};
+```
+
+```js
+var sortColors = function(nums) {
+    let count = [0, 0, 0];
+
+    for (let n of nums) {
+        count[n]++;
+    }
+
+    let idx = 0;
+    for (let i = 0; i <= 2; i++) {
+        for (let j = 0; j < count[i]; j++) {
+            nums[idx++] = i;
+        }
+    }
+};
+```
+
 
 
