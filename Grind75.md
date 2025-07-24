@@ -3394,12 +3394,7 @@ var accountsMerge = function (accounts) {
 
 
 # 75. Sort Colors
-Solved
-Medium
-Topics
-premium lock icon
-Companies
-Hint
+
 Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
 
 We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
@@ -3912,11 +3907,7 @@ function rightSideView(root) {
 ```
 
 # 5. Longest Palindromic Substring
-Medium
-Topics
-premium lock icon
-Companies
-Hint
+
 Given a string s, return the longest palindromic substring in s.
 
  
@@ -3977,10 +3968,7 @@ function longestPalindrome(s) {
 
 
 # 62. Unique Paths
-Medium
-Topics
-premium lock icon
-Companies
+
 There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
 
 Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
@@ -4097,6 +4085,517 @@ function buildTree(preorder, inorder) {
         node.right = inOrderHelp(rootInOrderIdx + 1, r);
 
         return node;
+    }
+}
+```
+
+
+
+
+# 11. Container With Most Water
+
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Notice that you may not slant the container.
+
+ 
+
+Example 1:
+
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+Example 2:
+
+Input: height = [1,1]
+Output: 1
+ 
+
+Constraints:
+
+n == height.length
+2 <= n <= 105
+0 <= height[i] <= 104
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(height) {
+    let left = 0;
+    let right = height.length - 1;
+    let max = 0;
+
+    while (left < right) {
+        const h = Math.min(height[left], height[right]);
+        const w = right - left;
+        max = Math.max(max, h * w);
+
+        // 移動較短的那一邊
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return max;
+};
+```
+
+
+
+# 17. Letter Combinations of a Phone Number
+
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+
+A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+
+
+ 
+
+Example 1:
+
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+Example 2:
+
+Input: digits = ""
+Output: []
+Example 3:
+
+Input: digits = "2"
+Output: ["a","b","c"]
+ 
+
+Constraints:
+
+0 <= digits.length <= 4
+digits[i] is a digit in the range ['2', '9'].
+
+
+
+
+# 79. Word Search
+
+Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+ 
+
+Example 1:
+
+
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+Output: true
+Example 2:
+
+
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+Output: true
+Example 3:
+
+
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+Output: false
+ 
+
+Constraints:
+
+m == board.length
+n = board[i].length
+1 <= m, n <= 6
+1 <= word.length <= 15
+board and word consists of only lowercase and uppercase English letters.
+ 
+
+Follow up: Could you use search pruning to make your solution faster with a larger board?
+
+```
+var exist = function(board, word) {
+    const rows = board.length;
+    const cols = board[0].length;
+
+    const dfs = (i, j, index) => {
+        if (index === word.length) return true; // 找到整個字串
+        if (i < 0 || i >= rows || j < 0 || j >= cols || board[i][j] !== word[index]) {
+            return false;
+        }
+
+        const temp = board[i][j];
+        board[i][j] = "#";  // 標記為訪問過
+
+        const found = dfs(i+1, j, index+1) ||
+                      dfs(i-1, j, index+1) ||
+                      dfs(i, j+1, index+1) ||
+                      dfs(i, j-1, index+1);
+
+        board[i][j] = temp;  // 回溯，恢復原值
+        return found;
+    };
+
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            if (dfs(i, j, 0)) return true;
+        }
+    }
+
+    return false;
+};
+```
+
+
+
+# 438. Find All Anagrams in a String
+
+Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: s = "cbaebabacd", p = "abc"
+Output: [0,6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+Example 2:
+
+Input: s = "abab", p = "ab"
+Output: [0,1,2]
+Explanation:
+The substring with start index = 0 is "ab", which is an anagram of "ab".
+The substring with start index = 1 is "ba", which is an anagram of "ab".
+The substring with start index = 2 is "ab", which is an anagram of "ab".
+ 
+
+Constraints:
+
+1 <= s.length, p.length <= 3 * 104
+s and p consist of lowercase English letters.
+
+
+```js
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {number[]}
+ */
+var findAnagrams = function(s, p) {
+    const sLen = s.length, pLen = p.length;
+    if (sLen < pLen) return [];
+
+    const result = [];
+    const sCount = Array(26).fill(0);
+    const pCount = Array(26).fill(0);
+
+    // 預處理 p 的字母頻率
+    for (let i = 0; i < pLen; i++) {
+        pCount[p.charCodeAt(i) - 97]++;
+        sCount[s.charCodeAt(i) - 97]++;
+    }
+
+    // 開始滑動窗口
+    for (let i = 0; i <= sLen - pLen; i++) {
+        if (arraysEqual(sCount, pCount)) {
+            result.push(i);
+        }
+
+        // 窗口右移：刪除左邊，加進右邊
+        if (i + pLen < sLen) {
+            sCount[s.charCodeAt(i) - 97]--; // 移出最左
+            sCount[s.charCodeAt(i + pLen) - 97]++; // 加進新右
+        }
+    }
+
+    return result;
+};
+
+// 比較兩個陣列是否相等
+function arraysEqual(a, b) {
+    for (let i = 0; i < 26; i++) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+```
+
+
+
+# **310. Minimum Height Trees
+
+A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
+
+Given a tree of n nodes labelled from 0 to n - 1, and an array of n - 1 edges where edges[i] = [ai, bi] indicates that there is an undirected edge between the two nodes ai and bi in the tree, you can choose any node of the tree as the root. When you select a node x as the root, the result tree has height h. Among all possible rooted trees, those with minimum height (i.e. min(h))  are called minimum height trees (MHTs).
+
+Return a list of all MHTs' root labels. You can return the answer in any order.
+
+The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
+
+ 
+
+Example 1:
+
+
+Input: n = 4, edges = [[1,0],[1,2],[1,3]]
+Output: [1]
+Explanation: As shown, the height of the tree is 1 when the root is the node with label 1 which is the only MHT.
+Example 2:
+
+
+Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+Output: [3,4]
+ 
+
+Constraints:
+
+1 <= n <= 2 * 104
+edges.length == n - 1
+0 <= ai, bi < n
+ai != bi
+All the pairs (ai, bi) are distinct.
+The given input is guaranteed to be a tree and there will be no repeated edges.
+
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var findMinHeightTrees = function(n, edges) {
+    if (n === 1) return [0];
+
+    const graph = Array.from({ length: n }, () => []);
+    const degree = Array(n).fill(0);
+
+    // 建圖 + 度數統計
+    for (let [u, v] of edges) {
+        graph[u].push(v);
+        graph[v].push(u);
+        degree[u]++;
+        degree[v]++;
+    }
+
+    // 初始化葉子節點（度數為 1）
+    let leaves = [];
+    for (let i = 0; i < n; i++) {
+        if (degree[i] === 1) leaves.push(i);
+    }
+
+    // 剩下的節點數
+    let remaining = n;
+
+    // 不斷移除葉子
+    while (remaining > 2) {
+        remaining -= leaves.length;
+        let newLeaves = [];
+
+        for (let leaf of leaves) {
+            for (let neighbor of graph[leaf]) {
+                degree[neighbor]--;
+                if (degree[neighbor] === 1) {
+                    newLeaves.push(neighbor);
+                }
+            }
+        }
+
+        leaves = newLeaves;
+    }
+
+    return leaves;  // 最後剩下的 1 或 2 個點
+};
+```
+
+
+
+# 621. Task Scheduler
+
+You are given an array of CPU tasks, each labeled with a letter from A to Z, and a number n. Each CPU interval can be idle or allow the completion of one task. Tasks can be completed in any order, but there's a constraint: there has to be a gap of at least n intervals between two tasks with the same label.
+
+Return the minimum number of CPU intervals required to complete all tasks.
+
+ 
+
+Example 1:
+
+Input: tasks = ["A","A","A","B","B","B"], n = 2
+
+Output: 8
+
+Explanation: A possible sequence is: A -> B -> idle -> A -> B -> idle -> A -> B.
+
+After completing task A, you must wait two intervals before doing A again. The same applies to task B. In the 3rd interval, neither A nor B can be done, so you idle. By the 4th interval, you can do A again as 2 intervals have passed.
+
+Example 2:
+
+Input: tasks = ["A","C","A","B","D","B"], n = 1
+
+Output: 6
+
+Explanation: A possible sequence is: A -> B -> C -> D -> A -> B.
+
+With a cooling interval of 1, you can repeat a task after just one other task.
+
+Example 3:
+
+Input: tasks = ["A","A","A", "B","B","B"], n = 3
+
+Output: 10
+
+Explanation: A possible sequence is: A -> B -> idle -> idle -> A -> B -> idle -> idle -> A -> B.
+
+There are only two types of tasks, A and B, which need to be separated by 3 intervals. This leads to idling twice between repetitions of these tasks.
+
+ 
+
+Constraints:
+
+1 <= tasks.length <= 104
+tasks[i] is an uppercase English letter.
+0 <= n <= 100
+
+```js
+/**
+ * @param {character[]} tasks
+ * @param {number} n
+ * @return {number}
+ */
+var leastInterval = function(tasks, n) {
+    const freq = Array(26).fill(0);
+
+    for (let task of tasks) {
+        freq[task.charCodeAt(0) - 'A'.charCodeAt(0)]++;
+    }
+
+    freq.sort((a, b) => b - a);  // 遞減排序
+
+    const maxFreq = freq[0];
+    let maxCount = 1;
+
+    for (let i = 1; i < 26; i++) {
+        if (freq[i] === maxFreq) maxCount++;
+        else break;
+    }
+
+    const partCount = maxFreq - 1;
+    const partLength = n + 1;
+    const emptySlots = partCount * partLength + maxCount;
+
+    return Math.max(tasks.length, emptySlots);
+};
+
+```
+
+
+# 146. LRU Cache
+
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
+
+Implement the LRUCache class:
+
+LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+int get(int key) Return the value of the key if the key exists, otherwise return -1.
+void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+The functions get and put must each run in O(1) average time complexity.
+
+ 
+
+Example 1:
+
+Input
+["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+Output
+[null, null, null, 1, null, -1, null, -1, 3, 4]
+
+Explanation
+LRUCache lRUCache = new LRUCache(2);
+lRUCache.put(1, 1); // cache is {1=1}
+lRUCache.put(2, 2); // cache is {1=1, 2=2}
+lRUCache.get(1);    // return 1
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+lRUCache.get(2);    // returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+lRUCache.get(1);    // return -1 (not found)
+lRUCache.get(3);    // return 3
+lRUCache.get(4);    // return 4
+ 
+
+Constraints:
+
+1 <= capacity <= 3000
+0 <= key <= 104
+0 <= value <= 105
+At most 2 * 105 calls will be made to get and put.
+
+```js
+class Node {
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+}
+
+class LRUCache {
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.map = new Map();
+
+        // Dummy head / tail
+        this.head = new Node(null, null);
+        this.tail = new Node(null, null);
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+    }
+
+    _add(node) {
+        // 加到 head 後面（最新）
+        node.prev = this.head;
+        node.next = this.head.next;
+        this.head.next.prev = node;
+        this.head.next = node;
+    }
+
+    _remove(node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    get(key) {
+        if (!this.map.has(key)) return -1;
+
+        const node = this.map.get(key);
+        this._remove(node);
+        this._add(node); // move to front
+        return node.value;
+    }
+
+    put(key, value) {
+        if (this.map.has(key)) {
+            const oldNode = this.map.get(key);
+            this._remove(oldNode);
+        }
+
+        const newNode = new Node(key, value);
+        this._add(newNode);
+        this.map.set(key, newNode);
+
+        if (this.map.size > this.capacity) {
+            // Remove 最舊的（尾前）
+            const lru = this.tail.prev;
+            this._remove(lru);
+            this.map.delete(lru.key);
+        }
     }
 }
 ```
