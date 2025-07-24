@@ -3468,3 +3468,639 @@ var sortColors = function(nums) {
 
 
 
+
+# 139. Word Break
+
+Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+Note that the same word in the dictionary may be reused multiple times in the segmentation.
+
+ 
+
+Example 1:
+
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+Example 2:
+
+Input: s = "applepenapple", wordDict = ["apple","pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+Note that you are allowed to reuse a dictionary word.
+Example 3:
+
+Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+Output: false
+
+
+```js
+/**
+ * @param {string} s
+ * @param {string[]} wordDict
+ * @return {boolean}
+ */
+function wordBreak(s, wordDict) {
+    const wordSet = new Set(wordDict);
+    const dp = new Array(s.length + 1).fill(false);
+    dp[0] = true;
+
+    for (let i = 1; i < dp.length; i++) { // i表示index + 1
+        for (let j = 0; j < i; j++) { // 記得j<i，因為再過去就超出字串
+            if (dp[j] && wordSet.has(s.substring(j, i))) {
+                dp[i] = true;
+                break; //已經判斷成功就不需要再判斷
+            }
+        }
+    }
+
+    return dp[s.length];
+}
+
+
+```
+
+
+
+
+# 416. Partition Equal Subset Sum
+Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
+
+ 
+
+Example 1:
+
+Input: nums = [1,5,11,5]
+Output: true
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+Example 2:
+
+Input: nums = [1,2,3,5]
+Output: false
+Explanation: The array cannot be partitioned into equal sum subsets.
+ 
+
+Constraints:
+
+1 <= nums.length <= 200
+1 <= nums[i] <= 100
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+function canPartition(nums) {
+    const sum = nums.reduce((a, b) => a + b, 0);
+    if (sum % 2 !== 0) return false;
+
+    const target = sum / 2;
+    const dp = new Array(target + 1).fill(false);
+    dp[0] = true;
+
+    for (const num of nums) {
+        for (let j = target; j >= num; j--) {
+            dp[j] = dp[j] || dp[j - num];
+        }
+    }
+
+    return dp[target];
+}
+```
+
+
+# 8. String to Integer (atoi)
+
+Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.
+
+The algorithm for myAtoi(string s) is as follows:
+
+Whitespace: Ignore any leading whitespace (" ").
+Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present.
+Conversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0.
+Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.
+Return the integer as the final result.
+
+ 
+
+Example 1:
+
+Input: s = "42"
+
+Output: 42
+
+Explanation:
+
+The underlined characters are what is read in and the caret is the current reader position.
+Step 1: "42" (no characters read because there is no leading whitespace)
+         ^
+Step 2: "42" (no characters read because there is neither a '-' nor '+')
+         ^
+Step 3: "42" ("42" is read in)
+           ^
+Example 2:
+
+Input: s = " -042"
+
+Output: -42
+
+Explanation:
+
+Step 1: "   -042" (leading whitespace is read and ignored)
+            ^
+Step 2: "   -042" ('-' is read, so the result should be negative)
+             ^
+Step 3: "   -042" ("042" is read in, leading zeros ignored in the result)
+               ^
+Example 3:
+
+Input: s = "1337c0d3"
+
+Output: 1337
+
+Explanation:
+
+Step 1: "1337c0d3" (no characters read because there is no leading whitespace)
+         ^
+Step 2: "1337c0d3" (no characters read because there is neither a '-' nor '+')
+         ^
+Step 3: "1337c0d3" ("1337" is read in; reading stops because the next character is a non-digit)
+             ^
+Example 4:
+
+Input: s = "0-1"
+
+Output: 0
+
+Explanation:
+
+Step 1: "0-1" (no characters read because there is no leading whitespace)
+         ^
+Step 2: "0-1" (no characters read because there is neither a '-' nor '+')
+         ^
+Step 3: "0-1" ("0" is read in; reading stops because the next character is a non-digit)
+          ^
+Example 5:
+
+Input: s = "words and 987"
+
+Output: 0
+
+Explanation:
+
+Reading stops at the first non-digit character 'w'.
+
+ 
+
+Constraints:
+
+0 <= s.length <= 200
+s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+function myAtoi(s) {
+    let i = 0;
+    let sign = 1;
+
+    while (i < s.length && s[i] === " ") i++;
+
+    if (i === s.length) return 0;
+
+    if (s[i] === "+") {
+        i++;
+    } else if (s[i] === "-") {
+        sign = -1;
+        i++;
+    }
+
+    INT_MAX = 2 ** 31 - 1;
+    INT_MIN = -(2 ** 31);
+
+    let result = 0;
+    while (i < s.length && s[i] >= "0" && s[i] <= "9") {
+        result = result * 10 + (s[i] - "0");
+
+        if (sign * result <= INT_MIN) return INT_MIN;
+        if (sign * result >= INT_MAX) return INT_MAX;
+
+        i++;
+    }
+
+    return sign * result;
+}
+
+```
+
+
+
+# **54. Spiral Matrix
+
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+ 
+
+Example 1:
+
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+ 
+
+Constraints:
+
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 10
+-100 <= matrix[i][j] <= 100
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+function spiralOrder(matrix) {
+    const result = [];
+    if (matrix.length === 0) return result;
+
+    let top = 0;
+    let bottom = matrix.length - 1;
+    let left = 0;
+    let right = matrix[0].length - 1;
+
+    while (top <= bottom && left <= right) {
+        // 從左到右
+        for (let i = left; i <= right; i++) {
+            result.push(matrix[top][i]);
+        }
+        top++;
+
+        // 從上到下
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right]);
+        }
+        right--;
+
+        // 從右到左
+        if (top <= bottom) {
+            for (let i = right; i >= left; i--) {
+                result.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+
+        // 從下到上
+        if (left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                result.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return result;
+}
+`
+
+
+```
+
+
+
+# 78. Subsets
+
+Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+Example 2:
+
+Input: nums = [0]
+Output: [[],[0]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 10
+-10 <= nums[i] <= 10
+All the numbers of nums are unique.
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+function subsets(nums) {
+    const result = [];
+
+    function backtrack(start, path) {
+        result.push([...path]); // 每次都把當前子集存起來
+
+        for (let i = start; i < nums.length; i++) {
+            path.push(nums[i]);           // 做選擇
+            backtrack(i + 1, path);       // 遞迴往下一層
+            path.pop();                   // 撤銷選擇（backtrack）
+        }
+    }
+
+    backtrack(0, []);
+    return result;
+}
+```
+
+
+
+
+# 199. Binary Tree Right Side View
+
+Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+ 
+
+Example 1:
+
+Input: root = [1,2,3,null,5,null,4]
+
+Output: [1,3,4]
+
+Explanation:
+
+
+
+Example 2:
+
+Input: root = [1,2,3,4,null,null,null,5]
+
+Output: [1,3,4,5]
+
+Explanation:
+
+
+
+Example 3:
+
+Input: root = [1,null,3]
+
+Output: [1,3]
+
+Example 4:
+
+Input: root = []
+
+Output: []
+
+ 
+
+Constraints:
+
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function rightSideView(root) {
+    if (!root) return [];
+
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const size = queue.length;
+        for (let i = 0; i < size; i++) {
+            const node = queue.shift();
+
+            // 最右邊的節點
+            if (i === size - 1) {
+                result.push(node.val);
+            }
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+    }
+
+    return result;
+}
+
+
+```
+
+# 5. Longest Palindromic Substring
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+Given a string s, return the longest palindromic substring in s.
+
+ 
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+ 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consist of only digits and English letters.
+
+
+```js
+function longestPalindrome(s) {
+    if (s.length <= 1) return s;
+
+    let start = 0, end = 0;
+
+    function expandAroundCenter(left, right) {
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left--;
+            right++;
+        }
+        return [left + 1, right - 1]; // 回文邊界
+    }
+
+    for (let i = 0; i < s.length; i++) {
+        // 奇數長度
+        let [left1, right1] = expandAroundCenter(i, i);
+        if (right1 - left1 > end - start) {
+            start = left1;
+            end = right1;
+        }
+
+        // 偶數長度
+        let [left2, right2] = expandAroundCenter(i, i + 1);
+        if (right2 - left2 > end - start) {
+            start = left2;
+            end = right2;
+        }
+    }
+
+    return s.substring(start, end + 1);
+}
+
+
+```
+
+
+
+# 62. Unique Paths
+Medium
+Topics
+premium lock icon
+Companies
+There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
+
+Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+
+The test cases are generated so that the answer will be less than or equal to 2 * 109.
+
+ 
+
+Example 1:
+
+
+Input: m = 3, n = 7
+Output: 28
+Example 2:
+
+Input: m = 3, n = 2
+Output: 3
+Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+1. Right -> Down -> Down
+2. Down -> Down -> Right
+3. Down -> Right -> Down
+ 
+
+Constraints:
+
+1 <= m, n <= 100
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+function uniquePaths(m, n) {
+    const dp = Array.from({ length: m }, () => Array(n).fill(1));
+
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+        }
+    }
+
+    return dp[m - 1][n - 1];
+}
+```
+
+
+
+# 105. Construct Binary Tree from Preorder and Inorder Traversal
+
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+ 
+
+Example 1:
+
+
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
+Example 2:
+
+Input: preorder = [-1], inorder = [-1]
+Output: [-1]
+ 
+
+Constraints:
+
+1 <= preorder.length <= 3000
+inorder.length == preorder.length
+-3000 <= preorder[i], inorder[i] <= 3000
+preorder and inorder consist of unique values.
+Each value of inorder also appears in preorder.
+preorder is guaranteed to be the preorder traversal of the tree.
+inorder is guaranteed to be the inorder traversal of the tree.
+
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} preorder //根左右
+ * @param {number[]} inorder //左根右
+ * @return {TreeNode}
+ */
+function buildTree(preorder, inorder) {
+    const map = inorder.reduce((a, c, i) => {
+        a[c] = i;
+        return a;
+    }, {});
+
+    let preOrderIdx = 0;
+
+    return inOrderHelp(0, inorder.length - 1);
+
+
+
+    function inOrderHelp(l, r) { //l, r 表示inOrder[l]與inOrder[r]的root 因為inOrder為左根右
+
+        if (l > r) return null;
+
+        const node = new TreeNode(preorder[preOrderIdx++]);
+
+        if (l === r) return node;
+
+        const rootInOrderIdx = map[node.val];
+
+        node.left = inOrderHelp(l, rootInOrderIdx - 1);
+        node.right = inOrderHelp(rootInOrderIdx + 1, r);
+
+        return node;
+    }
+}
+```
+
+
+
+
