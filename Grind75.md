@@ -4603,3 +4603,816 @@ class LRUCache {
 
 
 
+# 230. Kth Smallest Element in a BST
+
+Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+
+ 
+
+Example 1:
+
+
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+Example 2:
+
+
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+Output: 3
+ 
+
+Constraints:
+
+The number of nodes in the tree is n.
+1 <= k <= n <= 104
+0 <= Node.val <= 104
+ 
+
+Follow up: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} k
+ * @return {number}
+ */
+function kthSmallest(root, k) {
+    let count = 0;
+    let result = null;
+
+    function inorder(node) {
+        if (!node || result !== null) return;
+
+        inorder(node.left);
+        count++;
+        if (count === k) {
+            result = node.val;
+            return;
+        }
+        inorder(node.right);
+    }
+
+    inorder(root);
+    return result;
+}
+```
+
+
+
+# 76. Minimum Window Substring
+
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+The testcases will be generated such that the answer is unique.
+
+ 
+
+Example 1:
+
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+Example 2:
+
+Input: s = "a", t = "a"
+Output: "a"
+Explanation: The entire string s is the minimum window.
+Example 3:
+
+Input: s = "a", t = "aa"
+Output: ""
+Explanation: Both 'a's from t must be included in the window.
+Since the largest window of s only has one 'a', return empty string.
+ 
+
+Constraints:
+
+m == s.length
+n == t.length
+1 <= m, n <= 105
+s and t consist of uppercase and lowercase English letters.
+ 
+
+Follow up: Could you find an algorithm that runs in O(m + n) time?
+
+
+```js
+function minWindow(s, t) {
+    if (!s || !t || s.length < t.length) return "";
+
+    const need = {};
+    const window = {};
+
+    for (let c of t) {
+        need[c] = (need[c] || 0) + 1;
+    }
+
+    let left = 0, right = 0;
+    let valid = 0;
+    let start = 0, minLen = Infinity;
+
+    const requiredLen = Object.keys(need).length;
+
+    while (right < s.length) {
+        let c = s[right];
+        right++;
+
+        if (need[c] !== undefined) {
+            window[c] = (window[c] || 0) + 1;
+            if (window[c] === need[c]) {
+                valid++;
+            }
+        }
+
+        while (valid === requiredLen) {
+            if (right - left < minLen) {
+                start = left;
+                minLen = right - left;
+            }
+
+            let d = s[left];
+            left++;
+
+            if (need[d] !== undefined) {
+                if (window[d] === need[d]) {
+                    valid--;
+                }
+                window[d]--;
+            }
+        }
+    }
+
+    return minLen === Infinity ? "" : s.slice(start, start + minLen);
+}
+```
+
+
+
+
+
+
+
+# 297. Serialize and Deserialize Binary Tree
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+ 
+
+Example 1:
+
+
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+Example 2:
+
+Input: root = []
+Output: []
+ 
+
+Constraints:
+
+The number of nodes in the tree is in the range [0, 104].
+-1000 <= Node.val <= 1000
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function(root) {
+  function dfs(node) {
+    if (!node) return 'null';
+    return `${node.val},${dfs(node.left)},${dfs(node.right)}`;
+  }
+  return dfs(root);
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function(data) {
+  const values = data.split(',');
+  let index = 0;
+
+  function dfs() {
+    if (values[index] === 'null') {
+      index++;
+      return null;
+    }
+
+    const node = new TreeNode(parseInt(values[index++]));
+    node.left = dfs();
+    node.right = dfs();
+    return node;
+  }
+
+  return dfs();
+};
+
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+```
+
+# 42. Trapping Rain Water
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+
+ 
+
+Example 1:
+
+
+Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
+Explanation: The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.
+Example 2:
+
+Input: height = [4,2,0,3,2,5]
+Output: 9
+ 
+
+Constraints:
+
+n == height.length
+1 <= n <= 2 * 104
+0 <= height[i] <= 105
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function(height) {
+  let left = 0;
+  let right = height.length - 1;
+  let leftMax = 0
+  let rightMax = 0;
+  let res = 0;
+
+  while (left < right) {
+    if (height[left] < height[right]) {
+      if (height[left] >= leftMax) {
+        leftMax = height[left];
+      } else {
+        res += leftMax - height[left];
+      }
+      left++;
+    } else {
+      if (height[right] >= rightMax) {
+        rightMax = height[right];
+      } else {
+        res += rightMax - height[right];
+      }
+      right--;
+    }
+  }
+
+  return res;
+};
+
+```
+
+
+# 295. Find Median from Data Stream
+
+The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
+
+For example, for arr = [2,3,4], the median is 3.
+For example, for arr = [2,3], the median is (2 + 3) / 2 = 2.5.
+Implement the MedianFinder class:
+
+MedianFinder() initializes the MedianFinder object.
+void addNum(int num) adds the integer num from the data stream to the data structure.
+double findMedian() returns the median of all elements so far. Answers within 10-5 of the actual answer will be accepted.
+ 
+
+Example 1:
+
+Input
+["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"]
+[[], [1], [2], [], [3], []]
+Output
+[null, null, null, 1.5, null, 2.0]
+
+Explanation
+MedianFinder medianFinder = new MedianFinder();
+medianFinder.addNum(1);    // arr = [1]
+medianFinder.addNum(2);    // arr = [1, 2]
+medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
+medianFinder.addNum(3);    // arr[1, 2, 3]
+medianFinder.findMedian(); // return 2.0
+ 
+
+Constraints:
+
+-105 <= num <= 105
+There will be at least one element in the data structure before calling findMedian.
+At most 5 * 104 calls will be made to addNum and findMedian.
+ 
+
+Follow up:
+
+If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+
+```js
+class Heap {
+  constructor(compare) {
+    this.data = [];
+    this.compare = compare;
+  }
+
+  size() {
+    return this.data.length;
+  }
+
+  peek() {
+    return this.data[0];
+  }
+
+  push(val) {
+    this.data.push(val);
+    this._heapifyUp();
+  }
+
+  pop() {
+    const top = this.peek();
+    const last = this.data.pop();
+    if (this.size()) this.data[0] = last;
+    this._heapifyDown();
+    return top;
+  }
+
+  _heapifyUp() {
+    let i = this.size() - 1;
+    while (i > 0) {
+      const p = Math.floor((i - 1) / 2);
+      if (this.compare(this.data[i], this.data[p])) {
+        [this.data[i], this.data[p]] = [this.data[p], this.data[i]];
+        i = p;
+      } else break;
+    }
+  }
+
+  _heapifyDown() {
+    let i = 0, n = this.size();
+    while (true) {
+      let left = 2 * i + 1, right = 2 * i + 2, smallest = i;
+      if (left < n && this.compare(this.data[left], this.data[smallest])) smallest = left;
+      if (right < n && this.compare(this.data[right], this.data[smallest])) smallest = right;
+      if (smallest !== i) {
+        [this.data[i], this.data[smallest]] = [this.data[smallest], this.data[i]];
+        i = smallest;
+      } else break;
+    }
+  }
+}
+
+class MedianFinder {
+  constructor() {
+    // maxHeap：左邊最大堆，放較小的一半（數值大排前面）
+    this.maxHeap = new Heap((a, b) => a > b);
+    // minHeap：右邊最小堆，放較大的一半（數值小排前面）
+    this.minHeap = new Heap((a, b) => a < b);
+  }
+
+  addNum(num) {
+    this.maxHeap.push(num);
+    this.minHeap.push(this.maxHeap.pop());
+
+    if (this.minHeap.size() > this.maxHeap.size()) {
+      this.maxHeap.push(this.minHeap.pop());
+    }
+  }
+
+  findMedian() {
+    if (this.maxHeap.size() > this.minHeap.size()) {
+      return this.maxHeap.peek();
+    } else {
+      return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
+    }
+  }
+}
+
+
+```
+
+
+
+# 127. Word Ladder
+
+A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
+
+Every adjacent pair of words differs by a single letter.
+Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
+sk == endWord
+Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+
+ 
+
+Example 1:
+
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+Output: 5
+Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
+Example 2:
+
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+Output: 0
+Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence.
+ 
+
+Constraints:
+
+1 <= beginWord.length <= 10
+endWord.length == beginWord.length
+1 <= wordList.length <= 5000
+wordList[i].length == beginWord.length
+beginWord, endWord, and wordList[i] consist of lowercase English letters.
+beginWord != endWord
+All the words in wordList are unique.
+
+```js
+/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {number}
+ */
+var ladderLength = function(beginWord, endWord, wordList) {
+    let wordSet = new Set(wordList);
+    if (!wordSet.has(endWord)) return 0;
+
+    let queue = [[beginWord, 1]];
+    let visited = new Set();
+
+    while (queue.length > 0) {
+        let [word, steps] = queue.shift();
+
+        if (word === endWord) return steps;
+
+        for (let i = 0; i < word.length; i++) {
+            for (let c = 97; c <= 122; c++) { // a ~ z
+                let nextWord = word.slice(0, i) + String.fromCharCode(c) + word.slice(i + 1);
+                if (wordSet.has(nextWord) && !visited.has(nextWord)) {
+                    visited.add(nextWord);
+                    queue.push([nextWord, steps + 1]);
+                }
+            }
+        }
+    }
+
+    return 0;
+};
+```
+
+
+
+# 224. Basic Calculator
+
+Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+
+ 
+
+Example 1:
+
+Input: s = "1 + 1"
+Output: 2
+Example 2:
+
+Input: s = " 2-1 + 2 "
+Output: 3
+Example 3:
+
+Input: s = "(1+(4+5+2)-3)+(6+8)"
+Output: 23
+ 
+
+Constraints:
+
+1 <= s.length <= 3 * 105
+s consists of digits, '+', '-', '(', ')', and ' '.
+s represents a valid expression.
+'+' is not used as a unary operation (i.e., "+1" and "+(2 + 3)" is invalid).
+'-' could be used as a unary operation (i.e., "-1" and "-(2 + 3)" is valid).
+There will be no two consecutive operators in the input.
+Every number and running calculation will fit in a signed 32-bit integer.
+
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var calculate = function(s) {
+    let stack = [];
+    let result = 0;
+    let sign = 1; // 1 表示正號，-1 表示負號
+    let num = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let c = s[i];
+
+        if (c >= '0' && c <= '9') {
+            num = num * 10 + parseInt(c);
+        } else if (c === '+') {
+            result += sign * num;
+            sign = 1;
+            num = 0;
+        } else if (c === '-') {
+            result += sign * num;
+            sign = -1;
+            num = 0;
+        } else if (c === '(') {
+            stack.push(result);
+            stack.push(sign);
+            result = 0;
+            sign = 1;
+        } else if (c === ')') {
+            result += sign * num;
+            result *= stack.pop(); // sign
+            result += stack.pop(); // previous result
+            num = 0;
+        }
+    }
+
+    result += sign * num; // 處理最後一個數字
+    return result;
+};
+```
+
+
+# 1235. Maximum Profit in Job Scheduling
+
+We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
+
+You're given the startTime, endTime and profit arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.
+
+If you choose a job that ends at time X you will be able to start another job that starts at time X.
+
+ 
+
+Example 1:
+
+
+
+Input: startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
+Output: 120
+Explanation: The subset chosen is the first and fourth job. 
+Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
+Example 2:
+
+
+
+Input: startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]
+Output: 150
+Explanation: The subset chosen is the first, fourth and fifth job. 
+Profit obtained 150 = 20 + 70 + 60.
+Example 3:
+
+
+
+Input: startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]
+Output: 6
+ 
+
+Constraints:
+
+1 <= startTime.length == endTime.length == profit.length <= 5 * 104
+1 <= startTime[i] < endTime[i] <= 109
+1 <= profit[i] <= 104
+
+```js
+/**
+ * @param {number[]} startTime
+ * @param {number[]} endTime
+ * @param {number[]} profit
+ * @return {number}
+ */
+var jobScheduling = function(startTime, endTime, profit) {
+    let jobs = [];
+    for (let i = 0; i < startTime.length; i++) {
+        jobs.push([startTime[i], endTime[i], profit[i]]);
+    }
+
+    // 依照結束時間排序
+    jobs.sort((a, b) => a[1] - b[1]);
+
+    // dp[i]：前 i 個工作的最大利潤
+    const n = jobs.length;
+    let dp = new Array(n).fill(0);
+
+    // 建立一個 array 只儲存結束時間，加速 binary search
+    let ends = jobs.map(job => job[1]);
+
+    for (let i = 0; i < n; i++) {
+        let [start, end, p] = jobs[i];
+
+        // Binary search 找出最後一個 endTime <= start 的工作
+        let left = 0, right = i - 1, prev = -1;
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+            if (jobs[mid][1] <= start) {
+                prev = mid;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        // 計算不選 vs 選當前工作哪個利潤高
+        dp[i] = Math.max(i > 0 ? dp[i - 1] : 0, p + (prev >= 0 ? dp[prev] : 0));
+    }
+
+    return dp[n - 1];
+};
+```
+
+
+# 23. Merge k Sorted Lists
+
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+Merge all the linked-lists into one sorted linked-list and return it.
+
+ 
+
+Example 1:
+
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted linked list:
+1->1->2->3->4->4->5->6
+Example 2:
+
+Input: lists = []
+Output: []
+Example 3:
+
+Input: lists = [[]]
+Output: []
+ 
+
+Constraints:
+
+k == lists.length
+0 <= k <= 104
+0 <= lists[i].length <= 500
+-104 <= lists[i][j] <= 104
+lists[i] is sorted in ascending order.
+The sum of lists[i].length will not exceed 104.
+
+```js
+class MinHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    push(node) {
+        this.heap.push(node);
+        this._bubbleUp(this.heap.length - 1);
+    }
+
+    pop() {
+        if (this.heap.length === 1) return this.heap.pop();
+        const top = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this._bubbleDown(0);
+        return top;
+    }
+
+    _bubbleUp(i) {
+        while (i > 0) {
+            let parent = Math.floor((i - 1) / 2);
+            if (this.heap[i].val >= this.heap[parent].val) break;
+            [this.heap[i], this.heap[parent]] = [this.heap[parent], this.heap[i]];
+            i = parent;
+        }
+    }
+
+    _bubbleDown(i) {
+        const n = this.heap.length;
+        while (true) {
+            let left = 2 * i + 1;
+            let right = 2 * i + 2;
+            let smallest = i;
+            if (left < n && this.heap[left].val < this.heap[smallest].val) smallest = left;
+            if (right < n && this.heap[right].val < this.heap[smallest].val) smallest = right;
+            if (smallest === i) break;
+            [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]];
+            i = smallest;
+        }
+    }
+
+    size() {
+        return this.heap.length;
+    }
+}
+
+var mergeKLists = function(lists) {
+    const heap = new MinHeap();
+
+    // 將每個 linked list 的頭節點放入 heap
+    for (let node of lists) {
+        if (node) heap.push(node);
+    }
+
+    let dummy = new ListNode(0);
+    let current = dummy;
+
+    while (heap.size() > 0) {
+        let node = heap.pop();
+        current.next = node;
+        current = current.next;
+        if (node.next) heap.push(node.next);
+    }
+
+    return dummy.next;
+};
+```
+
+
+
+# 84. Largest Rectangle in Histogram
+
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+
+ 
+
+Example 1:
+
+
+Input: heights = [2,1,5,6,2,3]
+Output: 10
+Explanation: The above is a histogram where width of each bar is 1.
+The largest rectangle is shown in the red area, which has an area = 10 units.
+Example 2:
+
+
+Input: heights = [2,4]
+Output: 4
+ 
+
+Constraints:
+
+1 <= heights.length <= 105
+0 <= heights[i] <= 104
+
+
+```js
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var largestRectangleArea = function(heights) {
+    heights.push(0); // 加一個哨兵柱子，保證棧會被清空
+    let stack = [];
+    let maxArea = 0;
+
+    for (let i = 0; i < heights.length; i++) {
+        while (stack.length > 0 && heights[i] < heights[stack[stack.length - 1]]) {
+            let height = heights[stack.pop()];
+            let width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
+            maxArea = Math.max(maxArea, height * width);
+        }
+        stack.push(i);
+    }
+
+    return maxArea;
+};
+```
