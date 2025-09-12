@@ -77,3 +77,10 @@ Object.values({ a: 3, b: 4, c: 5 }); // [3, 4, 5]
 
 
 
+Array.from({ length: 2 }, () => new Array(3).fill(1)); // [[1, 1, 1], [1, 1, 1]] 2x3陣列
+
+
+
+
+
+
