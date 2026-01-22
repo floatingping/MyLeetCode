@@ -1,52 +1,34 @@
+/*
+8-10. Largest Rectangle in Histogram
+https://leetcode.com/problems/largest-rectangle-in-histogram/
+
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+
+Example 1:
+
+Input: heights = [2,1,5,6,2,3]
+Output: 10
+Explanation: The largest rectangle has area = 10 units.
+
+Example 2:
+
+Input: heights = [2,1,2]
+Output: 2
+
+Constraints:
+
+1 <= heights.length <= 105
+0 <= heights[i] <= 104
+*/
+
 /**
  * @param {number[]} heights
  * @return {number}
  */
-// var largestRectangleArea = function (heights) {
-//     let result = 0;
-
-//     for (let l = 0; l < heights.length; l++) {
-//         let minH = heights[l];
-//         for (let r = l; r < heights.length; r++) {
-//             minH = Math.min(minH, heights[r]);
-//             const area = minH * (r - l + 1);
-//             result = Math.max(result, area);
-//         }
-//     }
-
-//     return result;
-// };
-
 var largestRectangleArea = function (heights) {
-    let result = 0;
-    const stack = [];
-    heights.push(0);
 
-    for (let i = 0; i < heights.length; i++) {
-
-        while (stack.length > 0 && heights[stack[stack.length - 1]] > heights[i]) {
-            const nowMaxHeightIdx = stack.pop();
-
-            const width = stack.length > 0 ? (i - stack[stack.length - 1] - 1) : i;
-            const area = width * heights[nowMaxHeightIdx];
-            result = Math.max(result, area);
-        }
-        stack.push(i);
-    }
-
-    return result;
 };
 
-
-
-
-
-largestRectangleArea([2, 1, 5, 6, 2, 3]);
-largestRectangleArea([2, 4]);
-
-
-
-
-
-
-
+console.log(largestRectangleArea([2,1,5,6,2,3]));    // 10
+console.log(largestRectangleArea([2,1,2]));           // 2
+console.log(largestRectangleArea([0,9]));             // 9

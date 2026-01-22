@@ -1,21 +1,22 @@
 /*
-https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
-105. Construct Binary Tree from Preorder and Inorder Traversal
+6-9. Construct Binary Tree from Preorder and Inorder Traversal
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
-Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+Given two integer arrays preorder and inorder where:
+- preorder is the preorder traversal of a binary tree
+- inorder is the inorder traversal of the same tree
 
- 
+Construct and return the binary tree.
 
 Example 1:
 
-
 Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
 Output: [3,9,20,null,null,15,7]
+
 Example 2:
 
 Input: preorder = [-1], inorder = [-1]
 Output: [-1]
- 
 
 Constraints:
 
@@ -28,46 +29,16 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
 */
 
+const { TreeNode } = require('./lib.js');
 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
 /**
  * @param {number[]} preorder
  * @param {number[]} inorder
  * @return {TreeNode}
  */
 var buildTree = function (preorder, inorder) {
-    const map = inorder.reduce((a, c, i) => {
-        a[c] = i;
-        return a;
-    }, {});
-
-    let preorderIdx = 0;
-
-    return inorderHelp(0, inorder.length - 1);
-
-
-    function inorderHelp(l, r) {
-        if (l > r) return null;
-
-        const node = new TreeNode(preorder[preorderIdx++]);
-
-        if (l === r) return node;
-
-        const idx = map[node.val];
-        node.left = inorderHelp(l, idx - 1);
-        node.right = inorderHelp(idx + 1, r);
-        return node;
-    }
 
 };
 
-
-
-
+console.log(TreeNode.toArray(buildTree([3,9,20,15,7], [9,3,15,20,7])));    // [3,9,20,null,null,15,7]
+console.log(TreeNode.toArray(buildTree([-1], [-1])));                       // [-1]

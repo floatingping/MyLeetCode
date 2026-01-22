@@ -1,61 +1,35 @@
 /*
-226. Invert Binary Tree
-Easy
-Topics
-premium lock icon
-Companies
+6. Invert Binary Tree
+https://leetcode.com/problems/invert-binary-tree/
+
 Given the root of a binary tree, invert the tree, and return its root.
 
- 
-
 Example 1:
-
-
-Input: root = [4,2,7,1,3,6,9]
-Output: [4,7,2,9,6,3,1]
-Example 2:
-
-
 Input: root = [2,1,3]
 Output: [2,3,1]
-Example 3:
 
+Example 2:
 Input: root = []
 Output: []
- 
 
 Constraints:
-
 The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100
 */
 
-
-function TreeNode(val, left, right) {
-    this.val = (val === undefined ? 0 : val)
-    this.left = (left === undefined ? null : left)
-    this.right = (right === undefined ? null : right)
-}
+const { TreeNode } = require('./lib.js');
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-    if (root === null) {
-        return null;
-    }
-    const left = invertTree(root.left);
-    const right = invertTree(root.right);
-    root.left = right;
-    root.right = left;
-    return root;
-    
+
+
 };
 
+console.log(TreeNode.toArray(invertTree(TreeNode.fromArray([2,1,3])))); // [2,3,1]
+console.log(TreeNode.toArray(invertTree(TreeNode.fromArray([])))); // []
+console.log(TreeNode.toArray(invertTree(TreeNode.fromArray([1,2,3,4,5,6,7])))); // [1,3,2,7,6,5,4]
 
-console.log(invertTree(new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(7, new TreeNode(6), new TreeNode(9))))); // Output: [4,7,2,9,6,3,1]
-console.log(invertTree(new TreeNode(2, new TreeNode(1), new TreeNode(3))));
-
-// Output: [2,3,1]
-console.log(invertTree(null)); // Output: []
+// node Grind75/1-6.js

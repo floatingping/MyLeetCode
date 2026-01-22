@@ -1,10 +1,7 @@
 /*
 1. Two Sum
-Easy
-Topics
-premium lock icon
-Companies
-Hint
+https://leetcode.com/problems/two-sum
+
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -42,21 +39,17 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    const map = new Map();
+var twoSum = function (nums, target) {
 
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        if (map.has(complement)) {
-            return [map.get(complement), i];
-        }
-        map.set(nums[i], i);
-    }
-    
+
+
 };
 
-console.log(twoSum([2,7,11,15], 9));
-console.log(twoSum([3,2,4], 6));
-console.log(twoSum([3,3], 6));
+console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
+console.log(twoSum([3, 2, 4], 6)); // [1, 2]
+console.log(twoSum([3, 3], 6)); // [0, 1]
+
+
+// node Grind75/1-1.js
 
 
