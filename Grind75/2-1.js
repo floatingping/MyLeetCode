@@ -26,9 +26,9 @@ Constraints:
  */
 const isBadVersion = function(n) {
     return function(version) {
-        return version >= 4; // Assume bad version is 4
+        return version >= n;
     };
-}(5);
+};
 
 /**
  * @param {function} isBadVersion()
@@ -45,7 +45,6 @@ var solution = function(isBadVersion) {
     };
 };
 
-const findFirstBadVersion = solution(isBadVersion);
-console.log(findFirstBadVersion(5)); // 4
+console.log(solution(isBadVersion(4))(5)); // 4
 
 // node Grind75/2-1.js
