@@ -60,4 +60,4 @@ console.log(hasCycle(createListWithCycle([3,2,0,-4], 1))); // true
 console.log(hasCycle(createListWithCycle([1,2], -1))); // false
 console.log(hasCycle(createListWithCycle([1], -1))); // false
 
-// node Grind75/2-2.js
+// node Grind75/1-12.js
