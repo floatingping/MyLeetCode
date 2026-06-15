@@ -1,4 +1,4 @@
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let minPrice = Infinity;
     let maxProfit = 0;
 
@@ -10,8 +10,8 @@ var maxProfit = function(prices) {
     return maxProfit;
 };
 
-console.log(maxProfit([7,1,5,3,6,4])); // 5
-console.log(maxProfit([7,6,4,3,2,1])); // 0
-console.log(maxProfit([2,4,1])); // 2
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
+console.log(maxProfit([7, 6, 4, 3, 2, 1])); // 0
+console.log(maxProfit([2, 4, 1])); // 2
 
 // node Grind75/1-4_ans.js

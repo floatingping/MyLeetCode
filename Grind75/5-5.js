@@ -27,7 +27,7 @@ p != q
 p and q will exist in the tree.
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
@@ -35,14 +35,24 @@ const { TreeNode } = require('./lib.js');
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function (root, p, q) {
+var lowestCommonAncestor = function (root, p, q) {};
 
-};
+let root = TreeNode.fromArray([3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]);
+console.log(
+    lowestCommonAncestor(
+        root,
+        TreeNode.findNode(root, 5),
+        TreeNode.findNode(root, 1)
+    ).val
+); // 3
 
-let root = TreeNode.fromArray([3,5,1,6,2,0,8,null,null,7,4]);
-console.log(lowestCommonAncestor(root, TreeNode.findNode(root, 5), TreeNode.findNode(root, 1)).val);  // 3
-
-root = TreeNode.fromArray([3,5,1,6,2,0,8,null,null,7,4]);
-console.log(lowestCommonAncestor(root, TreeNode.findNode(root, 5), TreeNode.findNode(root, 4)).val);  // 5
+root = TreeNode.fromArray([3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]);
+console.log(
+    lowestCommonAncestor(
+        root,
+        TreeNode.findNode(root, 5),
+        TreeNode.findNode(root, 4)
+    ).val
+); // 5
 
 // node Grind75/5-5.js

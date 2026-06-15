@@ -1,4 +1,4 @@
-var insert = function(intervals, newInterval) {
+var insert = function (intervals, newInterval) {
     const result = [];
     let i = 0;
     const [newStart, newEnd] = newInterval;
@@ -28,8 +28,25 @@ var insert = function(intervals, newInterval) {
     return result;
 };
 
-console.log(insert([[1,2],[3,5],[6,9]], [2,5])); // [[1,5],[6,9]]
-console.log(insert([[1,5],[6,9]], [2,3])); // [[1,5],[6,9]]
-console.log(insert([[1,5]], [2,7])); // [[1,7]]
+console.log(
+    insert(
+        [
+            [1, 2],
+            [3, 5],
+            [6, 9]
+        ],
+        [2, 5]
+    )
+); // [[1,5],[6,9]]
+console.log(
+    insert(
+        [
+            [1, 5],
+            [6, 9]
+        ],
+        [2, 3]
+    )
+); // [[1,5],[6,9]]
+console.log(insert([[1, 5]], [2, 7])); // [[1,7]]
 
 // node Grind75/3-1_ans.js

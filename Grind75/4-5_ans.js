@@ -5,7 +5,10 @@ var MinStack = function () {
 
 MinStack.prototype.push = function (val) {
     this.stack.push(val);
-    if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {
+    if (
+        this.minStack.length === 0 ||
+        val <= this.minStack[this.minStack.length - 1]
+    ) {
         this.minStack.push(val);
     }
 };
@@ -30,9 +33,9 @@ let minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
 minStack.push(-3);
-console.log(minStack.getMin());  // -3
+console.log(minStack.getMin()); // -3
 minStack.pop();
-console.log(minStack.top());     // 0
-console.log(minStack.getMin());  // -2
+console.log(minStack.top()); // 0
+console.log(minStack.getMin()); // -2
 
 // node Grind75/4-5_ans.js

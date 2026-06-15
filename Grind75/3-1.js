@@ -29,13 +29,27 @@ newInterval.length == 2
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-var insert = function(intervals, newInterval) {
+var insert = function (intervals, newInterval) {};
 
-
-};
-
-console.log(insert([[1,2],[3,5],[6,9]], [2,5])); // [[1,5],[6,9]]
-console.log(insert([[1,5],[6,9]], [2,3])); // [[1,5],[6,9]]
-console.log(insert([[1,5]], [2,7])); // [[1,7]]
+console.log(
+    insert(
+        [
+            [1, 2],
+            [3, 5],
+            [6, 9]
+        ],
+        [2, 5]
+    )
+); // [[1,5],[6,9]]
+console.log(
+    insert(
+        [
+            [1, 5],
+            [6, 9]
+        ],
+        [2, 3]
+    )
+); // [[1,5],[6,9]]
+console.log(insert([[1, 5]], [2, 7])); // [[1,7]]
 
 // node Grind75/3-1.js

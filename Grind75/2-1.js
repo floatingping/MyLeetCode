@@ -24,8 +24,8 @@ Constraints:
 /**
  * Definition for isBadVersion()
  */
-const isBadVersion = function(n) {
-    return function(version) {
+const isBadVersion = function (n) {
+    return function (version) {
         return version >= n;
     };
 };
@@ -34,15 +34,12 @@ const isBadVersion = function(n) {
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
+var solution = function (isBadVersion) {
     /**
      * @param {integer} n Total versions
      * @return {integer} The first bad version
      */
-    return function(n) {
-
-
-    };
+    return function (n) {};
 };
 
 console.log(solution(isBadVersion(4))(5)); // 4

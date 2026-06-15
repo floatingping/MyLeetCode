@@ -13,7 +13,7 @@ Explanation: The largest rectangle has area = 10 units.
 Example 2:
 
 Input: heights = [2,1,2]
-Output: 2
+Output: 3
 
 Constraints:
 
@@ -25,12 +25,10 @@ Constraints:
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function (heights) {
+var largestRectangleArea = function (heights) {};
 
-};
-
-console.log(largestRectangleArea([2,1,5,6,2,3]));    // 10
-console.log(largestRectangleArea([2,1,2]));           // 2
-console.log(largestRectangleArea([0,9]));             // 9
+console.log(largestRectangleArea([2, 1, 5, 6, 2, 3])); // 10
+console.log(largestRectangleArea([2, 1, 2])); // 3
+console.log(largestRectangleArea([0, 9])); // 9
 
 // node Grind75/8-10.js

@@ -28,16 +28,13 @@ The number of the nodes in the list is in the range [0, 104].
 pos is -1 or a valid index in the linked-list.
 */
 
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
 /**
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
-
-
-};
+var hasCycle = function (head) {};
 
 // Helper: Create list with cycle
 function createListWithCycle(arr, pos) {
@@ -56,8 +53,8 @@ function createListWithCycle(arr, pos) {
     return head;
 }
 
-console.log(hasCycle(createListWithCycle([3,2,0,-4], 1))); // true
-console.log(hasCycle(createListWithCycle([1,2], -1))); // false
+console.log(hasCycle(createListWithCycle([3, 2, 0, -4], 1))); // true
+console.log(hasCycle(createListWithCycle([1, 2], -1))); // false
 console.log(hasCycle(createListWithCycle([1], -1))); // false
 
 // node Grind75/1-12.js

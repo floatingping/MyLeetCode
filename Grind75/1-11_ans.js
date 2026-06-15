@@ -1,6 +1,6 @@
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
-var isBalanced = function(root) {
+var isBalanced = function (root) {
     const checkHeight = (node) => {
         if (!node) return 0;
 
@@ -20,8 +20,8 @@ var isBalanced = function(root) {
     return checkHeight(root) !== -1;
 };
 
-console.log(isBalanced(TreeNode.fromArray([3,9,20,null,null,15,7]))); // true
-console.log(isBalanced(TreeNode.fromArray([1,2,2,3,3,null,null,4,4]))); // false
+console.log(isBalanced(TreeNode.fromArray([3, 9, 20, null, null, 15, 7]))); // true
+console.log(isBalanced(TreeNode.fromArray([1, 2, 2, 3, 3, null, null, 4, 4]))); // false
 console.log(isBalanced(TreeNode.fromArray([]))); // true
 
 // node Grind75/1-11_ans.js

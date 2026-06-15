@@ -1,4 +1,4 @@
-var longestPalindrome = function(s) {
+var longestPalindrome = function (s) {
     const charCount = {};
 
     for (let char of s) {

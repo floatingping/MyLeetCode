@@ -29,18 +29,16 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {number[]} preorder
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function (preorder, inorder) {
+var buildTree = function (preorder, inorder) {};
 
-};
-
-console.log(TreeNode.toArray(buildTree([3,9,20,15,7], [9,3,15,20,7])));    // [3,9,20,null,null,15,7]
-console.log(TreeNode.toArray(buildTree([-1], [-1])));                       // [-1]
+console.log(TreeNode.toArray(buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]))); // [3,9,20,null,null,15,7]
+console.log(TreeNode.toArray(buildTree([-1], [-1]))); // [-1]
 
 // node Grind75/6-9.js

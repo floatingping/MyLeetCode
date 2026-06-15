@@ -34,12 +34,10 @@ s and p consist of lowercase English letters.
  * @param {string} p
  * @return {number[]}
  */
-var findAnagrams = function (s, p) {
+var findAnagrams = function (s, p) {};
 
-};
-
-console.log(findAnagrams("cbaebabacd", "abc"));    // [0,6]
-console.log(findAnagrams("abab", "ab"));           // [0,1,2]
-console.log(findAnagrams("a", "a"));               // [0]
+console.log(findAnagrams("cbaebabacd", "abc")); // [0,6]
+console.log(findAnagrams("abab", "ab")); // [0,1,2]
+console.log(findAnagrams("a", "a")); // [0]
 
 // node Grind75/7-4.js

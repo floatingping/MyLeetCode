@@ -29,13 +29,21 @@ All the pairs prerequisites[i] are unique.
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
-var canFinish = function(numCourses, prerequisites) {
+var canFinish = function (numCourses, prerequisites) {};
 
-
-};
-
-console.log(canFinish(2, [[1,0]])); // true
-console.log(canFinish(2, [[1,0],[0,1]])); // false
-console.log(canFinish(3, [[0,1],[0,2],[1,2]])); // true
+console.log(canFinish(2, [[1, 0]])); // true
+console.log(
+    canFinish(2, [
+        [1, 0],
+        [0, 1]
+    ])
+); // false
+console.log(
+    canFinish(3, [
+        [0, 1],
+        [0, 2],
+        [1, 2]
+    ])
+); // true
 
 // node Grind75/4-1.js

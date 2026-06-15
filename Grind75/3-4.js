@@ -28,10 +28,7 @@ s consists of English letters, digits, symbols and spaces.
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-
-
-};
+var lengthOfLongestSubstring = function (s) {};
 
 console.log(lengthOfLongestSubstring("abcabcbb")); // 3
 console.log(lengthOfLongestSubstring("bbbbb")); // 1

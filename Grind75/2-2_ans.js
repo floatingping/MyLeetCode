@@ -1,4 +1,4 @@
-var canConstruct = function(ransomNote, magazine) {
+var canConstruct = function (ransomNote, magazine) {
     const charCount = {};
 
     for (let char of magazine) {

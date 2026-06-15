@@ -1,4 +1,4 @@
-var isAnagram = function(s, t) {
+var isAnagram = function (s, t) {
     if (s.length !== t.length) return false;
 
     const charCount = {};

@@ -24,7 +24,7 @@ p != q
 p and q will exist in the BST.
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
@@ -32,18 +32,33 @@ const { TreeNode } = require('./lib.js');
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
+var lowestCommonAncestor = function (root, p, q) {};
 
+let tree = TreeNode.fromArray([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5]);
+console.log(
+    lowestCommonAncestor(
+        tree,
+        TreeNode.findNode(tree, 2),
+        TreeNode.findNode(tree, 8)
+    ).val
+); // 6
 
-};
+tree = TreeNode.fromArray([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5]);
+console.log(
+    lowestCommonAncestor(
+        tree,
+        TreeNode.findNode(tree, 2),
+        TreeNode.findNode(tree, 4)
+    ).val
+); // 2
 
-let tree = TreeNode.fromArray([6,2,8,0,4,7,9,null,null,3,5]);
-console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 8)).val); // 6
-
-tree = TreeNode.fromArray([6,2,8,0,4,7,9,null,null,3,5]);
-console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 4)).val); // 2
-
-tree = TreeNode.fromArray([2,1]);
-console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 1)).val); // 2
+tree = TreeNode.fromArray([2, 1]);
+console.log(
+    lowestCommonAncestor(
+        tree,
+        TreeNode.findNode(tree, 2),
+        TreeNode.findNode(tree, 1)
+    ).val
+); // 2
 
 // node Grind75/1-10.js

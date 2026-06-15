@@ -1,9 +1,9 @@
-var isValid = function(s) {
+var isValid = function (s) {
     const stack = [];
     const map = {
-        ')': '(',
-        '}': '{',
-        ']': '['
+        ")": "(",
+        "}": "{",
+        "]": "["
     };
 
     for (let char of s) {

@@ -24,10 +24,7 @@ s and t consist of lowercase English letters.
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-
-
-};
+var isAnagram = function (s, t) {};
 
 console.log(isAnagram("anagram", "nagaram")); // true
 console.log(isAnagram("rat", "car")); // false

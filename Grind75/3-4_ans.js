@@ -1,4 +1,4 @@
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function (s) {
     const charIndex = {};
     let maxLength = 0;
     let left = 0;

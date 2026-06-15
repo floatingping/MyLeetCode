@@ -37,12 +37,37 @@ Follow-up: Could you use search pruning to make your solution faster with a larg
  * @param {string} word
  * @return {boolean}
  */
-var exist = function (board, word) {
+var exist = function (board, word) {};
 
-};
-
-console.log(exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"));    // true
-console.log(exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"));       // true
-console.log(exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"));      // false
+console.log(
+    exist(
+        [
+            ["A", "B", "C", "E"],
+            ["S", "F", "C", "S"],
+            ["A", "D", "E", "E"]
+        ],
+        "ABCCED"
+    )
+); // true
+console.log(
+    exist(
+        [
+            ["A", "B", "C", "E"],
+            ["S", "F", "C", "S"],
+            ["A", "D", "E", "E"]
+        ],
+        "SEE"
+    )
+); // true
+console.log(
+    exist(
+        [
+            ["A", "B", "C", "E"],
+            ["S", "F", "C", "S"],
+            ["A", "D", "E", "E"]
+        ],
+        "ABCB"
+    )
+); // false
 
 // node Grind75/7-3.js

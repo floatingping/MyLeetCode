@@ -28,21 +28,23 @@ There are no repeated edges and no self-loops in the graph.
 The Graph is connected and all nodes can be visited starting from the given node.
 */
 
-const { Node } = require('./lib.js');
+const { Node } = require("./lib.js");
 
 /**
  * @param {Node} node
  * @return {Node}
  */
-var cloneGraph = function(node) {
-
-
-};
+var cloneGraph = function (node) {};
 
 // Test
-const graph = Node.fromAdjacencyList([[2,4],[1,3],[2,4],[1,3]]);
+const graph = Node.fromAdjacencyList([
+    [2, 4],
+    [1, 3],
+    [2, 4],
+    [1, 3]
+]);
 const cloned = cloneGraph(graph);
-console.log(Node.toAdjacencyList(cloned)); 
+console.log(Node.toAdjacencyList(cloned));
 // [[2,4],[1,3],[2,4],[1,3]]
 
 // node Grind75/3-7.js

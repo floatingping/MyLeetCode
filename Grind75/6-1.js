@@ -19,7 +19,7 @@ Output: true
 Example 3:
 
 Input: s = "catsandsandcatsandcatsanddog", wordDict = ["cat","cats","and","sand","dog"]
-Output: false
+Output: true
 
 Constraints:
 
@@ -35,13 +35,19 @@ All the strings of wordDict are unique.
  * @param {string[]} wordDict
  * @return {boolean}
  */
-var wordBreak = function (s, wordDict) {
+var wordBreak = function (s, wordDict) {};
 
-};
-
-console.log(wordBreak("leetcode", ["leet","code"]));                         // true
-console.log(wordBreak("applepenapple", ["apple","pen"]));                    // true
-console.log(wordBreak("catsandsandcatsandcatsanddog", ["cat","cats","and","sand","dog"]));  // false
-console.log(wordBreak("ab", ["a"]));                                         // false
+console.log(wordBreak("leetcode", ["leet", "code"])); // true
+console.log(wordBreak("applepenapple", ["apple", "pen"])); // true
+console.log(
+    wordBreak("catsandsandcatsandcatsanddog", [
+        "cat",
+        "cats",
+        "and",
+        "sand",
+        "dog"
+    ])
+); // true
+console.log(wordBreak("ab", ["a"])); // false
 
 // node Grind75/6-1.js

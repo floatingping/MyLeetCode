@@ -38,25 +38,27 @@ grid[i][j] is '0' or '1'.
  * @param {character[][]} grid
  * @return {number}
  */
-var numIslands = function (grid) {
+var numIslands = function (grid) {};
 
-};
+console.log(
+    numIslands([
+        ["1", "1", "1", "1", "0"],
+        ["1", "1", "0", "1", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"]
+    ])
+); // 1
 
-console.log(numIslands([
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]));  // 1
+console.log(
+    numIslands([
+        ["1", "1", "0", "0", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "1", "0", "0"],
+        ["0", "0", "0", "1", "1"]
+    ])
+); // 3
 
-console.log(numIslands([
-  ["1","1","0","0","0"],
-  ["1","1","0","0","0"],
-  ["0","0","1","0","0"],
-  ["0","0","0","1","1"]
-]));  // 3
-
-console.log(numIslands([["1"]]));  // 1
-console.log(numIslands([["0"]]));  // 0
+console.log(numIslands([["1"]])); // 1
+console.log(numIslands([["0"]])); // 0
 
 // node Grind75/4-7.js

@@ -39,13 +39,23 @@ grid[i][j] is 0, 1, or 2.
  * @param {number[][]} grid
  * @return {number}
  */
-var orangesRotting = function (grid) {
+var orangesRotting = function (grid) {};
 
-};
-
-console.log(orangesRotting([[2,1,1],[1,1,0],[0,1,1]]));  // 4
-console.log(orangesRotting([[2,1,1],[0,1,1],[1,0,1]]));  // -1
-console.log(orangesRotting([[0,2]]));                     // 0
-console.log(orangesRotting([[2,1,1,1]]));                 // 3
+console.log(
+    orangesRotting([
+        [2, 1, 1],
+        [1, 1, 0],
+        [0, 1, 1]
+    ])
+); // 4
+console.log(
+    orangesRotting([
+        [2, 1, 1],
+        [0, 1, 1],
+        [1, 0, 1]
+    ])
+); // -1
+console.log(orangesRotting([[0, 2]])); // 0
+console.log(orangesRotting([[2, 1, 1, 1]])); // 3
 
 // node Grind75/4-8.js

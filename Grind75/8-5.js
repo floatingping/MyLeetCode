@@ -33,24 +33,18 @@ Follow-up:
 - If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 */
 
-var MedianFinder = function () {
-
-};
+var MedianFinder = function () {};
 
 /**
  * @param {number} num
  * @return {void}
  */
-MedianFinder.prototype.addNum = function (num) {
-
-};
+MedianFinder.prototype.addNum = function (num) {};
 
 /**
  * @return {number}
  */
-MedianFinder.prototype.findMedian = function () {
-
-};
+MedianFinder.prototype.findMedian = function () {};
 
 /**
  * Your MedianFinder object will be instantiated and called as such:
@@ -62,10 +56,10 @@ MedianFinder.prototype.findMedian = function () {
 // Test cases
 let mf = new MedianFinder();
 mf.addNum(1);
-console.log(mf.findMedian());    // 1.0
+console.log(mf.findMedian()); // 1
 mf.addNum(2);
-console.log(mf.findMedian());    // 1.5
+console.log(mf.findMedian()); // 1.5
 mf.addNum(3);
-console.log(mf.findMedian());    // 2.0
+console.log(mf.findMedian()); // 2
 
 // node Grind75/8-5.js

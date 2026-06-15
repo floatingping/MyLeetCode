@@ -38,14 +38,12 @@ s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+
  * @param {string} s
  * @return {number}
  */
-var myAtoi = function (s) {
+var myAtoi = function (s) {};
 
-};
-
-console.log(myAtoi("42"));              // 42
-console.log(myAtoi(" -042"));           // -42
-console.log(myAtoi("1337c0d3"));        // 1337
-console.log(myAtoi("0-1"));             // 0
-console.log(myAtoi("-91283472332"));    // -2147483648
+console.log(myAtoi("42")); // 42
+console.log(myAtoi(" -042")); // -42
+console.log(myAtoi("1337c0d3")); // 1337
+console.log(myAtoi("0-1")); // 0
+console.log(myAtoi("-91283472332")); // -2147483648
 
 // node Grind75/6-3.js

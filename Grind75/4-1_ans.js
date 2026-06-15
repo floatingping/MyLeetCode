@@ -1,5 +1,7 @@
-var canFinish = function(numCourses, prerequisites) {
-    const graph = Array(numCourses).fill(null).map(() => []);
+var canFinish = function (numCourses, prerequisites) {
+    const graph = Array(numCourses)
+        .fill(null)
+        .map(() => []);
     const inDegree = Array(numCourses).fill(0);
 
     for (let [a, b] of prerequisites) {
@@ -30,8 +32,19 @@ var canFinish = function(numCourses, prerequisites) {
     return count === numCourses;
 };
 
-console.log(canFinish(2, [[1,0]])); // true
-console.log(canFinish(2, [[1,0],[0,1]])); // false
-console.log(canFinish(3, [[0,1],[0,2],[1,2]])); // true
+console.log(canFinish(2, [[1, 0]])); // true
+console.log(
+    canFinish(2, [
+        [1, 0],
+        [0, 1]
+    ])
+); // false
+console.log(
+    canFinish(3, [
+        [0, 1],
+        [0, 2],
+        [1, 2]
+    ])
+); // true
 
 // node Grind75/4-1_ans.js

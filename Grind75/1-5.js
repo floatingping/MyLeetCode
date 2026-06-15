@@ -29,10 +29,7 @@ s consists only of printable ASCII characters.
  * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function(s) {
-
-
-};
+var isPalindrome = function (s) {};
 
 console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
 console.log(isPalindrome("race a car")); // false

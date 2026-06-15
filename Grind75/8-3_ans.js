@@ -1,8 +1,8 @@
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 var serialize = function (root) {
     const result = [];
-    
+
     const preorder = (node) => {
         if (!node) {
             result.push("null");
@@ -12,7 +12,7 @@ var serialize = function (root) {
         preorder(node.left);
         preorder(node.right);
     };
-    
+
     preorder(root);
     return result.join(",");
 };
@@ -20,7 +20,7 @@ var serialize = function (root) {
 var deserialize = function (data) {
     const values = data.split(",");
     let index = 0;
-    
+
     const buildTree = () => {
         const val = values[index++];
         if (val === "null") {
@@ -31,17 +31,17 @@ var deserialize = function (data) {
         node.right = buildTree();
         return node;
     };
-    
+
     return buildTree();
 };
 
 // Test cases
-let root = TreeNode.fromArray([1,2,3,null,null,4,5]);
+let root = TreeNode.fromArray([1, 2, 3, null, null, 4, 5]);
 let serialized = serialize(root);
 let deserialized = deserialize(serialized);
-console.log(TreeNode.toArray(deserialized));    // [1,2,3,null,null,4,5]
+console.log(TreeNode.toArray(deserialized)); // [1,2,3,null,null,4,5]
 
 let empty = serialize(null);
-console.log(deserialize(empty));                // null
+console.log(deserialize(empty)); // null
 
 // node Grind75/8-3_ans.js

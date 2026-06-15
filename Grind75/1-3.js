@@ -26,20 +26,32 @@ The number of nodes in each list is in the range [0, 50].
 Both list1 and list2 are sorted in non-decreasing order.
 */
 
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
 /**
  * @param {ListNode} list1
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
+var mergeTwoLists = function (list1, list2) {};
 
-
-};
-
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([1,2,4]), ListNode.fromArray([1,3,4])))); // [1,1,2,3,4,4]
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([])))); // []
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([0])))); // [0]
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(
+            ListNode.fromArray([1, 2, 4]),
+            ListNode.fromArray([1, 3, 4])
+        )
+    )
+); // [1,1,2,3,4,4]
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([]))
+    )
+); // []
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([0]))
+    )
+); // [0]
 
 // node Grind75/1-3.js

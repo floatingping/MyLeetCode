@@ -41,26 +41,20 @@ Constraints:
 At most 2 * 105 calls will be made to get and put.
 */
 
-var LRUCache = function (capacity) {
-
-};
+var LRUCache = function (capacity) {};
 
 /**
  * @param {number} key
  * @return {number}
  */
-LRUCache.prototype.get = function (key) {
-
-};
+LRUCache.prototype.get = function (key) {};
 
 /**
  * @param {number} key
  * @param {number} value
  * @return {void}
  */
-LRUCache.prototype.put = function (key, value) {
-
-};
+LRUCache.prototype.put = function (key, value) {};
 
 /**
  * Your LRUCache object will be instantiated and called as such:
@@ -73,12 +67,12 @@ LRUCache.prototype.put = function (key, value) {
 let cache = new LRUCache(2);
 cache.put(1, 1);
 cache.put(2, 2);
-console.log(cache.get(1));    // 1
+console.log(cache.get(1)); // 1
 cache.put(3, 3);
-console.log(cache.get(2));    // -1
+console.log(cache.get(2)); // -1
 cache.put(4, 4);
-console.log(cache.get(1));    // -1
-console.log(cache.get(3));    // 3
-console.log(cache.get(4));    // 4
+console.log(cache.get(1)); // -1
+console.log(cache.get(3)); // 3
+console.log(cache.get(4)); // 4
 
 // node Grind75/7-7.js

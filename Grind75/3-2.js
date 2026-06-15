@@ -26,14 +26,23 @@ mat[i][j] is either 0 or 1.
  * @param {number[][]} mat
  * @return {number[][]}
  */
-var updateMatrix = function(mat) {
+var updateMatrix = function (mat) {};
 
-
-};
-
-console.log(updateMatrix([[0,0,0],[0,1,0],[1,1,1]])); 
+console.log(
+    updateMatrix([
+        [0, 0, 0],
+        [0, 1, 0],
+        [1, 1, 1]
+    ])
+);
 // [[0,0,0],[0,1,0],[1,2,1]]
-console.log(updateMatrix([[0,0,0],[0,1,0],[0,0,0]])); 
+console.log(
+    updateMatrix([
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ])
+);
 // [[0,0,0],[0,1,0],[0,0,0]]
 
 // node Grind75/3-2.js

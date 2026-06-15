@@ -1,6 +1,6 @@
-const { Node } = require('./lib.js');
+const { Node } = require("./lib.js");
 
-var cloneGraph = function(node) {
+var cloneGraph = function (node) {
     if (!node) return null;
 
     const visited = new Map();
@@ -24,9 +24,14 @@ var cloneGraph = function(node) {
 };
 
 // Test
-const graph = Node.fromAdjacencyList([[2,4],[1,3],[2,4],[1,3]]);
+const graph = Node.fromAdjacencyList([
+    [2, 4],
+    [1, 3],
+    [2, 4],
+    [1, 3]
+]);
 const cloned = cloneGraph(graph);
-console.log(Node.toAdjacencyList(cloned)); 
+console.log(Node.toAdjacencyList(cloned));
 // [[2,4],[1,3],[2,4],[1,3]]
 
 // node Grind75/3-7_ans.js

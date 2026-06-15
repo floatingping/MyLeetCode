@@ -1,6 +1,3 @@
-
-
-
 class Heap {
     constructor(comparator) {
         this._data = [];
@@ -39,7 +36,7 @@ class Heap {
     pop() {
         if (this._data.length === 0) return null;
         if (this._data.length === 1) return this._data.pop();
-        
+
         const result = this._data[0];
         this._data[0] = this._data.pop();
 
@@ -48,16 +45,25 @@ class Heap {
             const l = this._l(i);
             const r = this._r(i);
             let next = i;
-            if (l < this._data.length && this._comparator(this._data[next], this._data[l])) {
+            if (
+                l < this._data.length &&
+                this._comparator(this._data[next], this._data[l])
+            ) {
                 next = l;
             }
 
-            if (r < this._data.length && this._comparator(this._data[next], this._data[r])) {
+            if (
+                r < this._data.length &&
+                this._comparator(this._data[next], this._data[r])
+            ) {
                 next = r;
             }
 
             if (next === i) break;
-            [this._data[i], this._data[next]] = [this._data[next], this._data[i]];
+            [this._data[i], this._data[next]] = [
+                this._data[next],
+                this._data[i]
+            ];
             i = next;
         }
 
@@ -73,5 +79,3 @@ myHeap.push(1);
 myHeap.pop();
 
 console.log(myHeap.peek());
-
-

@@ -1,4 +1,4 @@
-var search = function(nums, target) {
+var search = function (nums, target) {
     let left = 0;
     let right = nums.length - 1;
 
@@ -16,9 +16,9 @@ var search = function(nums, target) {
     return -1;
 };
 
-console.log(search([-1,0,3,5,9,12], 9)); // 4
-console.log(search([-1,0,3,5,9,12], 13)); // -1
+console.log(search([-1, 0, 3, 5, 9, 12], 9)); // 4
+console.log(search([-1, 0, 3, 5, 9, 12], 13)); // -1
 console.log(search([5], 5)); // 0
-console.log(search([1,3], 3)); // 1
+console.log(search([1, 3], 3)); // 1
 
 // node Grind75/1-8_ans.js

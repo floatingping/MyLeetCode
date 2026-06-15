@@ -28,10 +28,7 @@ s consists of lowercase and/or uppercase English letters only.
  * @param {string} s
  * @return {number}
  */
-var longestPalindrome = function(s) {
-
-
-};
+var longestPalindrome = function (s) {};
 
 console.log(longestPalindrome("abcccccc")); // 7
 console.log(longestPalindrome("a")); // 1

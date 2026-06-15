@@ -9,7 +9,7 @@ Merge all the linked-lists into one sorted linked-list and return it.
 Example 1:
 
 Input: lists = [[1,4,5],[1,3,4],[2,6]]
-Output: [1,1,2,1,3,4,4,5,6]
+Output: [1,1,2,3,4,4,5,6]
 
 Example 2:
 
@@ -29,22 +29,20 @@ k == lists.length
 -104 <= lists[i][j] <= 104
 */
 
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
 /**
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function (lists) {
+var mergeKLists = function (lists) {};
 
-};
+let list1 = ListNode.fromArray([1, 4, 5]);
+let list2 = ListNode.fromArray([1, 3, 4]);
+let list3 = ListNode.fromArray([2, 6]);
+console.log(ListNode.toArray(mergeKLists([list1, list2, list3]))); // [1,1,2,3,4,4,5,6]
 
-let list1 = ListNode.fromArray([1,4,5]);
-let list2 = ListNode.fromArray([1,3,4]);
-let list3 = ListNode.fromArray([2,6]);
-console.log(ListNode.toArray(mergeKLists([list1, list2, list3])));    // [1,1,2,1,3,4,4,5,6]
-
-console.log(ListNode.toArray(mergeKLists([])));                        // []
-console.log(ListNode.toArray(mergeKLists([null])));                    // []
+console.log(ListNode.toArray(mergeKLists([]))); // []
+console.log(ListNode.toArray(mergeKLists([null]))); // []
 
 // node Grind75/8-9.js

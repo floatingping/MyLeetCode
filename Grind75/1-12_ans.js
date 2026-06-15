@@ -1,6 +1,6 @@
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
-var hasCycle = function(head) {
+var hasCycle = function (head) {
     let slow = head;
     let fast = head;
 
@@ -32,8 +32,8 @@ function createListWithCycle(arr, pos) {
     return head;
 }
 
-console.log(hasCycle(createListWithCycle([3,2,0,-4], 1))); // true
-console.log(hasCycle(createListWithCycle([1,2], -1))); // false
+console.log(hasCycle(createListWithCycle([3, 2, 0, -4], 1))); // true
+console.log(hasCycle(createListWithCycle([1, 2], -1))); // false
 console.log(hasCycle(createListWithCycle([1], -1))); // false
 
 // node Grind75/1-12_ans.js

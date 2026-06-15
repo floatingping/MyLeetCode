@@ -1,13 +1,14 @@
 var search = function (nums, target) {
-    let left = 0, right = nums.length - 1;
-    
+    let left = 0,
+        right = nums.length - 1;
+
     while (left <= right) {
         const mid = Math.floor((left + right) / 2);
-        
+
         if (nums[mid] === target) {
             return mid;
         }
-        
+
         // Left half is sorted
         if (nums[left] <= nums[mid]) {
             if (target >= nums[left] && target < nums[mid]) {
@@ -25,13 +26,13 @@ var search = function (nums, target) {
             }
         }
     }
-    
+
     return -1;
 };
 
-console.log(search([4,5,6,7,0,1,2], 0));    // 4
-console.log(search([4,5,6,7,0,1,2], 3));    // -1
-console.log(search([1], 1));                 // 0
-console.log(search([3,1], 3));               // 0
+console.log(search([4, 5, 6, 7, 0, 1, 2], 0)); // 4
+console.log(search([4, 5, 6, 7, 0, 1, 2], 3)); // -1
+console.log(search([1], 1)); // 0
+console.log(search([3, 1], 3)); // 0
 
 // node Grind75/5-1_ans.js

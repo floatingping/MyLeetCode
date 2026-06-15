@@ -27,13 +27,10 @@ Constraints:
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {};
 
-
-};
-
-console.log(maxProfit([7,1,5,3,6,4])); // 5
-console.log(maxProfit([7,6,4,3,2,1])); // 0
-console.log(maxProfit([2,4,1])); // 2
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
+console.log(maxProfit([7, 6, 4, 3, 2, 1])); // 0
+console.log(maxProfit([2, 4, 1])); // 2
 
 // node Grind75/1-4.js

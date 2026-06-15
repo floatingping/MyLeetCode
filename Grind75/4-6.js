@@ -27,19 +27,17 @@ The number of nodes in the tree is in the range [1, 104].
 -231 <= Node.val <= 231 - 1
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function (root) {
+var isValidBST = function (root) {};
 
-};
-
-console.log(isValidBST(TreeNode.fromArray([2, 1, 3])));           // true
+console.log(isValidBST(TreeNode.fromArray([2, 1, 3]))); // true
 console.log(isValidBST(TreeNode.fromArray([5, 1, 4, null, null, 3, 6]))); // false
-console.log(isValidBST(TreeNode.fromArray([1])));                 // true
-console.log(isValidBST(TreeNode.fromArray([1, 2])));              // false
+console.log(isValidBST(TreeNode.fromArray([1]))); // true
+console.log(isValidBST(TreeNode.fromArray([1, 2]))); // false
 
 // node Grind75/4-6.js

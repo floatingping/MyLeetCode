@@ -24,33 +24,29 @@ The number of nodes in the tree is in the range [0, 104].
 -1000 <= Node.val <= 1000
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * Encodes a tree to a single string.
  * @param {TreeNode} root
  * @return {string}
  */
-var serialize = function (root) {
-
-};
+var serialize = function (root) {};
 
 /**
  * Decodes your encoded data to tree.
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function (data) {
-
-};
+var deserialize = function (data) {};
 
 // Test cases
-let root = TreeNode.fromArray([1,2,3,null,null,4,5]);
+let root = TreeNode.fromArray([1, 2, 3, null, null, 4, 5]);
 let serialized = serialize(root);
 let deserialized = deserialize(serialized);
-console.log(TreeNode.toArray(deserialized));    // [1,2,3,null,null,4,5]
+console.log(TreeNode.toArray(deserialized)); // [1,2,3,null,null,4,5]
 
 let empty = serialize(null);
-console.log(deserialize(empty));                // null
+console.log(deserialize(empty)); // null
 
 // node Grind75/8-3.js

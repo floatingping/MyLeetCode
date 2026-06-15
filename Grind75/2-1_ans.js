@@ -1,11 +1,11 @@
-const isBadVersion = function(n) {
-    return function(version) {
+const isBadVersion = function (n) {
+    return function (version) {
         return version >= n;
     };
 };
 
-var solution = function(isBadVersion) {
-    return function(n) {
+var solution = function (isBadVersion) {
+    return function (n) {
         let left = 1;
         let right = n;
 
@@ -21,7 +21,6 @@ var solution = function(isBadVersion) {
         return left;
     };
 };
-
 
 console.log(solution(isBadVersion(4))(5)); // 4
 

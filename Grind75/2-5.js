@@ -21,19 +21,16 @@ The number of nodes in the list is the range [0, 5000].
 -5000 <= Node.val <= 5000
 */
 
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+var reverseList = function (head) {};
 
-
-};
-
-console.log(ListNode.toArray(reverseList(ListNode.fromArray([1,2,3,4,5])))); // [5,4,3,2,1]
-console.log(ListNode.toArray(reverseList(ListNode.fromArray([1,2])))); // [2,1]
+console.log(ListNode.toArray(reverseList(ListNode.fromArray([1, 2, 3, 4, 5])))); // [5,4,3,2,1]
+console.log(ListNode.toArray(reverseList(ListNode.fromArray([1, 2])))); // [2,1]
 console.log(ListNode.toArray(reverseList(ListNode.fromArray([])))); // []
 
 // node Grind75/2-5.js

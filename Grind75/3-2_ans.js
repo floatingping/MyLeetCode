@@ -1,4 +1,4 @@
-var updateMatrix = function(mat) {
+var updateMatrix = function (mat) {
     const m = mat.length;
     const n = mat[0].length;
     const queue = [];
@@ -14,7 +14,12 @@ var updateMatrix = function(mat) {
         }
     }
 
-    const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+    const directions = [
+        [0, 1],
+        [1, 0],
+        [0, -1],
+        [-1, 0]
+    ];
 
     while (queue.length > 0) {
         const [row, col] = queue.shift();
@@ -23,7 +28,13 @@ var updateMatrix = function(mat) {
             const newRow = row + dr;
             const newCol = col + dc;
 
-            if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && mat[newRow][newCol] === -1) {
+            if (
+                newRow >= 0 &&
+                newRow < m &&
+                newCol >= 0 &&
+                newCol < n &&
+                mat[newRow][newCol] === -1
+            ) {
                 mat[newRow][newCol] = mat[row][col] + 1;
                 queue.push([newRow, newCol]);
             }
@@ -33,9 +44,21 @@ var updateMatrix = function(mat) {
     return mat;
 };
 
-console.log(updateMatrix([[0,0,0],[0,1,0],[1,1,1]])); 
+console.log(
+    updateMatrix([
+        [0, 0, 0],
+        [0, 1, 0],
+        [1, 1, 1]
+    ])
+);
 // [[0,0,0],[0,1,0],[1,2,1]]
-console.log(updateMatrix([[0,0,0],[0,1,0],[0,0,0]])); 
+console.log(
+    updateMatrix([
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ])
+);
 // [[0,0,0],[0,1,0],[0,0,0]]
 
 // node Grind75/3-2_ans.js

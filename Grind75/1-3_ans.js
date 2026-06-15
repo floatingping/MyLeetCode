@@ -1,6 +1,6 @@
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
-var mergeTwoLists = function(list1, list2) {
+var mergeTwoLists = function (list1, list2) {
     const dummy = new ListNode(0);
     let current = dummy;
 
@@ -19,8 +19,23 @@ var mergeTwoLists = function(list1, list2) {
     return dummy.next;
 };
 
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([1,2,4]), ListNode.fromArray([1,3,4])))); // [1,1,2,3,4,4]
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([])))); // []
-console.log(ListNode.toArray(mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([0])))); // [0]
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(
+            ListNode.fromArray([1, 2, 4]),
+            ListNode.fromArray([1, 3, 4])
+        )
+    )
+); // [1,1,2,3,4,4]
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([]))
+    )
+); // []
+console.log(
+    ListNode.toArray(
+        mergeTwoLists(ListNode.fromArray([]), ListNode.fromArray([0]))
+    )
+); // [0]
 
 // node Grind75/1-3_ans.js

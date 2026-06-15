@@ -3,7 +3,8 @@ var MedianFinder = function () {
 };
 
 MedianFinder.prototype.addNum = function (num) {
-    let left = 0, right = this.nums.length;
+    let left = 0,
+        right = this.nums.length;
     while (left < right) {
         const mid = Math.floor((left + right) / 2);
         if (this.nums[mid] < num) {
@@ -27,10 +28,10 @@ MedianFinder.prototype.findMedian = function () {
 // Test cases
 let mf = new MedianFinder();
 mf.addNum(1);
-console.log(mf.findMedian());    // 1.0
+console.log(mf.findMedian()); // 1
 mf.addNum(2);
-console.log(mf.findMedian());    // 1.5
+console.log(mf.findMedian()); // 1.5
 mf.addNum(3);
-console.log(mf.findMedian());    // 2.0
+console.log(mf.findMedian()); // 2
 
 // node Grind75/8-5_ans.js

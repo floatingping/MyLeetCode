@@ -28,14 +28,11 @@ nums is sorted in ascending order.
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
+var search = function (nums, target) {};
 
-
-};
-
-console.log(search([-1,0,3,5,9,12], 9)); // 4
-console.log(search([-1,0,3,5,9,12], 13)); // -1
+console.log(search([-1, 0, 3, 5, 9, 12], 9)); // 4
+console.log(search([-1, 0, 3, 5, 9, 12], 13)); // -1
 console.log(search([5], 5)); // 0
-console.log(search([1,3], 3)); // 1
+console.log(search([1, 3], 3)); // 1
 
 // node Grind75/1-8.js

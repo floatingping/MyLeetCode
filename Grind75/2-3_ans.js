@@ -1,4 +1,4 @@
-var climbStairs = function(n) {
+var climbStairs = function (n) {
     if (n <= 1) return n;
 
     let prev1 = 1;

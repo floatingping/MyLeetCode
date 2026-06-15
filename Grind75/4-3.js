@@ -11,8 +11,8 @@ You may assume that you have an infinite number of each kind of coin.
 Example 1:
 
 Input: coins = [1,2,5], amount = 5
-Output: 2
-Explanation: 5 = 5 + 0, or 5 = 2 + 2 + 1
+Output: 1
+Explanation: 5 = 5
 
 Example 2:
 
@@ -36,14 +36,12 @@ Constraints:
  * @param {number} amount
  * @return {number}
  */
-var coinChange = function (coins, amount) {
+var coinChange = function (coins, amount) {};
 
-};
-
-console.log(coinChange([1, 2, 5], 5));     // 2
-console.log(coinChange([2], 3));           // -1
-console.log(coinChange([10], 10));         // 1
-console.log(coinChange([1], 0));           // 0
-console.log(coinChange([2, 5, 10], 27));   // 4
+console.log(coinChange([1, 2, 5], 5)); // 1
+console.log(coinChange([2], 3)); // -1
+console.log(coinChange([10], 10)); // 1
+console.log(coinChange([1], 0)); // 0
+console.log(coinChange([2, 5, 10], 27)); // 4
 
 // node Grind75/4-3.js

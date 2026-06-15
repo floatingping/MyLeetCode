@@ -24,13 +24,11 @@ s consist of only digits and English letters.
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function (s) {
+var longestPalindrome = function (s) {};
 
-};
-
-console.log(longestPalindrome("babad"));    // "bab" or "aba"
-console.log(longestPalindrome("cbbd"));     // "bb"
-console.log(longestPalindrome("a"));        // "a"
-console.log(longestPalindrome("ac"));       // "a" or "c"
+console.log(longestPalindrome("babad")); // "bab"
+console.log(longestPalindrome("cbbd")); // "bb"
+console.log(longestPalindrome("a")); // "a"
+console.log(longestPalindrome("ac")); // "a"
 
 // node Grind75/6-7.js

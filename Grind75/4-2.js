@@ -36,33 +36,25 @@ word and prefix consist only of lowercase English letters.
 At most 3 * 104 calls will be made to insert, search, and startsWith.
 */
 
-var Trie = function () {
-
-};
+var Trie = function () {};
 
 /**
  * @param {string} word
  * @return {void}
  */
-Trie.prototype.insert = function (word) {
-
-};
+Trie.prototype.insert = function (word) {};
 
 /**
  * @param {string} word
  * @return {boolean}
  */
-Trie.prototype.search = function (word) {
-
-};
+Trie.prototype.search = function (word) {};
 
 /**
  * @param {string} prefix
  * @return {boolean}
  */
-Trie.prototype.startsWith = function (prefix) {
-
-};
+Trie.prototype.startsWith = function (prefix) {};
 
 /**
  * Your Trie object will be instantiated and called as such:
@@ -75,10 +67,10 @@ Trie.prototype.startsWith = function (prefix) {
 // Test cases
 let trie = new Trie();
 trie.insert("apple");
-console.log(trie.search("apple"));   // true
-console.log(trie.search("app"));     // false
+console.log(trie.search("apple")); // true
+console.log(trie.search("app")); // false
 console.log(trie.startsWith("app")); // true
 trie.insert("app");
-console.log(trie.search("app"));     // true
+console.log(trie.search("app")); // true
 
 // node Grind75/4-2.js

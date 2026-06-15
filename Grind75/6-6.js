@@ -25,18 +25,16 @@ The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-var rightSideView = function (root) {
+var rightSideView = function (root) {};
 
-};
-
-console.log(rightSideView(TreeNode.fromArray([1,2,3,null,5,null,4])));    // [1,3,4]
-console.log(rightSideView(TreeNode.fromArray([1,null,3])));               // [1,3]
-console.log(rightSideView(TreeNode.fromArray([])));                       // []
+console.log(rightSideView(TreeNode.fromArray([1, 2, 3, null, 5, null, 4]))); // [1,3,4]
+console.log(rightSideView(TreeNode.fromArray([1, null, 3]))); // [1,3]
+console.log(rightSideView(TreeNode.fromArray([]))); // []
 
 // node Grind75/6-6.js

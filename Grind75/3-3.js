@@ -26,12 +26,26 @@ Constraints:
  * @param {number} k
  * @return {number[][]}
  */
-var kClosest = function(points, k) {
+var kClosest = function (points, k) {};
 
-
-};
-
-console.log(kClosest([[1,3],[-2,2]], 1)); // [[-2,2]]
-console.log(kClosest([[3,3],[5,-1],[-2,4]], 2)); // [[3,3],[-2,4]]
+console.log(
+    kClosest(
+        [
+            [1, 3],
+            [-2, 2]
+        ],
+        1
+    )
+); // [[-2,2]]
+console.log(
+    kClosest(
+        [
+            [3, 3],
+            [5, -1],
+            [-2, 4]
+        ],
+        2
+    )
+); // [[3,3],[-2,4]]
 
 // node Grind75/3-3.js

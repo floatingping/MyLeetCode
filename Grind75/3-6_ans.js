@@ -1,6 +1,6 @@
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
-var levelOrder = function(root) {
+var levelOrder = function (root) {
     if (!root) return [];
 
     const result = [];
@@ -24,11 +24,11 @@ var levelOrder = function(root) {
     return result;
 };
 
-console.log(levelOrder(TreeNode.fromArray([3,9,20,null,null,15,7]))); 
+console.log(levelOrder(TreeNode.fromArray([3, 9, 20, null, null, 15, 7])));
 // [[3],[9,20],[15,7]]
-console.log(levelOrder(TreeNode.fromArray([1]))); 
+console.log(levelOrder(TreeNode.fromArray([1])));
 // [[1]]
-console.log(levelOrder(TreeNode.fromArray([]))); 
+console.log(levelOrder(TreeNode.fromArray([])));
 // []
 
 // node Grind75/3-6_ans.js

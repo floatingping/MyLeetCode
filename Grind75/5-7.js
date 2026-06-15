@@ -11,7 +11,7 @@ After merging accounts, return the accounts in the following format: the first e
 Example 1:
 
 Input: accounts = [["John", "johnsmith@mail.com", "john00@mail.com"], ["John", "johnsmith@mail.com", "john_newyork@mail.com"], ["John", "johnsmith00@mail.com"], ["Mary", "mary@mail.com"]]
-Output: [["John", 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com'], ["Mary", "mary@mail.com"]]
+Output: [["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"], ["John", "johnsmith00@mail.com"], ["Mary", "mary@mail.com"]]
 
 Constraints:
 
@@ -26,16 +26,16 @@ accounts[i][j] (for j > 0) is a valid email.
  * @param {string[][]} accounts
  * @return {string[][]}
  */
-var accountsMerge = function (accounts) {
+var accountsMerge = function (accounts) {};
 
-};
-
-console.log(accountsMerge([
-  ["John", "johnsmith@mail.com", "john00@mail.com"],
-  ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
-  ["John", "johnsmith00@mail.com"],
-  ["Mary", "mary@mail.com"]
-]));
-// [["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"], ["Mary", "mary@mail.com"]]
+console.log(
+    accountsMerge([
+        ["John", "johnsmith@mail.com", "john00@mail.com"],
+        ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
+        ["John", "johnsmith00@mail.com"],
+        ["Mary", "mary@mail.com"]
+    ])
+);
+// [["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"], ["John", "johnsmith00@mail.com"], ["Mary", "mary@mail.com"]]
 
 // node Grind75/5-7.js

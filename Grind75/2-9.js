@@ -21,19 +21,18 @@ The number of nodes in the list is in the range [1, 100].
 1 <= Node.val <= 100
 */
 
-const { ListNode } = require('./lib.js');
+const { ListNode } = require("./lib.js");
 
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) {
+var middleNode = function (head) {};
 
-
-};
-
-console.log(ListNode.toArray(middleNode(ListNode.fromArray([1,2,3,4,5])))); // [3,4,5]
-console.log(ListNode.toArray(middleNode(ListNode.fromArray([1,2,3,4,5,6])))); // [4,5,6]
+console.log(ListNode.toArray(middleNode(ListNode.fromArray([1, 2, 3, 4, 5])))); // [3,4,5]
+console.log(
+    ListNode.toArray(middleNode(ListNode.fromArray([1, 2, 3, 4, 5, 6])))
+); // [4,5,6]
 console.log(ListNode.toArray(middleNode(ListNode.fromArray([1])))); // [1]
 
 // node Grind75/2-9.js

@@ -32,10 +32,7 @@ ransomNote and magazine consist of lowercase English letters.
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function(ransomNote, magazine) {
-
-
-};
+var canConstruct = function (ransomNote, magazine) {};
 
 console.log(canConstruct("a", "b")); // false
 console.log(canConstruct("a", "a")); // true

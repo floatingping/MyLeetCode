@@ -34,12 +34,10 @@ The integer n is in the range [0, 100].
  * @param {number} n
  * @return {number}
  */
-var leastInterval = function (tasks, n) {
+var leastInterval = function (tasks, n) {};
 
-};
-
-console.log(leastInterval(["A","A","A","B","B","B"], 2));              // 8
-console.log(leastInterval(["A","A","A","B","B","B"], 3));              // 10
-console.log(leastInterval(["A","A","A","B","B","B","C","C","C"], 2));  // 9
+console.log(leastInterval(["A", "A", "A", "B", "B", "B"], 2)); // 8
+console.log(leastInterval(["A", "A", "A", "B", "B", "B"], 3)); // 10
+console.log(leastInterval(["A", "A", "A", "B", "B", "B", "C", "C", "C"], 2)); // 9
 
 // node Grind75/7-6.js

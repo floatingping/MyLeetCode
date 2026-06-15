@@ -1,5 +1,5 @@
-var addBinary = function(a, b) {
-    let result = '';
+var addBinary = function (a, b) {
+    let result = "";
     let carry = 0;
     let i = a.length - 1;
     let j = b.length - 1;

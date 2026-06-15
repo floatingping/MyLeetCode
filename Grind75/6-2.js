@@ -13,7 +13,7 @@ Explanation: The array can be partitioned as [1, 5, 5] and [11].
 Example 2:
 
 Input: nums = [2,2,1,1]
-Output: false
+Output: true
 
 Constraints:
 
@@ -25,13 +25,11 @@ Constraints:
  * @param {number[]} nums
  * @return {boolean}
  */
-var canPartition = function (nums) {
+var canPartition = function (nums) {};
 
-};
-
-console.log(canPartition([1,5,11,5]));    // true
-console.log(canPartition([2,2,1,1]));     // false
-console.log(canPartition([1,2,3,5]));     // false
-console.log(canPartition([2,2,1,1]));     // false
+console.log(canPartition([1, 5, 11, 5])); // true
+console.log(canPartition([2, 2, 1, 1])); // true
+console.log(canPartition([1, 2, 3, 5])); // false
+console.log(canPartition([2, 2, 1, 1])); // true
 
 // node Grind75/6-2.js

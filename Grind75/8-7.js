@@ -36,13 +36,11 @@ Every number and running calculation will fit in a signed 32-bit integer.
  * @param {string} s
  * @return {number}
  */
-var calculate = function (s) {
+var calculate = function (s) {};
 
-};
-
-console.log(calculate("1 + 1"));              // 2
-console.log(calculate(" 2-1 + 2 "));          // 3
+console.log(calculate("1 + 1")); // 2
+console.log(calculate(" 2-1 + 2 ")); // 3
 console.log(calculate("(1+(4+5+2)-3)+(6+8)")); // 23
-console.log(calculate("2-(5-6)"));            // 3
+console.log(calculate("2-(5-6)")); // 3
 
 // node Grind75/8-7.js

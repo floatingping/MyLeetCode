@@ -1,4 +1,4 @@
-var maxSubArray = function(nums) {
+var maxSubArray = function (nums) {
     let maxCurrent = nums[0];
     let maxGlobal = nums[0];
 
@@ -10,8 +10,8 @@ var maxSubArray = function(nums) {
     return maxGlobal;
 };
 
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6
 console.log(maxSubArray([5])); // 5
-console.log(maxSubArray([5,-3,5])); // 9
+console.log(maxSubArray([5, -3, 5])); // 7
 
 // node Grind75/2-12_ans.js

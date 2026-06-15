@@ -23,10 +23,7 @@ Both a and b do not contain leading zeros except for the number "0" itself.
  * @param {string} b
  * @return {string}
  */
-var addBinary = function(a, b) {
-
-
-};
+var addBinary = function (a, b) {};
 
 console.log(addBinary("11", "1")); // "100"
 console.log(addBinary("1010", "1011")); // "10101"

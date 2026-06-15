@@ -17,7 +17,7 @@ Output: 5
 
 Example 3:
 Input: nums = [5,-3,5]
-Output: 9
+Output: 7
 
 Constraints:
 1 <= nums.length <= 105
@@ -28,13 +28,10 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function(nums) {
+var maxSubArray = function (nums) {};
 
-
-};
-
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6
 console.log(maxSubArray([5])); // 5
-console.log(maxSubArray([5,-3,5])); // 9
+console.log(maxSubArray([5, -3, 5])); // 7
 
 // node Grind75/2-12.js

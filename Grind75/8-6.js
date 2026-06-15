@@ -39,12 +39,12 @@ All the words in wordList are unique.
  * @param {string[]} wordList
  * @return {number}
  */
-var ladderLength = function (beginWord, endWord, wordList) {
+var ladderLength = function (beginWord, endWord, wordList) {};
 
-};
-
-console.log(ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"]));    // 5
-console.log(ladderLength("hit", "cog", ["hot","dot","dog","lot","log"]));           // 0
-console.log(ladderLength("a", "b", ["b"]));                                         // 2
+console.log(
+    ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"])
+); // 5
+console.log(ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log"])); // 0
+console.log(ladderLength("a", "b", ["b"])); // 2
 
 // node Grind75/8-6.js

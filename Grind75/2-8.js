@@ -22,19 +22,16 @@ The number of nodes in the tree is in the range [1, 104].
 -100 <= Node.val <= 100
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
  * @return {number}
  */
-var diameterOfBinaryTree = function(root) {
+var diameterOfBinaryTree = function (root) {};
 
-
-};
-
-console.log(diameterOfBinaryTree(TreeNode.fromArray([1,2,3,4,5]))); // 3
-console.log(diameterOfBinaryTree(TreeNode.fromArray([1,2]))); // 1
+console.log(diameterOfBinaryTree(TreeNode.fromArray([1, 2, 3, 4, 5]))); // 3
+console.log(diameterOfBinaryTree(TreeNode.fromArray([1, 2]))); // 1
 console.log(diameterOfBinaryTree(TreeNode.fromArray([1]))); // 0
 
 // node Grind75/2-8.js

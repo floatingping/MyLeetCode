@@ -40,13 +40,11 @@ digits[i] is a digit in the range ['2', '9'].
  * @param {string} digits
  * @return {string[]}
  */
-var letterCombinations = function (digits) {
+var letterCombinations = function (digits) {};
 
-};
-
-console.log(letterCombinations("23"));     // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-console.log(letterCombinations(""));       // []
-console.log(letterCombinations("2"));      // ["a","b","c"]
-console.log(letterCombinations("234"));    // 24 combinations
+console.log(letterCombinations("23")); // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+console.log(letterCombinations("")); // []
+console.log(letterCombinations("2")); // ["a","b","c"]
+console.log(letterCombinations("234")); // ["adg","adh","adi","aeg","aeh","aei","afg","afh","afi","bdg","bdh","bdi","beg","beh","bei","bfg","bfh","bfi","cdg","cdh","cdi","ceg","ceh","cei","cfg","cfh","cfi"]
 
 // node Grind75/7-2.js

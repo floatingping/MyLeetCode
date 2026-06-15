@@ -19,19 +19,16 @@ The number of nodes in the tree is in the range [0, 104].
 -100 <= Node.val <= 100
 */
 
-const { TreeNode } = require('./lib.js');
+const { TreeNode } = require("./lib.js");
 
 /**
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+var maxDepth = function (root) {};
 
-
-};
-
-console.log(maxDepth(TreeNode.fromArray([3,9,20,null,null,15,7]))); // 3
-console.log(maxDepth(TreeNode.fromArray([1,null,2]))); // 2
+console.log(maxDepth(TreeNode.fromArray([3, 9, 20, null, null, 15, 7]))); // 3
+console.log(maxDepth(TreeNode.fromArray([1, null, 2]))); // 2
 console.log(maxDepth(TreeNode.fromArray([]))); // 0
 
 // node Grind75/2-10.js

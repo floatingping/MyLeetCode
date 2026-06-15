@@ -9,7 +9,7 @@ The testcases will be generated such that the answer is unique.
 Example 1:
 
 Input: s = "ADOBECODEBANC", t = "ABC"
-Output: "ADOBEC"
+Output: "BANC"
 
 Example 2:
 
@@ -36,12 +36,10 @@ Follow up: Could you find an algorithm that runs in O(m + n) time?
  * @param {string} t
  * @return {string}
  */
-var minWindow = function (s, t) {
+var minWindow = function (s, t) {};
 
-};
-
-console.log(minWindow("ADOBECODEBANC", "ABC"));    // "ADOBEC"
-console.log(minWindow("a", "a"));                   // "a"
-console.log(minWindow("a", "aa"));                  // ""
+console.log(minWindow("ADOBECODEBANC", "ABC")); // "BANC"
+console.log(minWindow("a", "a")); // "a"
+console.log(minWindow("a", "aa")); // ""
 
 // node Grind75/8-2.js

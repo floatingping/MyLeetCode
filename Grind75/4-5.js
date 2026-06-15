@@ -40,38 +40,28 @@ Methods pop, top and getMin operations will always be called on non-empty stacks
 At most 3 * 104 calls will be made to push, pop, top, and getMin.
 */
 
-var MinStack = function () {
-
-};
+var MinStack = function () {};
 
 /**
  * @param {number} val
  * @return {void}
  */
-MinStack.prototype.push = function (val) {
-
-};
+MinStack.prototype.push = function (val) {};
 
 /**
  * @return {void}
  */
-MinStack.prototype.pop = function () {
-
-};
+MinStack.prototype.pop = function () {};
 
 /**
  * @return {number}
  */
-MinStack.prototype.top = function () {
-
-};
+MinStack.prototype.top = function () {};
 
 /**
  * @return {number}
  */
-MinStack.prototype.getMin = function () {
-
-};
+MinStack.prototype.getMin = function () {};
 
 /**
  * Your MinStack object will be instantiated and called as such:
@@ -87,9 +77,9 @@ let minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
 minStack.push(-3);
-console.log(minStack.getMin());  // -3
+console.log(minStack.getMin()); // -3
 minStack.pop();
-console.log(minStack.top());     // 0
-console.log(minStack.getMin());  // -2
+console.log(minStack.top()); // 0
+console.log(minStack.getMin()); // -2
 
 // node Grind75/4-5.js

@@ -36,10 +36,10 @@ Trie.prototype._findNode = function (word) {
 // Test cases
 let trie = new Trie();
 trie.insert("apple");
-console.log(trie.search("apple"));   // true
-console.log(trie.search("app"));     // false
+console.log(trie.search("apple")); // true
+console.log(trie.search("app")); // false
 console.log(trie.startsWith("app")); // true
 trie.insert("app");
-console.log(trie.search("app"));     // true
+console.log(trie.search("app")); // true
 
 // node Grind75/4-2_ans.js
