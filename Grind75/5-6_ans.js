@@ -39,3 +39,5 @@ console.log(timeMap.get("foo", 3));      // "bar"
 timeMap.set("foo", "baz", 3);
 console.log(timeMap.get("foo", 3));      // "baz"
 console.log(timeMap.get("foo", 4));      // "baz"
+
+// node Grind75/5-6_ans.js

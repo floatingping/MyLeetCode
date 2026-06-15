@@ -29,3 +29,5 @@ console.log(letterCombinations("23"));     // ["ad","ae","af","bd","be","bf","cd
 console.log(letterCombinations(""));       // []
 console.log(letterCombinations("2"));      // ["a","b","c"]
 console.log(letterCombinations("234"));    // 24 combinations
+
+// node Grind75/7-2_ans.js

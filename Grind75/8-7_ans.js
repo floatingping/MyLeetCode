@@ -49,3 +49,5 @@ console.log(calculate("1 + 1"));              // 2
 console.log(calculate(" 2-1 + 2 "));          // 3
 console.log(calculate("(1+(4+5+2)-3)+(6+8)")); // 23
 console.log(calculate("2-(5-6)"));            // 3
+
+// node Grind75/8-7_ans.js

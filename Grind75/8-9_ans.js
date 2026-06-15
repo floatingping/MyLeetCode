@@ -42,3 +42,5 @@ console.log(ListNode.toArray(mergeKLists([list1, list2, list3])));    // [1,1,2,
 
 console.log(ListNode.toArray(mergeKLists([])));                        // []
 console.log(ListNode.toArray(mergeKLists([null])));                    // []
+
+// node Grind75/8-9_ans.js

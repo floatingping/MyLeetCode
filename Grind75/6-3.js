@@ -47,3 +47,5 @@ console.log(myAtoi(" -042"));           // -42
 console.log(myAtoi("1337c0d3"));        // 1337
 console.log(myAtoi("0-1"));             // 0
 console.log(myAtoi("-91283472332"));    // -2147483648
+
+// node Grind75/6-3.js

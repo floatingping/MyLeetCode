@@ -34,3 +34,5 @@ var productExceptSelf = function (nums) {
 console.log(productExceptSelf([1, 2, 3, 4]));        // [24,12,8,6]
 console.log(productExceptSelf([-1, 1, 0, -3, 3]));   // [0,0,9,0,0]
 console.log(productExceptSelf([2, 3, 4, 5]));        // [60,40,30,24]
+
+// node Grind75/4-4.js

@@ -19,3 +19,5 @@ console.log(wordBreak("leetcode", ["leet","code"]));                         // 
 console.log(wordBreak("applepenapple", ["apple","pen"]));                    // true
 console.log(wordBreak("catsandsandcatsandcatsanddog", ["cat","cats","and","sand","dog"]));  // false
 console.log(wordBreak("ab", ["a"]));                                         // false
+
+// node Grind75/6-1_ans.js

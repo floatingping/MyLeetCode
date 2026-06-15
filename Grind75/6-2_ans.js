@@ -20,3 +20,5 @@ console.log(canPartition([1,5,11,5]));    // true
 console.log(canPartition([2,2,1,1]));     // false
 console.log(canPartition([1,2,3,5]));     // false
 console.log(canPartition([2,2,1,1]));     // false
+
+// node Grind75/6-2_ans.js

@@ -80,3 +80,5 @@ console.log(trie.search("app"));     // false
 console.log(trie.startsWith("app")); // true
 trie.insert("app");
 console.log(trie.search("app"));     // true
+
+// node Grind75/4-2.js

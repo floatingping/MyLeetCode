@@ -37,3 +37,5 @@ var permute = function (nums) {
 console.log(permute([1,2,3]));    // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 console.log(permute([0,1]));      // [[0,1],[1,0]]
 console.log(permute([1]));        // [[1]]
+
+// node Grind75/5-3.js

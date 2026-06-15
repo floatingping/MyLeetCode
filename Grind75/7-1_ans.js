@@ -21,3 +21,5 @@ var maxArea = function (height) {
 console.log(maxArea([1,8,6,2,5,4,8,3,7]));    // 49
 console.log(maxArea([1,1]));                   // 1
 console.log(maxArea([2,3,4,5,18,17,6]));      // 17
+
+// node Grind75/7-1_ans.js

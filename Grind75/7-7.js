@@ -80,3 +80,5 @@ cache.put(4, 4);
 console.log(cache.get(1));    // -1
 console.log(cache.get(3));    // 3
 console.log(cache.get(4));    // 4
+
+// node Grind75/7-7.js

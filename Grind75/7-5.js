@@ -43,3 +43,5 @@ console.log(findMinHeightTrees(4, [[1,0],[1,2],[1,3]]));      // [1]
 console.log(findMinHeightTrees(6, [[3,0],[3,1],[3,2],[3,4],[3,5]]));  // [3]
 console.log(findMinHeightTrees(1, []));                        // [0]
 console.log(findMinHeightTrees(2, [[0,1]]));                   // [0,1]
+
+// node Grind75/7-5.js

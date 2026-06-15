@@ -44,3 +44,5 @@ console.log(lowestCommonAncestor(root, TreeNode.findNode(root, 5), TreeNode.find
 
 root = TreeNode.fromArray([3,5,1,6,2,0,8,null,null,7,4]);
 console.log(lowestCommonAncestor(root, TreeNode.findNode(root, 5), TreeNode.findNode(root, 4)).val);  // 5
+
+// node Grind75/5-5.js

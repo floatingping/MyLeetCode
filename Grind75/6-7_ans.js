@@ -32,3 +32,5 @@ console.log(longestPalindrome("babad"));    // "bab" or "aba"
 console.log(longestPalindrome("cbbd"));     // "bb"
 console.log(longestPalindrome("a"));        // "a"
 console.log(longestPalindrome("ac"));       // "a" or "c"
+
+// node Grind75/6-7_ans.js

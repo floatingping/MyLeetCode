@@ -37,3 +37,5 @@ var kthSmallest = function (root, k) {
 console.log(kthSmallest(TreeNode.fromArray([3,1,4,null,2]), 1));         // 1
 console.log(kthSmallest(TreeNode.fromArray([5,3,6,2,4,null,null,1]), 3)); // 3
 console.log(kthSmallest(TreeNode.fromArray([1]), 1));                    // 1
+
+// node Grind75/8-1.js

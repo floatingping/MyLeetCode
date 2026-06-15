@@ -28,3 +28,5 @@ var largestRectangleArea = function (heights) {
 console.log(largestRectangleArea([2,1,5,6,2,3]));    // 10
 console.log(largestRectangleArea([2,1,2]));           // 2
 console.log(largestRectangleArea([0,9]));             // 9
+
+// node Grind75/8-10_ans.js

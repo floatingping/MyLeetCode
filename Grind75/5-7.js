@@ -37,3 +37,5 @@ console.log(accountsMerge([
   ["Mary", "mary@mail.com"]
 ]));
 // [["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"], ["Mary", "mary@mail.com"]]
+
+// node Grind75/5-7.js

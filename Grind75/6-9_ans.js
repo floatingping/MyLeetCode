@@ -14,3 +14,5 @@ var buildTree = function (preorder, inorder) {
 
 console.log(TreeNode.toArray(buildTree([3,9,20,15,7], [9,3,15,20,7])));    // [3,9,20,null,null,15,7]
 console.log(TreeNode.toArray(buildTree([-1], [-1])));                       // [-1]
+
+// node Grind75/6-9_ans.js

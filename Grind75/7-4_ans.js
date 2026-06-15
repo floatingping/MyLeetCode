@@ -33,3 +33,5 @@ var findAnagrams = function (s, p) {
 console.log(findAnagrams("cbaebabacd", "abc"));    // [0,6]
 console.log(findAnagrams("abab", "ab"));           // [0,1,2]
 console.log(findAnagrams("a", "a"));               // [0]
+
+// node Grind75/7-4_ans.js

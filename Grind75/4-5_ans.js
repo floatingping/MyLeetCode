@@ -34,3 +34,5 @@ console.log(minStack.getMin());  // -3
 minStack.pop();
 console.log(minStack.top());     // 0
 console.log(minStack.getMin());  // -2
+
+// node Grind75/4-5_ans.js

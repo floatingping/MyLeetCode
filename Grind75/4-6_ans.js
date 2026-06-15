@@ -18,3 +18,5 @@ console.log(isValidBST(TreeNode.fromArray([2, 1, 3])));           // true
 console.log(isValidBST(TreeNode.fromArray([5, 1, 4, null, null, 3, 6]))); // false
 console.log(isValidBST(TreeNode.fromArray([1])));                 // true
 console.log(isValidBST(TreeNode.fromArray([1, 2])));              // false
+
+// node Grind75/4-6_ans.js

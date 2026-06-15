@@ -44,3 +44,5 @@ var minWindow = function (s, t) {
 console.log(minWindow("ADOBECODEBANC", "ABC"));    // "ADOBEC"
 console.log(minWindow("a", "a"));                   // "a"
 console.log(minWindow("a", "aa"));                  // ""
+
+// node Grind75/8-2_ans.js

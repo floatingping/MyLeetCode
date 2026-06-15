@@ -52,3 +52,5 @@ var jobScheduling = function (startTime, endTime, profit) {
 console.log(jobScheduling([1,2,3,3], [3,4,5,6], [50,10,40,70]));           // 120
 console.log(jobScheduling([1,2,3,4,6], [3,5,7,6,9], [20,20,100,70,60]));   // 150
 console.log(jobScheduling([1,1,1], [2,3,4], [5,6,4]));                     // 6
+
+// node Grind75/8-8.js

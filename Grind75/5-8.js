@@ -43,3 +43,5 @@ console.log(arr1);  // [0,0,1,1,2,2]
 let arr2 = [2,0,1];
 sortColors(arr2);
 console.log(arr2);  // [0,1,2]
+
+// node Grind75/5-8.js

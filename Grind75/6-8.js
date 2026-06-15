@@ -41,3 +41,5 @@ console.log(uniquePaths(3, 7));    // 28
 console.log(uniquePaths(3, 2));    // 3
 console.log(uniquePaths(1, 1));    // 1
 console.log(uniquePaths(2, 2));    // 2
+
+// node Grind75/6-8.js
