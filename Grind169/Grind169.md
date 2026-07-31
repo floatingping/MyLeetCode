@@ -1,0 +1,186 @@
+# Grind169
+
+## Week 1
+- 1-1 | Two Sum | Easy | 15 mins
+- 1-2 | Valid Parentheses | Easy | 20 mins
+- 1-3 | Merge Two Sorted Lists | Easy | 20 mins
+- 1-4 | Best Time to Buy and Sell Stock | Easy | 20 mins
+- 1-5 | Valid Palindrome | Easy | 15 mins
+- 1-6 | Invert Binary Tree | Easy | 15 mins
+- 1-7 | Valid Anagram | Easy | 15 mins
+- 1-8 | Binary Search | Easy | 15 mins
+- 1-9 | Flood Fill | Easy | 20 mins
+- 1-10 | Lowest Common Ancestor of a Binary Search Tree | Easy | 20 mins
+- 1-11 | Balanced Binary Tree | Easy | 15 mins
+- 1-12 | Linked List Cycle | Easy | 20 mins
+- 1-13 | Implement Queue using Stacks | Easy | 20 mins
+- 1-14 | First Bad Version | Easy | 20 mins
+- 1-15 | Ransom Note | Easy | 15 mins
+- 1-16 | Climbing Stairs | Easy | 20 mins
+- 1-17 | Longest Palindrome | Easy | 20 mins
+- 1-18 | Reverse Linked List | Easy | 20 mins
+- 1-19 | Majority Element | Easy | 20 mins
+- 1-20 | Add Binary | Easy | 15 mins
+- 1-21 | Diameter of Binary Tree | Easy | 30 mins
+- 1-22 | Middle of the Linked List | Easy | 20 mins
+- 1-23 | Maximum Depth of Binary Tree | Easy | 15 mins
+- 1-24 | Contains Duplicate | Easy | 15 mins
+- 1-25 | Meeting Rooms | Easy | 20 mins
+- 1-26 | Roman to Integer | Easy | 20 mins
+- 1-27 | Backspace String Compare | Easy | 15 mins
+- 1-28 | Counting Bits | Easy | 15 mins
+- 1-29 | Same Tree | Easy | 20 mins
+- 1-30 | Number of 1 Bits | Easy | 15 mins
+- 1-31 | Longest Common Prefix | Easy | 20 mins
+- 1-32 | Single Number | Easy | 15 mins
+
+## Week 2
+- 2-1 | Palindrome Linked List | Easy | 20 mins
+- 2-2 | Move Zeroes | Easy | 20 mins
+- 2-3 | Symmetric Tree | Easy | 20 mins
+- 2-4 | Missing Number | Easy | 15 mins
+- 2-5 | Palindrome Number | Easy | 15 mins
+- 2-6 | Convert Sorted Array to Binary Search Tree | Easy | 20 mins
+- 2-7 | Reverse Bits | Easy | 15 mins
+- 2-8 | Subtree of Another Tree | Easy | 20 mins
+- 2-9 | Squares of a Sorted Array | Easy | 20 mins
+- 2-10 | Maximum Subarray | Medium | 20 mins
+- 2-11 | Insert Interval | Medium | 25 mins
+- 2-12 | 01 Matrix | Medium | 30 mins
+- 2-13 | K Closest Points to Origin | Medium | 30 mins
+- 2-14 | Longest Substring Without Repeating Characters | Medium | 30 mins
+- 2-15 | 3Sum | Medium | 30 mins
+- 2-16 | Binary Tree Level Order Traversal | Medium | 20 mins
+- 2-17 | Clone Graph | Medium | 25 mins
+- 2-18 | Evaluate Reverse Polish Notation | Medium | 30 mins
+- 2-19 | Course Schedule | Medium | 30 mins
+- 2-20 | Implement Trie (Prefix Tree) | Medium | 35 mins
+- 2-21 | Coin Change | Medium | 25 mins
+- 2-22 | Product of Array Except Self | Medium | 30 mins
+- 2-23 | Min Stack | Medium | 20 mins
+- 2-24 | Validate Binary Search Tree | Medium | 20 mins
+
+## Week 3
+- 3-1 | Number of Islands | Medium | 25 mins
+- 3-2 | Rotting Oranges | Medium | 30 mins
+- 3-3 | Search in Rotated Sorted Array | Medium | 30 mins
+- 3-4 | Combination Sum | Medium | 30 mins
+- 3-5 | Permutations | Medium | 30 mins
+- 3-6 | Merge Intervals | Medium | 30 mins
+- 3-7 | Lowest Common Ancestor of a Binary Tree | Medium | 25 mins
+- 3-8 | Time Based Key-Value Store | Medium | 35 mins
+- 3-9 | Accounts Merge | Medium | 30 mins
+- 3-10 | Sort Colors | Medium | 25 mins
+- 3-11 | Word Break | Medium | 30 mins
+- 3-12 | Partition Equal Subset Sum | Medium | 30 mins
+- 3-13 | String to Integer (atoi) | Medium | 25 mins
+- 3-14 | Spiral Matrix | Medium | 25 mins
+- 3-15 | Subsets | Medium | 30 mins
+- 3-16 | Binary Tree Right Side View | Medium | 20 mins
+- 3-17 | Longest Palindromic Substring | Medium | 25 mins
+- 3-18 | Unique Paths | Medium | 20 mins
+- 3-19 | Construct Binary Tree from Preorder and Inorder Traversal | Medium | 25 mins
+- 3-20 | Container With Most Water | Medium | 35 mins
+
+## Week 4
+- 4-1 | Letter Combinations of a Phone Number | Medium | 30 mins
+- 4-2 | Word Search | Medium | 30 mins
+- 4-3 | Find All Anagrams in a String | Medium | 30 mins
+- 4-4 | Minimum Height Trees | Medium | 30 mins
+- 4-5 | Task Scheduler | Medium | 35 mins
+- 4-6 | LRU Cache | Medium | 30 mins
+- 4-7 | Kth Smallest Element in a BST | Medium | 25 mins
+- 4-8 | Daily Temperatures | Medium | 30 mins
+- 4-9 | House Robber | Medium | 25 mins
+- 4-10 | Gas Station | Medium | 30 mins
+- 4-11 | Next Permutation | Medium | 30 mins
+- 4-12 | Valid Sudoku | Medium | 35 mins
+- 4-13 | Group Anagrams | Medium | 25 mins
+- 4-14 | Maximum Product Subarray | Medium | 30 mins
+- 4-15 | Design Add and Search Words Data Structure | Medium | 35 mins
+- 4-16 | Pacific Atlantic Water Flow | Medium | 30 mins
+- 4-17 | Remove Nth Node From End of List | Medium | 20 mins
+- 4-18 | Shortest Path to Get Food | Medium | 30 mins
+- 4-19 | Find the Duplicate Number | Medium | 20 mins
+- 4-20 | Top K Frequent Words | Medium | 30 mins
+
+## Week 5
+- 5-1 | Longest Increasing Subsequence | Medium | 30 mins
+- 5-2 | Graph Valid Tree | Medium | 30 mins
+- 5-3 | Course Schedule II | Medium | 35 mins
+- 5-4 | Swap Nodes in Pairs | Medium | 25 mins
+- 5-5 | Path Sum II | Medium | 25 mins
+- 5-6 | Longest Consecutive Sequence | Medium | 30 mins
+- 5-7 | Rotate Array | Medium | 25 mins
+- 5-8 | Odd Even Linked List | Medium | 25 mins
+- 5-9 | Decode String | Medium | 30 mins
+- 5-10 | Contiguous Array | Medium | 30 mins
+- 5-11 | Maximum Width of Binary Tree | Medium | 20 mins
+- 5-12 | Find K Closest Elements | Medium | 30 mins
+- 5-13 | Longest Repeating Character Replacement | Medium | 30 mins
+- 5-14 | Inorder Successor in BST | Medium | 30 mins
+- 5-15 | Jump Game | Medium | 20 mins
+- 5-16 | Add Two Numbers | Medium | 25 mins
+- 5-17 | Generate Parentheses | Medium | 25 mins
+- 5-18 | Sort List | Medium | 25 mins
+- 5-19 | Number of Connected Components in an Undirected Graph | Medium | 30 mins
+- 5-20 | Minimum Knight Moves | Medium | 35 mins
+
+## Week 6
+- 6-1 | Subarray Sum Equals K | Medium | 35 mins
+- 6-2 | Asteroid Collision | Medium | 30 mins
+- 6-3 | Random Pick with Weight | Medium | 25 mins
+- 6-4 | Kth Largest Element in an Array | Medium | 30 mins
+- 6-5 | Maximal Square | Medium | 30 mins
+- 6-6 | Rotate Image | Medium | 25 mins
+- 6-7 | Binary Tree Zigzag Level Order Traversal | Medium | 25 mins
+- 6-8 | Design Hit Counter | Medium | 30 mins
+- 6-9 | Path Sum III | Medium | 35 mins
+- 6-10 | Pow(x, n) | Medium | 20 mins
+- 6-11 | Search a 2D Matrix | Medium | 30 mins
+- 6-12 | Largest Number | Medium | 20 mins
+- 6-13 | Decode Ways | Medium | 25 mins
+- 6-14 | Meeting Rooms II | Medium | 30 mins
+- 6-15 | Reverse Integer | Medium | 25 mins
+- 6-16 | Set Matrix Zeroes | Medium | 25 mins
+- 6-17 | Reorder List | Medium | 25 mins
+- 6-18 | Encode and Decode Strings | Medium | 25 mins
+- 6-19 | Cheapest Flights Within K Stops | Medium | 45 mins
+- 6-20 | All Nodes Distance K in Binary Tree | Medium | 25 mins
+
+## Week 7
+- 7-1 | 3Sum Closest | Medium | 30 mins
+- 7-2 | Rotate List | Medium | 25 mins
+- 7-3 | Find Minimum in Rotated Sorted Array | Medium | 30 mins
+- 7-4 | Basic Calculator II | Medium | 30 mins
+- 7-5 | Combination Sum IV | Medium | 35 mins
+- 7-6 | Insert Delete GetRandom O(1) | Medium | 20 mins
+- 7-7 | Non-overlapping Intervals | Medium | 20 mins
+- 7-8 | Minimum Window Substring | Hard | 30 mins
+- 7-9 | Serialize and Deserialize Binary Tree | Hard | 40 mins
+- 7-10 | Trapping Rain Water | Hard | 35 mins
+- 7-11 | Find Median from Data Stream | Hard | 30 mins
+- 7-12 | Word Ladder | Hard | 45 mins
+- 7-13 | Basic Calculator | Hard | 40 mins
+- 7-14 | Maximum Profit in Job Scheduling | Hard | 45 mins
+- 7-15 | Merge k Sorted Lists | Hard | 30 mins
+- 7-16 | Largest Rectangle in Histogram | Hard | 35 mins
+- 7-17 | Binary Tree Maximum Path Sum | Hard | 35 mins
+
+## Week 8
+- 8-1 | Maximum Frequency Stack | Hard | 40 mins
+- 8-2 | Median of Two Sorted Arrays | Hard | 40 mins
+- 8-3 | Longest Increasing Path in a Matrix | Hard | 40 mins
+- 8-4 | Longest Valid Parentheses | Hard | 35 mins
+- 8-5 | Design In-Memory File System | Hard | 40 mins
+- 8-6 | Employee Free Time | Hard | 35 mins
+- 8-7 | Word Search II | Hard | 40 mins
+- 8-8 | Alien Dictionary | Hard | 45 mins
+- 8-9 | Bus Routes | Hard | 45 mins
+- 8-10 | Sliding Window Maximum | Hard | 35 mins
+- 8-11 | Palindrome Pairs | Hard | 40 mins
+- 8-12 | Reverse Nodes in k-Group | Hard | 35 mins
+- 8-13 | Sudoku Solver | Hard | 40 mins
+- 8-14 | First Missing Positive | Hard | 35 mins
+- 8-15 | N-Queens | Hard | 40 mins
+- 8-16 | Smallest Range Covering Elements from K Lists | Hard | 40 mins
