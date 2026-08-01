@@ -18,6 +18,8 @@ Constraints:
 - -10^4 <= Node.val <= 10^4
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {TreeNode} subRoot
@@ -27,7 +29,12 @@ var isSubtree = function (root, subRoot) {
 
 };
 
-console.log(isSubtree({ val: 3, left: { val: 4, left: { val: 1 }, right: { val: 2 } }, right: { val: 5 } }, { val: 4, left: { val: 1 }, right: { val: 2 } })); // true
-console.log(isSubtree({ val: 3, left: { val: 4, left: { val: 1 }, right: { val: 2, left: { val: 0 } } }, right: { val: 5 } }, { val: 4, left: { val: 1 }, right: { val: 2 } })); // false
+let root = TreeNode.fromArray([3, 4, 5, 1, 2]);
+let subRoot = TreeNode.fromArray([4, 1, 2]);
+console.log(isSubtree(root, subRoot)); // true
+
+root = TreeNode.fromArray([3, 4, 5, 1, 2, null, null, null, null, 0]);
+subRoot = TreeNode.fromArray([4, 1, 2]);
+console.log(isSubtree(root, subRoot)); // false
 
 // node Grind169/2-8.js

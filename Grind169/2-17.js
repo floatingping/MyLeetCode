@@ -18,6 +18,8 @@ Constraints:
 - Node.val is unique for each node.
 */
 
+const Node = require('./libs/Node');
+
 /**
  * @param {Node} node
  * @return {Node}
@@ -26,11 +28,10 @@ var cloneGraph = function (node) {
 
 };
 
-const firstGraph = { val: 1, neighbors: [] };
-const secondGraph = { val: 2, neighbors: [] };
-firstGraph.neighbors = [secondGraph];
-secondGraph.neighbors = [firstGraph];
-console.log(cloneGraph(firstGraph)); // a deep copy of the graph
-console.log(cloneGraph({ val: 1, neighbors: [] })); // a deep copy of the single node
+let graph = Node.fromAdjacencyList([[2, 4], [1, 3], [2, 4], [1, 3]]);
+console.log(Node.toAdjacencyList(cloneGraph(graph))); // [[2, 4], [1, 3], [2, 4], [1, 3]]
+
+graph = Node.fromAdjacencyList([[]]);
+console.log(Node.toAdjacencyList(cloneGraph(graph))); // [[]]
 
 // node Grind169/2-17.js

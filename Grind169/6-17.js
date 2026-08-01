@@ -20,6 +20,8 @@ Constraints:
 - 1 <= Node.val <= 1000
 */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode|null} head
  * @return {void}
@@ -28,8 +30,12 @@ var reorderList = function (head) {
 
 };
 
-const reorderedHead = { val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: null } } } };
-reorderList(reorderedHead);
-console.log(reorderedHead); // 1 -> 4 -> 2 -> 3
+let head = ListNode.fromArray([1, 2, 3, 4]);
+reorderList(head);
+console.log(ListNode.toArray(head)); // [1, 4, 2, 3]
+
+head = ListNode.fromArray([1, 2, 3, 4, 5]);
+reorderList(head);
+console.log(ListNode.toArray(head)); // [1, 5, 2, 4, 3]
 
 // node Grind169/6-17.js

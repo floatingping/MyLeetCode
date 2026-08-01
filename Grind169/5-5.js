@@ -31,6 +31,8 @@ Constraints:
  * }
  */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {number} targetSum
@@ -40,12 +42,10 @@ var pathSum = function (root, targetSum) {
 
 };
 
-const pathSumRoot = {
-	val: 5,
-	left: { val: 4, left: { val: 11, left: { val: 7 }, right: { val: 2 } } },
-	right: { val: 8, left: { val: 13 }, right: { val: 4, left: { val: 5 }, right: { val: 1 } } }
-};
-console.log(pathSum(pathSumRoot, 22)); // [[5, 4, 11, 2], [5, 8, 4, 5]]
-console.log(pathSum({ val: 1, left: { val: 2 }, right: { val: 3 } }, 5)); // []
+let tree = TreeNode.fromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
+console.log(pathSum(tree, 22)); // [[5, 4, 11, 2], [5, 8, 4, 5]]
+
+tree = TreeNode.fromArray([1, 2, 3]);
+console.log(pathSum(tree, 5)); // []
 
 // node Grind169/5-5.js

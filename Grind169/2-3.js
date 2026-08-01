@@ -17,6 +17,8 @@ Constraints:
 - -100 <= Node.val <= 100
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {boolean}
@@ -25,7 +27,10 @@ var isSymmetric = function (root) {
 
 };
 
-console.log(isSymmetric({ val: 1, left: { val: 2, left: { val: 3 }, right: { val: 4 } }, right: { val: 2, left: { val: 4 }, right: { val: 3 } } })); // true
-console.log(isSymmetric({ val: 1, left: { val: 2, right: { val: 3 } }, right: { val: 2, right: { val: 3 } } })); // false
+let tree = TreeNode.fromArray([1, 2, 2, 3, 4, 4, 3]);
+console.log(isSymmetric(tree)); // true
+
+tree = TreeNode.fromArray([1, 2, 2, null, 3, null, 3]);
+console.log(isSymmetric(tree)); // false
 
 // node Grind169/2-3.js

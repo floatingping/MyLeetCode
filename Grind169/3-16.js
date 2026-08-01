@@ -24,7 +24,7 @@ Constraints:
 - -100 <= Node.val <= 100
 */
 
-/** @typedef {{ val: number, left: TreeNode|null, right: TreeNode|null }} TreeNode */
+const TreeNode = require('./libs/TreeNode');
 
 /**
  * @param {TreeNode|null} root
@@ -34,13 +34,12 @@ var rightSideView = function (root) {
 
 };
 
-const rightViewRoot = {
-	val: 1,
-	left: { val: 2, left: null, right: { val: 5, left: null, right: null } },
-	right: { val: 3, left: null, right: { val: 4, left: null, right: null } }
-};
-console.log(rightSideView(rightViewRoot)); // [1, 3, 4]
-console.log(rightSideView({ val: 1, left: null, right: { val: 3, left: null, right: null } })); // [1, 3]
+let tree = TreeNode.fromArray([1, 2, 3, null, 5, null, 4]);
+console.log(rightSideView(tree)); // [1, 3, 4]
+
+tree = TreeNode.fromArray([1, null, 3]);
+console.log(rightSideView(tree)); // [1, 3]
+
 console.log(rightSideView(null)); // []
 
 // node Grind169/3-16.js

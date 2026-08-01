@@ -19,6 +19,8 @@ Constraints:
 - -100 <= Node.val <= 100
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode|null} root
  * @return {number[][]}
@@ -27,8 +29,9 @@ var zigzagLevelOrder = function (root) {
 
 };
 
-const zigzagRoot = { val: 3, left: { val: 9 }, right: { val: 20, left: { val: 15 }, right: { val: 7 } } };
-console.log(zigzagLevelOrder(zigzagRoot)); // [[3], [20, 9], [15, 7]]
+let tree = TreeNode.fromArray([3, 9, 20, null, null, 15, 7]);
+console.log(zigzagLevelOrder(tree)); // [[3], [20, 9], [15, 7]]
+
 console.log(zigzagLevelOrder(null)); // []
 
 // node Grind169/6-7.js

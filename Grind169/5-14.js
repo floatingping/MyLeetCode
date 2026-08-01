@@ -28,6 +28,8 @@ Constraints:
  * }
  */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
@@ -37,7 +39,12 @@ var inorderSuccessor = function (root, p) {
 
 };
 
-console.log(inorderSuccessor({ val: 2, left: { val: 1 }, right: { val: 3 } }, { val: 1 })); // TreeNode with val 2
-console.log(inorderSuccessor({ val: 5, left: { val: 3 }, right: { val: 6 } }, { val: 6 })); // null
+let tree = TreeNode.fromArray([2, 1, 3]);
+let pNode = TreeNode.findNode(tree, 1);
+console.log(inorderSuccessor(tree, pNode)?.val); // 2
+
+tree = TreeNode.fromArray([5, 3, 6, 2, 4, null, null, 1]);
+pNode = TreeNode.findNode(tree, 6);
+console.log(inorderSuccessor(tree, pNode)); // null
 
 // node Grind169/5-14.js

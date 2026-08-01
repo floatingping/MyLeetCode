@@ -17,6 +17,8 @@ Constraints:
 - 0 <= Node.val <= 9
 */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {boolean}
@@ -25,7 +27,10 @@ var isPalindrome = function (head) {
 
 };
 
-console.log(isPalindrome({ val: 1, next: { val: 2, next: { val: 2, next: { val: 1, next: null } } } })); // true
-console.log(isPalindrome({ val: 1, next: { val: 2, next: null } })); // false
+let head = ListNode.fromArray([1, 2, 2, 1]);
+console.log(isPalindrome(head)); // true
+
+head = ListNode.fromArray([1, 2]);
+console.log(isPalindrome(head)); // false
 
 // node Grind169/2-1.js

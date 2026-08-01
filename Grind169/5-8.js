@@ -25,6 +25,8 @@ Constraints:
  * }
  */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -33,7 +35,10 @@ var oddEvenList = function (head) {
 
 };
 
-console.log(oddEvenList({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: { val: 5, next: null } } } } })); // [1, 3, 5, 2, 4]
-console.log(oddEvenList({ val: 2, next: { val: 1, next: { val: 3, next: null } } })); // [2, 3, 1]
+let head = ListNode.fromArray([1, 2, 3, 4, 5]);
+console.log(ListNode.toArray(oddEvenList(head))); // [1, 3, 5, 2, 4]
+
+head = ListNode.fromArray([2, 1, 3]);
+console.log(ListNode.toArray(oddEvenList(head))); // [2, 3, 1]
 
 // node Grind169/5-8.js

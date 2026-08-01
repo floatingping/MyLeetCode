@@ -29,6 +29,8 @@ Constraints:
  * }
  */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -37,8 +39,12 @@ var swapPairs = function (head) {
 
 };
 
-console.log(swapPairs({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: null } } } })); // [2, 1, 4, 3]
-console.log(swapPairs(null)); // []
-console.log(swapPairs({ val: 1, next: null })); // [1]
+let head = ListNode.fromArray([1, 2, 3, 4]);
+console.log(ListNode.toArray(swapPairs(head))); // [2, 1, 4, 3]
+
+console.log(swapPairs(null)); // null
+
+head = ListNode.fromArray([1]);
+console.log(ListNode.toArray(swapPairs(head))); // [1]
 
 // node Grind169/5-4.js

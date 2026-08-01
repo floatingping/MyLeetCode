@@ -30,6 +30,8 @@ Constraints:
  * }
  */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {number}
@@ -38,17 +40,10 @@ var widthOfBinaryTree = function (root) {
 
 };
 
-const firstWidthRoot = {
-	val: 1,
-	left: { val: 3, left: { val: 5 }, right: { val: 3 } },
-	right: { val: 2, right: { val: 9 } }
-};
-const secondWidthRoot = {
-	val: 1,
-	left: { val: 3, left: { val: 5, left: { val: 6 } } },
-	right: { val: 2, right: { val: 9, right: { val: 7 } } }
-};
-console.log(widthOfBinaryTree(firstWidthRoot)); // 4
-console.log(widthOfBinaryTree(secondWidthRoot)); // 7
+let tree = TreeNode.fromArray([1, 3, 2, 5, 3, null, 9]);
+console.log(widthOfBinaryTree(tree)); // 4
+
+tree = TreeNode.fromArray([1, 3, 2, 5, null, null, 9, 6, null, 7]);
+console.log(widthOfBinaryTree(tree)); // 7
 
 // node Grind169/5-11.js

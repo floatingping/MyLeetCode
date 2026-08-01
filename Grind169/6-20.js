@@ -23,6 +23,8 @@ Constraints:
 - 0 <= k <= 1000
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {TreeNode} target
@@ -33,8 +35,12 @@ var distanceK = function (root, target, k) {
 
 };
 
-const distanceRoot = { val: 3, left: { val: 5, left: { val: 6 }, right: { val: 2, left: { val: 7 }, right: { val: 4 } } }, right: { val: 1, left: { val: 0 }, right: { val: 8 } } };
-console.log(distanceK(distanceRoot, distanceRoot.left, 2)); // [7, 4, 1] in any order
-console.log(distanceK({ val: 1 }, { val: 1 }, 3)); // []
+let tree = TreeNode.fromArray([3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]);
+let target = TreeNode.findNode(tree, 5);
+console.log(distanceK(tree, target, 2)); // [7, 4, 1] in any order
+
+tree = TreeNode.fromArray([1]);
+target = TreeNode.findNode(tree, 1);
+console.log(distanceK(tree, target, 3)); // []
 
 // node Grind169/6-20.js

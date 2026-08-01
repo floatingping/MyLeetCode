@@ -23,6 +23,8 @@ Constraints:
  * }
  */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @param {number} k
@@ -32,7 +34,10 @@ var reverseKGroup = function (head, k) {
 
 };
 
-console.log(reverseKGroup({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: { val: 5, next: null } } } } }, 2)); // 2 -> 1 -> 4 -> 3 -> 5
-console.log(reverseKGroup({ val: 1, next: { val: 2, next: { val: 3, next: { val: 4, next: { val: 5, next: null } } } } }, 3)); // 3 -> 2 -> 1 -> 4 -> 5
+let head = ListNode.fromArray([1, 2, 3, 4, 5]);
+console.log(ListNode.toArray(reverseKGroup(head, 2))); // [2, 1, 4, 3, 5]
+
+head = ListNode.fromArray([1, 2, 3, 4, 5]);
+console.log(ListNode.toArray(reverseKGroup(head, 3))); // [3, 2, 1, 4, 5]
 
 // node Grind169/8-12.js

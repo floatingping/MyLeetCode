@@ -31,6 +31,8 @@ Constraints:
  * }
  */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -40,7 +42,12 @@ var addTwoNumbers = function (l1, l2) {
 
 };
 
-console.log(addTwoNumbers({ val: 2, next: { val: 4, next: { val: 3, next: null } } }, { val: 5, next: { val: 6, next: { val: 4, next: null } } })); // [7, 0, 8]
-console.log(addTwoNumbers({ val: 0, next: null }, { val: 0, next: null })); // [0]
+let l1 = ListNode.fromArray([2, 4, 3]);
+let l2 = ListNode.fromArray([5, 6, 4]);
+console.log(ListNode.toArray(addTwoNumbers(l1, l2))); // [7, 0, 8]
+
+l1 = ListNode.fromArray([0]);
+l2 = ListNode.fromArray([0]);
+console.log(ListNode.toArray(addTwoNumbers(l1, l2))); // [0]
 
 // node Grind169/5-16.js

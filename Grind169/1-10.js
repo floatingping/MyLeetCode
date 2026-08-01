@@ -24,6 +24,8 @@ All Node.val values are unique.
 p and q are distinct nodes in root.
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
@@ -33,15 +35,16 @@ p and q are distinct nodes in root.
 var lowestCommonAncestor = function (root, p, q) {
 
 
-
 };
 
-const bstRoot = { val: 6 };
-const bstLeft = { val: 2 };
-const bstRight = { val: 8 };
-console.log(lowestCommonAncestor(bstRoot, bstLeft, bstRight)); // { val: 6 }
-console.log(lowestCommonAncestor(bstRoot, bstLeft, { val: 4 })); // { val: 2 }
-console.log(lowestCommonAncestor({ val: 2 }, { val: 1 }, { val: 2 })); // { val: 2 }
+let tree = TreeNode.fromArray([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5]);
+console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 8)).val); // 6
+
+tree = TreeNode.fromArray([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5]);
+console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 4)).val); // 2
+
+tree = TreeNode.fromArray([2, 1]);
+console.log(lowestCommonAncestor(tree, TreeNode.findNode(tree, 2), TreeNode.findNode(tree, 1)).val); // 2
 
 
 // node Grind169/1-10.js

@@ -17,6 +17,8 @@ Constraints:
 - -2^31 <= Node.val <= 2^31 - 1
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {boolean}
@@ -25,7 +27,10 @@ var isValidBST = function (root) {
 
 };
 
-console.log(isValidBST({ val: 2, left: { val: 1 }, right: { val: 3 } })); // true
-console.log(isValidBST({ val: 5, left: { val: 1 }, right: { val: 4, left: { val: 3 }, right: { val: 6 } } })); // false
+let tree = TreeNode.fromArray([2, 1, 3]);
+console.log(isValidBST(tree)); // true
+
+tree = TreeNode.fromArray([5, 1, 4, null, null, 3, 6]);
+console.log(isValidBST(tree)); // false
 
 // node Grind169/2-24.js

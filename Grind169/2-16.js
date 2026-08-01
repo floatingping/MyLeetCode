@@ -17,6 +17,8 @@ Constraints:
 - -1000 <= Node.val <= 1000
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {number[][]}
@@ -25,7 +27,10 @@ var levelOrder = function (root) {
 
 };
 
-console.log(levelOrder({ val: 3, left: { val: 9 }, right: { val: 20, left: { val: 15 }, right: { val: 7 } } })); // [[3], [9, 20], [15, 7]]
-console.log(levelOrder({ val: 1 })); // [[1]]
+let tree = TreeNode.fromArray([3, 9, 20, null, null, 15, 7]);
+console.log(levelOrder(tree)); // [[3], [9, 20], [15, 7]]
+
+tree = TreeNode.fromArray([1]);
+console.log(levelOrder(tree)); // [[1]]
 
 // node Grind169/2-16.js

@@ -29,6 +29,8 @@ Constraints:
  * }
  */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -37,7 +39,10 @@ var sortList = function (head) {
 
 };
 
-console.log(sortList({ val: 4, next: { val: 2, next: { val: 1, next: { val: 3, next: null } } } })); // [1, 2, 3, 4]
-console.log(sortList({ val: -1, next: { val: 5, next: { val: 3, next: { val: 4, next: { val: 0, next: null } } } } })); // [-1, 0, 3, 4, 5]
+let head = ListNode.fromArray([4, 2, 1, 3]);
+console.log(ListNode.toArray(sortList(head))); // [1, 2, 3, 4]
+
+head = ListNode.fromArray([-1, 5, 3, 4, 0]);
+console.log(ListNode.toArray(sortList(head))); // [-1, 0, 3, 4, 5]
 
 // node Grind169/5-18.js

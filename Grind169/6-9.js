@@ -20,6 +20,8 @@ Constraints:
 - -10^9 <= Node.val, targetSum <= 10^9
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode|null} root
  * @param {number} targetSum
@@ -29,8 +31,9 @@ var pathSum = function (root, targetSum) {
 
 };
 
-const pathSumRoot = { val: 10, left: { val: 5, left: { val: 3, left: { val: 3 }, right: { val: -2 } }, right: { val: 2, right: { val: 1 } } }, right: { val: -3, right: { val: 11 } } };
-console.log(pathSum(pathSumRoot, 8)); // 3
+let tree = TreeNode.fromArray([10, 5, -3, 3, 2, null, 11, 3, -2, null, 1]);
+console.log(pathSum(tree, 8)); // 3
+
 console.log(pathSum(null, 0)); // 0
 
 // node Grind169/6-9.js
