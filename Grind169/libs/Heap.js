@@ -1,7 +1,7 @@
 
 
 
-class Heap {
+module.exports = class Heap {
     constructor(comparator) {
         this._data = [];
         this._comparator = comparator;
@@ -63,15 +63,15 @@ class Heap {
 
         return result;
     }
-}
+};
 
-const myHeap = new Heap((a, b) => a < b);
-myHeap.push(5);
-myHeap.push(3);
-myHeap.push(8);
-myHeap.push(1);
-myHeap.pop();
+// const myHeap = new Heap((a, b) => a < b);
+// myHeap.push(5);
+// myHeap.push(3);
+// myHeap.push(8);
+// myHeap.push(1);
+// myHeap.pop();
 
-console.log(myHeap.peek());
+// console.log(myHeap.peek());
 
 
