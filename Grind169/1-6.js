@@ -27,6 +27,8 @@ The number of nodes is in the range [0, 100].
 -100 <= Node.val <= 100
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
@@ -37,8 +39,12 @@ var invertTree = function (root) {
 
 };
 
-console.log(invertTree([4, 2, 7, 1, 3, 6, 9])); // [4, 7, 2, 9, 6, 3, 1]
-console.log(invertTree([2, 1, 3])); // [2, 3, 1]
+let tree = TreeNode.fromArray([4, 2, 7, 1, 3, 6, 9]);
+console.log(TreeNode.toArray(invertTree(tree))); // [4, 7, 2, 9, 6, 3, 1]
+
+tree = TreeNode.fromArray([2, 1, 3]);
+console.log(TreeNode.toArray(invertTree(tree))); // [2, 3, 1]
+
 console.log(invertTree(null)); // null
 
 

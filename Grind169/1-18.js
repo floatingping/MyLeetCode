@@ -27,6 +27,8 @@ The number of nodes is in the range [0, 5000].
 -5000 <= Node.val <= 5000
 */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -37,8 +39,12 @@ var reverseList = function (head) {
 
 };
 
-console.log(reverseList([1, 2, 3, 4, 5])); // [5, 4, 3, 2, 1]
-console.log(reverseList([1, 2])); // [2, 1]
+let head = ListNode.fromArray([1, 2, 3, 4, 5]);
+console.log(ListNode.toArray(reverseList(head))); // [5, 4, 3, 2, 1]
+
+head = ListNode.fromArray([1, 2]);
+console.log(ListNode.toArray(reverseList(head))); // [2, 1]
+
 console.log(reverseList(null)); // null
 
 

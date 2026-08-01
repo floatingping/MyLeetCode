@@ -27,6 +27,8 @@ The number of nodes is in the range [0, 5000].
 -10^4 <= Node.val <= 10^4
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @return {boolean}
@@ -37,8 +39,12 @@ var isBalanced = function (root) {
 
 };
 
-console.log(isBalanced([3, 9, 20, null, null, 15, 7])); // true
-console.log(isBalanced([1, 2, 2, 3, 3, null, null, 4, 4])); // false
+let tree = TreeNode.fromArray([3, 9, 20, null, null, 15, 7]);
+console.log(isBalanced(tree)); // true
+
+tree = TreeNode.fromArray([1, 2, 2, 3, 3, null, null, 4, 4]);
+console.log(isBalanced(tree)); // false
+
 console.log(isBalanced(null)); // true
 
 

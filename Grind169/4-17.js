@@ -27,6 +27,8 @@ The number of nodes in the list is sz.
 1 <= n <= sz
 */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @param {number} n
@@ -38,9 +40,14 @@ var removeNthFromEnd = function (head, n) {
 
 };
 
-console.log(removeNthFromEnd([1, 2, 3, 4, 5], 2)); // [1, 2, 3, 5]
-console.log(removeNthFromEnd([1], 1)); // []
-console.log(removeNthFromEnd([1, 2], 1)); // [1]
+let head = ListNode.fromArray([1, 2, 3, 4, 5]);
+console.log(ListNode.toArray(removeNthFromEnd(head, 2))); // [1, 2, 3, 5]
+
+head = ListNode.fromArray([1]);
+console.log(ListNode.toArray(removeNthFromEnd(head, 1))); // []
+
+head = ListNode.fromArray([1, 2]);
+console.log(ListNode.toArray(removeNthFromEnd(head, 1))); // [1]
 
 
 // node Grind169/4-17.js

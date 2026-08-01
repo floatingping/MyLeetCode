@@ -22,6 +22,8 @@ The number of nodes in the tree is n.
 0 <= Node.val <= 10^4
 */
 
+const TreeNode = require('./libs/TreeNode');
+
 /**
  * @param {TreeNode} root
  * @param {number} k
@@ -33,9 +35,14 @@ var kthSmallest = function (root, k) {
 
 };
 
-console.log(kthSmallest([3, 1, 4, null, 2], 1)); // 1
-console.log(kthSmallest([5, 3, 6, 2, 4, null, null, 1], 3)); // 3
-console.log(kthSmallest([2, 1, 3], 2)); // 2
+let tree = TreeNode.fromArray([3, 1, 4, null, 2]);
+console.log(kthSmallest(tree, 1)); // 1
+
+tree = TreeNode.fromArray([5, 3, 6, 2, 4, null, null, 1]);
+console.log(kthSmallest(tree, 3)); // 3
+
+tree = TreeNode.fromArray([2, 1, 3]);
+console.log(kthSmallest(tree, 2)); // 2
 
 
 // node Grind169/4-7.js

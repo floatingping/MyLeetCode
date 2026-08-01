@@ -28,6 +28,8 @@ The number of nodes is in the range [0, 10^4].
 pos is -1 or a valid index in the linked list.
 */
 
+const ListNode = require('./libs/ListNode');
+
 /**
  * @param {ListNode} head
  * @return {boolean}
@@ -38,9 +40,14 @@ var hasCycle = function (head) {
 
 };
 
-console.log(hasCycle([3, 2, 0, -4])); // true, tail connects to index 1
-console.log(hasCycle([1, 2])); // true, tail connects to index 0
-console.log(hasCycle([1])); // false
+let head = ListNode.fromArray([3, 2, 0, -4]);
+console.log(hasCycle(head)); // true, tail connects to index 1
+
+head = ListNode.fromArray([1, 2]);
+console.log(hasCycle(head)); // true, tail connects to index 0
+
+head = ListNode.fromArray([1]);
+console.log(hasCycle(head)); // false
 
 
 // node Grind169/1-12.js
