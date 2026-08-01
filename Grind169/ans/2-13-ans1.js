@@ -1,0 +1,36 @@
+/*
+Medium | 30 mins
+973. K Closest Points to Origin
+https://leetcode.com/problems/k-closest-points-to-origin/
+
+Return the k points from points that are closest to the origin (0, 0). The answer may be in any order.
+
+Example 1:
+Input: points = [[1,3],[-2,2]], k = 1
+Output: [[-2,2]]
+
+Example 2:
+Input: points = [[3,3],[5,-1],[-2,4]], k = 2
+Output: [[3,3],[-2,4]]
+*/
+
+/**
+ * @param {number[][]} points
+ * @param {number} k
+ * @return {number[][]}
+ */
+var kClosest = function (points, k) {
+    // Sort by distance to origin
+    points.sort((a, b) => {
+        const distA = a[0] * a[0] + a[1] * a[1];
+        const distB = b[0] * b[0] + b[1] * b[1];
+        return distA - distB;
+    });
+    
+    return points.slice(0, k);
+};
+
+console.log(kClosest([[1, 3], [-2, 2]], 1)); // [[-2, 2]]
+console.log(kClosest([[3, 3], [5, -1], [-2, 4]], 2)); // [[3, 3], [-2, 4]]
+
+// node Grind169/ans/2-13-ans1.js
