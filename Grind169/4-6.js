@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-6. LRU Cache
 146. LRU Cache
 https://leetcode.com/problems/lru-cache/

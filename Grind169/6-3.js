@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 528. Random Pick with Weight
 https://leetcode.com/problems/random-pick-with-weight/
 Difficulty: Medium | Suggested time: 25 mins

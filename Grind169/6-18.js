@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 271. Encode and Decode Strings
 https://leetcode.com/problems/encode-and-decode-strings/
 Reference: https://leetcode.ca/all/271.html

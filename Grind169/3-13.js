@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 3-13. String to Integer (atoi)
 LeetCode 8: https://leetcode.com/problems/string-to-integer-atoi/
 Difficulty: Medium

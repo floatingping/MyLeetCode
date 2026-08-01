@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 LeetCode #148. Sort List
 https://leetcode.com/problems/sort-list/
 

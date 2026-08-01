@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 221. Maximal Square
 https://leetcode.com/problems/maximal-square/
 Difficulty: Medium | Suggested time: 30 mins

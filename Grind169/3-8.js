@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 3-8. Time Based Key-Value Store
 LeetCode 981: https://leetcode.com/problems/time-based-key-value-store/
 Difficulty: Medium

@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 253. Meeting Rooms II
 https://leetcode.com/problems/meeting-rooms-ii/
 Difficulty: Medium | Suggested time: 30 mins

@@ -1,4 +1,5 @@
 /*
+Medium | 45 mins
 787. Cheapest Flights Within K Stops
 https://leetcode.com/problems/cheapest-flights-within-k-stops/
 Difficulty: Medium | Suggested time: 45 mins

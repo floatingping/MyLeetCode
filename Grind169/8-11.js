@@ -1,4 +1,5 @@
 /*
+Hard | 40 mins
 336. Palindrome Pairs
 https://leetcode.com/problems/palindrome-pairs/
 

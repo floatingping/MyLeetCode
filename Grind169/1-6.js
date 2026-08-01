@@ -1,4 +1,5 @@
 /*
+Easy | 15 mins
 226. Invert Binary Tree
 https://leetcode.com/problems/invert-binary-tree/
 

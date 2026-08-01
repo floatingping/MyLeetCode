@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 3-17. Longest Palindromic Substring
 LeetCode 5: https://leetcode.com/problems/longest-palindromic-substring/
 Difficulty: Medium

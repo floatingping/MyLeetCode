@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-4. Minimum Height Trees
 310. Minimum Height Trees
 https://leetcode.com/problems/minimum-height-trees/

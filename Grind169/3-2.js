@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-2. Rotting Oranges
 LeetCode 994: https://leetcode.com/problems/rotting-oranges/
 Difficulty: Medium

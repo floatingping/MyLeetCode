@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 4-9. House Robber
 198. House Robber
 https://leetcode.com/problems/house-robber/

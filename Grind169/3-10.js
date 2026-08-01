@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 3-10. Sort Colors
 LeetCode 75: https://leetcode.com/problems/sort-colors/
 Difficulty: Medium

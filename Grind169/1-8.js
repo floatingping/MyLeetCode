@@ -1,4 +1,5 @@
 /*
+Easy | 15 mins
 704. Binary Search
 https://leetcode.com/problems/binary-search/
 

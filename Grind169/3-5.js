@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-5. Permutations
 LeetCode 46: https://leetcode.com/problems/permutations/
 Difficulty: Medium

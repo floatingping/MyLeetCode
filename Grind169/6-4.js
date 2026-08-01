@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 215. Kth Largest Element in an Array
 https://leetcode.com/problems/kth-largest-element-in-an-array/
 Difficulty: Medium | Suggested time: 30 mins

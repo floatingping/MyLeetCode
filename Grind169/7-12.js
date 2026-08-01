@@ -1,4 +1,5 @@
 /*
+Hard | 45 mins
 7-12. Word Ladder
 Difficulty: Hard
 Suggested time: 45 mins

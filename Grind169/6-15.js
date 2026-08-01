@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 7. Reverse Integer
 https://leetcode.com/problems/reverse-integer/
 Difficulty: Medium | Suggested time: 25 mins

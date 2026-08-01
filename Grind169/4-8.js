@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-8. Daily Temperatures
 739. Daily Temperatures
 https://leetcode.com/problems/daily-temperatures/

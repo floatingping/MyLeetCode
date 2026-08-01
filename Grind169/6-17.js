@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 143. Reorder List
 https://leetcode.com/problems/reorder-list/
 Difficulty: Medium | Suggested time: 25 mins

@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 3-20. Container With Most Water
 LeetCode 11: https://leetcode.com/problems/container-with-most-water/
 Difficulty: Medium

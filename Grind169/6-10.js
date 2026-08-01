@@ -1,4 +1,5 @@
 /*
+Medium | 20 mins
 50. Pow(x, n)
 https://leetcode.com/problems/powx-n/
 Difficulty: Medium | Suggested time: 20 mins

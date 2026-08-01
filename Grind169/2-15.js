@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 15. 3Sum
 https://leetcode.com/problems/3sum/
 

@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-20. Top K Frequent Words
 692. Top K Frequent Words
 https://leetcode.com/problems/top-k-frequent-words/

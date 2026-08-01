@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 91. Decode Ways
 https://leetcode.com/problems/decode-ways/
 Difficulty: Medium | Suggested time: 25 mins

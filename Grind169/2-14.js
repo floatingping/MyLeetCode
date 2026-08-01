@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3. Longest Substring Without Repeating Characters
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
 

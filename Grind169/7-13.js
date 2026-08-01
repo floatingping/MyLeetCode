@@ -1,4 +1,5 @@
 /*
+Hard | 40 mins
 7-13. Basic Calculator
 Difficulty: Hard
 Suggested time: 40 mins

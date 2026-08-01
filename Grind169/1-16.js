@@ -1,4 +1,5 @@
 /*
+Easy | 20 mins
 70. Climbing Stairs
 https://leetcode.com/problems/climbing-stairs/
 

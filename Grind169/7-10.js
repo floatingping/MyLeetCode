@@ -1,4 +1,5 @@
 /*
+Hard | 35 mins
 7-10. Trapping Rain Water
 Difficulty: Hard
 Suggested time: 35 mins

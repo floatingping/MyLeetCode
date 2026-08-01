@@ -1,4 +1,5 @@
 /*
+Hard | 35 mins
 7-16. Largest Rectangle in Histogram
 Difficulty: Hard
 Suggested time: 35 mins

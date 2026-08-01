@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 103. Binary Tree Zigzag Level Order Traversal
 https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
 Difficulty: Medium | Suggested time: 25 mins

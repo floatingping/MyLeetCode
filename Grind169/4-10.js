@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-10. Gas Station
 134. Gas Station
 https://leetcode.com/problems/gas-station/

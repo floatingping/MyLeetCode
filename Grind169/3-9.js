@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-9. Accounts Merge
 LeetCode 721: https://leetcode.com/problems/accounts-merge/
 Difficulty: Medium

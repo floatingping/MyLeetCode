@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 4-15. Design Add and Search Words Data Structure
 211. Design Add and Search Words Data Structure
 https://leetcode.com/problems/design-add-and-search-words-data-structure/

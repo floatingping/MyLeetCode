@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-12. Partition Equal Subset Sum
 LeetCode 416: https://leetcode.com/problems/partition-equal-subset-sum/
 Difficulty: Medium

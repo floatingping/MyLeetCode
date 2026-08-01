@@ -1,4 +1,5 @@
 /*
+Easy | 15 mins
 125. Valid Palindrome
 https://leetcode.com/problems/valid-palindrome/
 

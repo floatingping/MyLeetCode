@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-4. Combination Sum
 LeetCode 39: https://leetcode.com/problems/combination-sum/
 Difficulty: Medium

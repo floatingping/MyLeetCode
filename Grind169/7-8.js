@@ -1,4 +1,5 @@
 /*
+Hard | 30 mins
 7-8. Minimum Window Substring
 Difficulty: Hard
 Suggested time: 30 mins

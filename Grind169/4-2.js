@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-2. Word Search
 79. Word Search
 https://leetcode.com/problems/word-search/

@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 3-19. Construct Binary Tree from Preorder and Inorder Traversal
 LeetCode 105: https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 Difficulty: Medium

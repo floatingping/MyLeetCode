@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 LeetCode #210. Course Schedule II
 https://leetcode.com/problems/course-schedule-ii/
 

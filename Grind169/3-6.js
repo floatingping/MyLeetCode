@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-6. Merge Intervals
 LeetCode 56: https://leetcode.com/problems/merge-intervals/
 Difficulty: Medium

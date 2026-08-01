@@ -1,4 +1,5 @@
 /*
+Hard | 45 mins
 269. Alien Dictionary
 https://leetcode.com/problems/alien-dictionary/
 

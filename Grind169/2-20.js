@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 208. Implement Trie (Prefix Tree)
 https://leetcode.com/problems/implement-trie-prefix-tree/
 

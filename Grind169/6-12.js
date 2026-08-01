@@ -1,4 +1,5 @@
 /*
+Medium | 20 mins
 179. Largest Number
 https://leetcode.com/problems/largest-number/
 Difficulty: Medium | Suggested time: 20 mins

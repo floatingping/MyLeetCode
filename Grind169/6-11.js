@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 74. Search a 2D Matrix
 https://leetcode.com/problems/search-a-2d-matrix/
 Difficulty: Medium | Suggested time: 30 mins

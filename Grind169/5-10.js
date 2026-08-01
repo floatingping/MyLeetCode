@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 LeetCode #525. Contiguous Array
 https://leetcode.com/problems/contiguous-array/
 

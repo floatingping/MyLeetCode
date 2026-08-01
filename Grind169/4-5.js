@@ -1,4 +1,5 @@
 /*
+Medium | 35 mins
 4-5. Task Scheduler
 621. Task Scheduler
 https://leetcode.com/problems/task-scheduler/

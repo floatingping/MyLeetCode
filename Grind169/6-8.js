@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 362. Design Hit Counter
 https://leetcode.com/problems/design-hit-counter/
 Difficulty: Medium | Suggested time: 30 mins

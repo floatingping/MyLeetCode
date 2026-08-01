@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-11. Word Break
 LeetCode 139: https://leetcode.com/problems/word-break/
 Difficulty: Medium

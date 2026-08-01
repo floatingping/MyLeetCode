@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 735. Asteroid Collision
 https://leetcode.com/problems/asteroid-collision/
 Difficulty: Medium | Suggested time: 30 mins

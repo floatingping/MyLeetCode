@@ -1,4 +1,5 @@
 /*
+Easy | 20 mins
 278. First Bad Version
 https://leetcode.com/problems/first-bad-version/
 

@@ -1,4 +1,5 @@
 /*
+Hard | 30 mins
 7-11. Find Median from Data Stream
 Difficulty: Hard
 Suggested time: 30 mins

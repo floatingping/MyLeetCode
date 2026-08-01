@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 61. Rotate List
 https://leetcode.com/problems/rotate-list/
 

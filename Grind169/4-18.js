@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-18. Shortest Path to Get Food
 1730. Shortest Path to Get Food
 https://leetcode.com/problems/shortest-path-to-get-food/

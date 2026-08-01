@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 3-1. Number of Islands
 LeetCode 200: https://leetcode.com/problems/number-of-islands/
 Difficulty: Medium

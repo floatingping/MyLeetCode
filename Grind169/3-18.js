@@ -1,4 +1,5 @@
 /*
+Medium | 20 mins
 3-18. Unique Paths
 LeetCode 62: https://leetcode.com/problems/unique-paths/
 Difficulty: Medium

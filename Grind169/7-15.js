@@ -1,4 +1,5 @@
 /*
+Hard | 30 mins
 7-15. Merge k Sorted Lists
 Difficulty: Hard
 Suggested time: 30 mins

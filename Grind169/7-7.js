@@ -1,4 +1,5 @@
 /*
+Medium | 20 mins
 7-7. Non-overlapping Intervals
 Difficulty: Medium
 Suggested time: 20 mins

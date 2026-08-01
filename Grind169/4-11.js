@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 4-11. Next Permutation
 31. Next Permutation
 https://leetcode.com/problems/next-permutation/

@@ -1,4 +1,5 @@
 /*
+Medium | 20 mins
 3-16. Binary Tree Right Side View
 LeetCode 199: https://leetcode.com/problems/binary-tree-right-side-view/
 Difficulty: Medium

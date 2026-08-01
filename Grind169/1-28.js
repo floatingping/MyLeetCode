@@ -1,4 +1,5 @@
 /*
+Easy | 15 mins
 338. Counting Bits
 https://leetcode.com/problems/counting-bits/
 

@@ -1,4 +1,5 @@
 /*
+Hard | 35 mins
 32. Longest Valid Parentheses
 https://leetcode.com/problems/longest-valid-parentheses/
 

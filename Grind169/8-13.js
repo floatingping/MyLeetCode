@@ -1,4 +1,5 @@
 /*
+Hard | 40 mins
 37. Sudoku Solver
 https://leetcode.com/problems/sudoku-solver/
 

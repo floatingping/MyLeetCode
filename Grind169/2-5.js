@@ -1,4 +1,5 @@
 /*
+Easy | 15 mins
 9. Palindrome Number
 https://leetcode.com/problems/palindrome-number/
 

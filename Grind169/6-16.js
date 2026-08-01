@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 73. Set Matrix Zeroes
 https://leetcode.com/problems/set-matrix-zeroes/
 Difficulty: Medium | Suggested time: 25 mins

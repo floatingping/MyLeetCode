@@ -1,4 +1,5 @@
 /*
+Medium | 30 mins
 3-3. Search in Rotated Sorted Array
 LeetCode 33: https://leetcode.com/problems/search-in-rotated-sorted-array/
 Difficulty: Medium

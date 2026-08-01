@@ -1,4 +1,5 @@
 /*
+Medium | 25 mins
 48. Rotate Image
 https://leetcode.com/problems/rotate-image/
 Difficulty: Medium | Suggested time: 25 mins
